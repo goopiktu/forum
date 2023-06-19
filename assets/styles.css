@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url(sprites/fonts/roboto/Roboto-Black.ttf);
+}
+
+:root {
+    --primary-color: #041536;
+    font-family: 'Roboto';
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 240px;
+    max-width: 1063px;
+    margin: 0 auto;
+    font-family: 'Roboto';
+}
+
+.header_title {
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
