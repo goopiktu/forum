@@ -6,6 +6,7 @@
 :root {
     --primary-color: #041536;
     font-family: 'Roboto';
+    background-color: #041536;
 }
 
 .header{
@@ -21,4 +22,83 @@
     margin: 0;
     display: flex;
     align-items: center;
+}
+
+.box1, .box2, .box3 {
+    background-color: #FFFFFF; 
+    width: 80%;
+    height: 80%;
+    border-radius: 15px;
+    margin: 100px auto;
+    padding: 20px;
+}
+
+.box2{
+    width: 80%;
+    height: 60%;
+}
+
+.box3 {
+    height: 80%;
+}
+
+.topSign{
+    display: flex;
+    flex-direction: row;
+}
+
+h1 {
+    margin-bottom: 0px;
+}
+
+/*for create and editing post*/
+.inputs3  {
+    margin: 50px auto;
+    width: 90%;
+    height: 100%;
+}
+
+.inputs1, .inputs2 {
+    /* margin: 95px auto; */
+    margin: 10% auto;
+    width: 60%;
+    height: 80%;
+}
+
+input {
+    margin: 15px auto;
+    width: 100%;
+    background-color: #EAEAEA;
+    border-radius: 10px;
+    border-width: 0px;
+    padding: 15px 15px;
+    font-family: 'Roboto';
+    font-size: medium;
+    color: #9C9C9C;
+}
+
+#title {
+    height: 5%;
+    margin-bottom: 0px;
+}
+
+#text {
+    height: 70%;
+    min-height: 180px;
+    margin-bottom: 0px;
+}
+
+button{
+    color: #FFFFFF;
+    background-color: #1758D7;
+    width: 163px;
+    height: 62px;
+    border-radius: 15px;
+    float: right;
+    border-width: 0px;
+    font-family: 'Roboto';
+}
+
+p {
+    float: bottom;
 }
