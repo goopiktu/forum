@@ -76,6 +76,7 @@ body{
     display: inline-block; 
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .comments{
@@ -95,6 +96,7 @@ body{
 .countUD{
     text-align: center;
     margin-top: 5px;
+    margin-bottom: 5px;
     margin-right: 2px;
     font-size: 14px;
 }
@@ -111,8 +113,9 @@ body{
     flex-wrap: wrap;
     font-family: 'Roboto';
     width: 45px;
-    height: 60px;
-    padding: 10px;
+    min-width: 45px;
+    max-height: 70px;
+    padding: 5px;
 }
 
 #upvote:hover, #upvote:focus{
@@ -137,6 +140,7 @@ body{
     background-size: 75%;
     min-height: 16px;
     min-width: 16px;
+    margin-bottom: -5px;
 }
 
 .icon {
@@ -168,4 +172,10 @@ body{
     font-size: 14px;
     padding: 1px 5px;
     color: #9C9C9C;
+}
+
+.content-comment{
+    padding: 5px; 
+    margin-left: 40px;
+
 }
