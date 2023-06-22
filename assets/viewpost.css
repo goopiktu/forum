@@ -73,7 +73,9 @@ body{
     background-color: #D9D9D9;
     width: 95%;
     margin-bottom: 20px;
-    display: inline-block;
+    display: inline-block; 
+    display: flex;
+    justify-content: space-between;
 }
 
 .comments{
@@ -111,7 +113,6 @@ body{
     width: 45px;
     height: 60px;
     padding: 10px;
-    float: right; 
 }
 
 #upvote:hover, #upvote:focus{
