@@ -1,0 +1,97 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url(sprites/fonts/roboto/Roboto-Black.ttf);
+}
+
+:root {
+    --primary-color: #041536;
+    font-family: 'Roboto';
+    background-color: #041536;
+}
+/*SIGN UP/IN CREATE/EDIT POST*/
+
+.box1, .box2, .box3 {
+    background-color: #FFFFFF; 
+    border-radius: 15px;
+    margin: 100px auto;
+    padding: 20px;
+    display: flex;
+    width: 80%;
+    height: 80%;
+}
+
+.box2{
+    height: 60%;
+}
+
+.boxContent1, .boxContent2 {
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto;
+    /* background-color: yellow; */
+    width: 80%;
+    height: 60%;
+}
+
+.topSign{
+    display: flex;
+    flex-direction: row;
+}
+
+h1 {
+    margin-bottom: 0px;
+}
+
+.inputs {
+    display: inline-flex;
+    flex-direction: column;
+    /* background-color: red; */
+}
+
+input {
+    background-color: #EAEAEA;
+    border-radius: 10px;
+    border-width: 0px;
+    padding: 5px;
+    padding-left: 5%;
+    margin: 15px auto;
+    width: 94%;
+    height:30px;
+    font-family: 'Roboto';
+    font-size: medium;
+    color: #9C9C9C;
+}
+
+.bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.bottom2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+}
+
+button{
+    color: #FFFFFF;
+    background-color: #1758D7;
+    width: 163px;
+    height: 62px;
+    border-radius: 15px;
+    float: right;
+    border-width: 0px;
+    font-family: 'Roboto';
+}
+
+#title {
+    height: 5%;
+    margin-bottom: 0px;
+}
+
+#text {
+    height: 70%;
+    min-height: 180px;
+    margin-bottom: 0px;
+}
