@@ -2,25 +2,29 @@
 <html>
     <head>
         <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
-        <link href="assets/style1.css" rel="stylesheet" />
+        <link href="assets/editProfile.css" rel="stylesheet" />
         <script src="assets/script.js"></script>
         <title>Edit My Profile</title>
     </head>
     <body>
-    <div class="page">
-        
-        <div class="head">
-            <div class="left">
-                <img src="../forum/assets/sprites/Ellipse 2.png">
-                <div class="name">Michelangelo di Lodovico Buonarroti Simoni</div>
+    <div class="box">
+        <div class="inside">
+            <h1>Edit Profile</h1>
+                <div class="left">
+                    <img src="../forum/assets/sprites/Ellipse 2.png">
+                    <form class="edit">
+                        <input type="text" placeholder="Username">
+                    </form>
+                </div>
+            <div class="about">
+                <div class="aboutme">About Me</div>
+                <form class="edit">
+                    <textarea class="bio" placeholder="Bio"></textarea>
+                </form>
             </div>
-        </div>
-        <div class="about">
-            <div class="aboutme">About Me</div>
-            <div class="description">I am an ID 121 student of UA High School. I am Asian. I want to be the Greatest Programmer in the World.</div>
-        </div>
-        <div class="bottom">
-            <button type="button" class="save">Save</button>
+            <div class="bottom">
+                <button type="button" class="save">Save</button>
+            </div>
         </div>
     </div>
     </body>
