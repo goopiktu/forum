@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Space Clicker</title>
+    <link rel="stylesheet" href="viewpost.css">
+</head>
+
+<body>
+    <div class="post">
+        <div class="header">
+            <div>
+                <p class="title">Title of Post 123456789</p>
+                <p class="date-posted"># Days Ago</p>
+            </div>
+            <div class="total-votes">
+                <p class="count">12.5k</p><img src="votes/up-arrow.png" alt="Up-Arrow">
+                <p class="count">3.5k</p> <img src="votes/down-arrow.png" alt="Down-Arrow">
+            </div>
+        </div>
+
+        <div id="title" class="box">
+            <p>
+                I can't fucking take it any more. Among Us has singlehandedly ruined my life. 
+                The other day my teacher was teaching us Greek Mythology and he mentioned a pegasus 
+                and I immediately thought 'Pegasus? more like Mega Sus!!!!' and I've never wanted to kms more. 
+                I can't look at a vent without breaking down and fucking crying. I can't eat pasta without thinking
+                'IMPASTA??? THATS PRETTY SUS!!!!' Skit 4 by Kanye West. The lyrics ruined me. 
+                A Mongoose, or the 25th island of greece. The scientific name for pig. I can't fucking take it anymore. 
+            </p>
+            <p>Please fucking end my suffering.</p>
+        </div>
+    
+
+        <div class="comments">
+            <p># Comments</p>
+            <div id="comment" class="box">
+
+            </div>
+        </div>
+    
+        <script type="text/javascript">
+            var upclicks = 0;
+            var downclicks = 0;
+        
+            function increment() {
+                upclicks += 1;
+                document.getElementById("upclicks").innerHTML = upclicks;
+            };
+            function decrement() {
+                downclicks += 1;
+                document.getElementById("downclicks").innerHTML = downclicks;
+            };
+        </script>
+    
+        <div class="up-down">
+            <p class="countUD"><a id="upclicks">0</a></p><button id="upvote" class="vote" type="button" onclick="increment()"></button>
+            <p class="countUD"><a id="downclicks">0</a></p><button id="downvote" class="vote" type="button" onclick="decrement()"></button>
+        </div>
+    </div>
+</body>
+</html>
