@@ -59,6 +59,7 @@ html {
     justify-content: space-between;
     font-weight: bold;
     border: none;
+    cursor: pointer;
 }
 
 .home {
