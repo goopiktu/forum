@@ -192,6 +192,7 @@ body{
 .username, .date-commented{
     margin: 0px;
     padding: 2px 5px;
+    margin-left: 5px;
 }
 
 .date-commented{
@@ -252,6 +253,10 @@ body{
 }
 
 .bottom-buttons{
-    margin: 20px 30px 30px 30px;
+    margin: 10px 30px 30px 30px;
     float: right;
+}
+
+a{
+    text-decoration: none;
 }
