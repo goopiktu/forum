@@ -9,16 +9,19 @@
     background-color: #041536;
 }
 
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .post{
     background-color: #FFFFFF;
-    height: 90vh;
-    width: 90vw;
+    height: 90%;
+    width: 90%;
     border-radius: 20px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    position: relative;
+    margin: 45px 0px;
 }
 
 .header{
@@ -31,8 +34,21 @@
 
 .title{
     font-size: 30px;
-    font-weight: 500;
     margin: 0;
+}
+
+.date-posted{
+    margin: 0;
+    color: #9C9C9C;
+    font-size: 15px;
+}
+
+.total-votes{
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Roboto';
+    height: 32px; 
+    width: 150px;
 }
 
 .box{
@@ -55,7 +71,9 @@
 
 #comment{
     background-color: #D9D9D9;
-    width: 100%;
+    width: 95%;
+    margin-bottom: 20px;
+    display: inline-block;
 }
 
 .comments{
@@ -67,30 +85,16 @@
     border-radius: 20px;
 }
 
-.date-posted{
-    margin: 0;
-    color: #9C9C9C;
-    font-size: 15px;
-}
-
 .count{
     text-align: center;
     margin-top: 9px;
-    margin-right: -10px;
 }
 
 .countUD{
     text-align: center;
-    margin-top: 9px;
-    margin-right: 5px;
-}
-
-.total-votes{
-    display: flex;
-    justify-content: space-between;
-    font-family: 'Roboto';
-    height: 32px; 
-    width: 150px;
+    margin-top: 5px;
+    margin-right: 2px;
+    font-size: 14px;
 }
 
 .vote {
@@ -106,24 +110,61 @@
     font-family: 'Roboto';
     width: 45px;
     height: 60px;
+    padding: 10px;
+    float: right; 
 }
 
 #upvote:hover, #upvote:focus{
-    background: url("votes/fc-up.png") no-repeat;
+    background: url("voting-arrow/fc-up.png") no-repeat;
+    background-size: 75%;
 }
 
 #downvote:hover, #downvote:focus{
-    background: url("votes/fc-down.png") no-repeat;
+    background: url("voting-arrow/fc-down.png") no-repeat;
+    background-size: 75%;
 }
 
 #upvote{
-	background: url("votes/up-arrow.png") no-repeat;
+	background: url("voting-arrow/up-arrow.png") no-repeat;
+    background-size: 75%;
     min-height: 16px;
     min-width: 16px;
 }
 
 #downvote{
-	background: url("votes/down-arrow.png") no-repeat;
+	background: url("voting-arrow/down-arrow.png") no-repeat;
+    background-size: 75%;
     min-height: 16px;
     min-width: 16px;
+}
+
+.icon {
+    max-width: 40px;
+    max-height: 40px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+}
+  
+.user-info > img {
+    display: inline;
+    padding: 5px;
+}
+
+.user {
+    margin:0;
+    display:flex; 
+    float: left;
+    padding: 5px;
+}
+
+.username, .date-commented{
+    margin: 0px;
+    padding: 2px 5px;
+}
+
+.date-commented{
+    font-size: 14px;
+    padding: 1px 5px;
+    color: #9C9C9C;
 }
