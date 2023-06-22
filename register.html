@@ -4,27 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="assets/sign_posts.css">
     <script src="assets/main.js"></script>
     
 </head>
 
 <body>
     <div class="box1">
-        <div class="inputs1">
+        <div class="boxContent1">
             <div class="topSign">
                 <img src="assets/sprites/League of Legends.png">
                 <h2>Sign Up</h2>
             </div>
-            <div>
-                <input type="email" id="email" placeholder="Email"><br>
-                <input type="text" id="username" placeholder="Username"><br>
-                <input type="password" id="password" placeholder="Password"><br>
-                <input type="password" id="confirm" placeholder="Confirm Password"><br><br>
-            </div>
+            <form>
+                <div class="inputs">
+                    <input type="email" id="email" placeholder="Email">
+                    <input type="text" id="username" placeholder="Username">
+                    <input type="password" id="password" placeholder="Password">
+                    <input type="password" id="confirm" placeholder="Confirm Password">
+                </div>
+                <div class="bottom">
+                    <p>Already have an account? <a href="signIn.html">Sign In</a></p>
+                    <button type="submit">Sign Up</button>
+                </div>    
+            </form>
             
-            <button type="submit">Sign Up</button>
-            <p>Already have an account? <a href="signIn.html">Sign In</a></p>
         </div>
         
     </div>

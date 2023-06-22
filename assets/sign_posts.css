@@ -8,22 +8,6 @@
     font-family: 'Roboto';
     background-color: #041536;
 }
-
-.header{
-    display: flex;
-    justify-content: space-between;
-    padding-top: 240px;
-    max-width: 1063px;
-    margin: 0 auto;
-    font-family: 'Roboto';
-}
-
-.header_title {
-    margin: 0;
-    display: flex;
-    align-items: center;
-}
-
 /*SIGN UP/IN CREATE/EDIT POST*/
 
 .box1, .box2, .box3 {
@@ -58,6 +42,11 @@ h1 {
     margin-bottom: 0px;
 }
 
+form{
+    display: flex;
+    flex-direction: column;
+}
+
 .inputs {
     display: inline-flex;
     flex-direction: column;
@@ -69,9 +58,9 @@ input {
     border-radius: 10px;
     border-width: 0px;
     padding: 5px;
-    padding-left: 5%;
+    padding-left: 2%;
     margin: 15px auto;
-    width: 94%;
+    width: 98%;
     height:30px;
     font-family: 'Roboto';
     font-size: medium;
@@ -103,11 +92,24 @@ button{
 
 #title {
     height: 5%;
-    margin-bottom: 0px;
+    /* margin-bottom: 0px; */
 }
 
-#text {
+textarea{
+    width:97%;
+    min-height: 180px;
+    margin-bottom: 10px;
+    border-width: 0px;
+    background-color: #EAEAEA;
+    border-radius: 10px;
+    color:#9C9C9C;
+    font-family: 'Roboto';
+    padding: 2%;
+    font-size: medium;
+}
+
+/* #text {
     height: 70%;
     min-height: 180px;
     margin-bottom: 0px;
-}
+} */
