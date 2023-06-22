@@ -35,24 +35,38 @@
     
 
         <div class="comments">
-            <p># Comments</p>
-            <div id="comment" class="box">
-                <div class="user"> 
-                    <img class="icon" src="assets/sprites/comments/baldwin.jpg">
-                    <div class="user-info">
-                        <p class="username">Baldwin</p>
-                        <p class="date-commented"># days ago</p>
+            <div class="comment-title">
+                <img class="comment-icon" src="assets/sprites/Icons/comment.png">
+                <p class="comment-name"># Comments</p>
+            </div>
+            <div id="comment1" class="box">
+                <div class="right-comment">
+                    <div class="user"> 
+                        <img class="user-icon" src="assets/sprites/comments/baldwin.jpg">
+                        <div class="user-info">
+                            <p class="username">Baldwin</p>
+                            <p class="date-commented"># days ago</p>
+                        </div>
+                    </div>
+                    <div style="clear:both;" class="actl-comment">
+                        <p class="content-comment">Damn sounds tuff</p>
+                    </div>
+                    <div class="reply">
+                        <a href="reply.html">
+                        <button id="reply" class="icon" type="button"></button>
+                        </a>
+                        <p>Reply</p>
                     </div>
                 </div>
                 <div class="up-down">
-                    <p class="countUD"><a id="upclicks">0</a></p><button id="upvote" class="vote" type="button" onclick="increment()"></button>
-                    <p class="countUD"><a id="downclicks">0</a></p><button id="downvote" class="vote" type="button" onclick="decrement()"></button>
+                    <p class="countUD"><a id="upclicks">0</a></p><button id="upvote" class="icon" type="button" onclick="increment()"></button>
+                    <p class="countUD"><a id="downclicks">0</a></p><button id="downvote" class="icon" type="button" onclick="decrement()"></button>
                 </div>
             </div>
-            <div id="comment" class="box">
+            <div id="comment1" class="box">
                 <div class="right-comment">
                     <div class="user"> 
-                        <img class="icon" src="assets/sprites/comments/ilikewomen.jpg">
+                        <img class="user-icon" src="assets/sprites/comments/ilikewomen.jpg">
                         <div class="user-info">
                             <p class="username">#1 Wamen Lover</p>
                             <p class="date-commented"># days ago - Edited</p>
@@ -61,12 +75,60 @@
                     <div style="clear:both;" class="actl-comment">
                         <p class="content-comment">I like women! Women are godesses I respect them so much. Like legit dude. Pussy is God if uk what I mean. Heil PekPek. Kish Kish mwah</p>
                     </div>
+                    <div class="reply">
+                        <a href="reply.html">
+                        <button id="reply" class="icon" type="button"></button>
+                        </a>
+                        <p>Reply</p>
+                    </div>
                 </div>
                 <div class="up-down">
-                    <p class="countUD"><a id="upclicks">0</a></p><button id="upvote" class="vote" type="button" onclick="increment()"></button>
-                    <p class="countUD"><a id="downclicks">0</a></p><button id="downvote" class="vote" type="button" onclick="decrement()"></button>
+                    <p class="countUD"><a id="upclicks">0</a></p><button id="upvote" class="icon" type="button" onclick="increment()"></button>
+                    <p class="countUD"><a id="downclicks">0</a></p><button id="downvote" class="icon" type="button" onclick="decrement()"></button>
                 </div>
             </div>
+            <div id="comment2" class="box">
+                <div class="right-comment">
+                    <div class="user"> 
+                        <img class="user-icon" src="assets/sprites/myProfile_pic.png">
+                        <div class="user-info">
+                            <p class="username">Baldwin</p>
+                            <p class="date-commented"># days ago</p>
+                        </div>
+                    </div>
+                    <div style="clear:both;" class="actl-comment">
+                        <p class="content-comment">Damn sounds tuff</p>
+                    </div>
+                    <div class="reply">
+                        <a href="reply.html">
+                            <button id="reply" class="icon" type="button"></button>
+                        </a>
+                        <p>Reply</p>
+                        <a href="#">
+                            <button id="edit" class="icon" type="button"></button>
+                        </a>
+                        <p>Edit</p>
+                        <a href="#">
+                            <button id="delete" class="icon" type="button"></button>
+                        </a>
+                        <p>Delete</p>
+                    </div>
+                </div>
+                <div class="up-down">
+                    <p class="countUD"><a id="upclicks">0</a></p><button id="upvote" class="icon" type="button" onclick="increment()"></button>
+                    <p class="countUD"><a id="downclicks">0</a></p><button id="downvote" class="icon" type="button" onclick="decrement()"></button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="bottom-buttons">
+            <a href="logged_in.html">
+                <button class="bot-button">Back</button>
+              </a>
+            <a href="reply.html">
+                <button class="bot-button">Reply</button>
+            </a>
         </div>
     </div>
 </body>
