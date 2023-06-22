@@ -53,9 +53,9 @@ input {
     border-radius: 10px;
     border-width: 0px;
     padding: 5px;
-    padding-left: 5%;
+    padding-left: 2%;
     margin: 15px auto;
-    width: 94%;
+    width: 98%;
     height:30px;
     font-family: 'Roboto';
     font-size: medium;
@@ -87,11 +87,24 @@ button{
 
 #title {
     height: 5%;
-    margin-bottom: 0px;
+    /* margin-bottom: 0px; */
 }
 
-#text {
+textarea{
+    width:97%;
+    min-height: 180px;
+    margin-bottom: 10px;
+    border-width: 0px;
+    background-color: #EAEAEA;
+    border-radius: 10px;
+    color:#9C9C9C;
+    font-family: 'Roboto';
+    padding: 2%;
+    font-size: medium;
+}
+
+/* #text {
     height: 70%;
     min-height: 180px;
     margin-bottom: 0px;
-}
+} */
