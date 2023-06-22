@@ -24,22 +24,29 @@
     align-items: center;
 }
 
+/*SIGN UP/IN CREATE/EDIT POST*/
+
 .box1, .box2, .box3 {
     background-color: #FFFFFF; 
-    width: 80%;
-    height: 80%;
     border-radius: 15px;
     margin: 100px auto;
     padding: 20px;
+    display: flex;
+    width: 80%;
+    height: 80%;
 }
 
 .box2{
-    width: 80%;
     height: 60%;
 }
 
-.box3 {
-    height: 80%;
+.boxContent1, .boxContent2 {
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto;
+    /* background-color: yellow; */
+    width: 80%;
+    height: 60%;
 }
 
 .topSign{
@@ -51,41 +58,36 @@ h1 {
     margin-bottom: 0px;
 }
 
-/*for create and editing post*/
-.inputs3  {
-    margin: 50px auto;
-    width: 90%;
-    height: 100%;
-}
-
-.inputs1, .inputs2 {
-    /* margin: 95px auto; */
-    margin: 10% auto;
-    width: 60%;
-    height: 80%;
+.inputs {
+    display: inline-flex;
+    flex-direction: column;
+    /* background-color: red; */
 }
 
 input {
-    margin: 15px auto;
-    width: 100%;
     background-color: #EAEAEA;
     border-radius: 10px;
     border-width: 0px;
-    padding: 15px 15px;
+    padding: 5px;
+    padding-left: 5%;
+    margin: 15px auto;
+    width: 94%;
+    height:30px;
     font-family: 'Roboto';
     font-size: medium;
     color: #9C9C9C;
 }
 
-#title {
-    height: 5%;
-    margin-bottom: 0px;
+.bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-#text {
-    height: 70%;
-    min-height: 180px;
-    margin-bottom: 0px;
+.bottom2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
 }
 
 button{
@@ -99,6 +101,13 @@ button{
     font-family: 'Roboto';
 }
 
-p {
-    float: bottom;
+#title {
+    height: 5%;
+    margin-bottom: 0px;
+}
+
+#text {
+    height: 70%;
+    min-height: 180px;
+    margin-bottom: 0px;
 }
