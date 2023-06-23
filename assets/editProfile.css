@@ -84,4 +84,18 @@ textarea{
     font-weight: bold;
     border: none;
     cursor: pointer;
+    margin-left: 10px;
+}
+
+.back {
+    border-radius: 20px;
+    padding: 1em;
+    background-color: #1758D7;
+    color: white;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
 }
