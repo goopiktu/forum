@@ -34,20 +34,29 @@ html {
     display:flex;
 }
 
-.customer {
+.customer, .trash, .hand {
+    margin-right: 30px;
+    padding-left: 10px;
+}
+
+#editprof {
     background-image: url("sprites/editprof.png");
     background-repeat: no-repeat;
-
+    background-position: 10px;
 }
 
-.trash {
-    background: url("sprites/Trash.png");
-	
+#delete {
+    background-image: url("sprites/Trash.png");
+    background-repeat: no-repeat;
+    background-position: 10px;
 }
 
-.hand {
-    background: url("sprites/Hand\ With\ Pen.png");
+#editpost {
+    background-image: url("sprites/Hand\ With\ Pen.png");
+    background-repeat: no-repeat;
+    background-position: 10px;
 }
+
 
 .home, .bigword {
     border-radius: 20px;
