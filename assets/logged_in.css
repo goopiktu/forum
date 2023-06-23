@@ -152,14 +152,11 @@ a {
 }
 
 .post_container {
-    display: inline-grid;
-    grid-template-columns: auto auto auto;
-    
-    gap: 19px 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
     width: 100%;
-    /* max-width: 1065px;
-    max-height: 461px; */
-
+    min-width: 675px;
 }
 
 .post_container > * {
@@ -169,6 +166,7 @@ a {
     width: 100%;
     height: auto;
     border-radius: 3px;
+    flex: 1 1 300px;
 }
 
 .Search_bar {
@@ -193,6 +191,7 @@ a {
 
 .post-fit{
     display: inline-block;
+    margin: 10px;
 }
 
 .post-item {
@@ -201,6 +200,7 @@ a {
     padding: 20px;
     min-width: 220px;
 }
+
 
 .comment_section {
     margin-bottom: 3px;
@@ -211,17 +211,30 @@ a {
 }
 
 .comment {
-    text-align: left;
-    white-space: nowrap;
     background-color: #A5A5A5;
     margin-bottom: 3px;
     width: 100%;
-    color: white;
-    color: #000000;
     border-radius: 10px;
-    font-size: 8px;
-    height: 30px;
+    display: inline-block;
+    padding: 10px;
 }
+
+.comment > p:not(.top-comment){
+    color: #000000;
+    font-size: 12.5px;
+    margin: 3px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.top-comment{
+    color: #000000;
+    font-size: 15px;
+    margin: 3px;
+    text-align: left;
+    white-space: nowrap;
+}
+
 
 .header-post-item{
     display: flex;
