@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title of Post</title>
+    <link rel="stylesheet" href="assets/viewpost.css">
+    <script src="assets/main.js"></script>
+</head>
+
+<body>
+    <div class="post">
+        <div class="header">
+            <div>
+                <p class="title">Gobblin</p>
+                <p class="date-posted">1 Day Ago</p>
+            </div>
+            <div class="total-votes">
+                <p class="count">34</p><img src="assets/voting-arrow/up-arrow.png" alt="Up-Arrow">
+                <p class="count">5</p> <img src="assets/voting-arrow/down-arrow.png" alt="Down-Arrow">
+            </div>
+        </div>
+
+        <div id="title" class="box">
+            <p>
+                I like to creep around my home and act like a goblin<br>
+                I dont know why but I just enjoy doing this. 
+                Maybe its my way of dealing with stress or something but I just do it about once every week. 
+                Generally Ill carry around a sack and creep around in a sort of crouch-walking position making goblin noises, 
+                then Ill walk around my house and pick up various different “trinkets” 
+                and put them in my bag while saying stuff like “Ill be having that” 
+                and laughing maniacally in my goblin voice 
+                (“trinkets” can include anything from stuff I find on the ground to cutlery 
+                or other utensils). The other day I was talking with my neighbours and 
+                they mentioned hearing weird noises like what I wrote about and 
+                I was just internally screaming the entire conversation. 
+                Im 99% sure they dont know its me but god that 1% chance is seriously weighing on my mind.
+            </p>
+            
+        </div>
+    
+
+        <div class="comments">
+            <div class="comment-title">
+                <img class="comment-icon" src="assets/sprites/Icons/comment.png">
+                <p class="comment-name">1 Comment</p>
+            </div>
+            <div id="comment1" class="box">
+                <div class="right-comment">
+                    <div class="user"> 
+                        <img class="user-icon" src="assets/sprites/comments/Turtle.jpg">
+                        <div class="user-info">
+                            <p class="username">Dobi</p>
+                            <p class="date-commented">30 mins ago</p>
+                        </div>
+                    </div>
+                    <div style="clear:both;" class="actl-comment">
+                        <p class="content-comment">my PrEciOussss</p>
+                    </div>
+                    <div class="reply">
+                        <a href="reply.html">
+                        <button id="reply" class="icon" type="button"></button>
+                        </a>
+                        <p>Reply</p>
+                    </div>
+                </div>
+                <div class="up-down">
+                    <p class="countUD"><a id="upclicks">0</a></p><button id="upvote" class="icon" type="button" onclick="increment()"></button>
+                    <p class="countUD"><a id="downclicks">0</a></p><button id="downvote" class="icon" type="button" onclick="decrement()"></button>
+                </div>
+            </div>
+
+            <div id="comment2" class="box">
+                <div class="right-comment">
+                    <div class="user"> 
+                        <img class="user-icon" src="assets/sprites/myProfile_pic.png">
+                        <div class="user-info">
+                            <p class="username">Me</p>
+                            <p class="date-commented">20 mins ago</p>
+                        </div>
+                    </div>
+                    <div style="clear:both;" class="actl-comment">
+                        <p class="content-comment">dobi!!</p>
+                    </div>
+                    <div class="reply">
+                        <a href="reply.html">
+                            <button id="reply" class="icon" type="button"></button>
+                        </a>
+                        <p>Reply</p>
+                        <a href="editReply.html">
+                            <button id="edit" class="icon" type="button"></button>
+                        </a>
+                        <p>Edit</p>
+                        <a href="#">
+                            <button id="delete" class="icon" type="button"></button>
+                        </a>
+                        <p>Delete</p>
+                    </div>
+                </div>
+                <div class="up-down">
+                    <p class="countUD"><a id="upclicks">0</a></p><button id="upvote" class="icon" type="button" onclick="increment()"></button>
+                    <p class="countUD"><a id="downclicks">0</a></p><button id="downvote" class="icon" type="button" onclick="decrement()"></button>
+                </div>
+            </div>
+
+            <div id="comment2" class="box">
+                <div class="right-comment">
+                    <div class="user"> 
+                        <img class="user-icon" src="assets/sprites/comments/Whale.jpg">
+                        <div class="user-info">
+                            <p class="username">Dobi</p>
+                            <p class="date-commented">18 mins ago</p>
+                        </div>
+                    </div>
+                    <div style="clear:both;" class="actl-comment">
+                        <p class="content-comment">MINE!!!</p>
+                    </div>
+                    <div class="reply">
+                        <a href="reply.html">
+                            <button id="reply" class="icon" type="button"></button>
+                        </a>
+                        <p>Reply</p>
+                        <a href="editReply.html">
+                            <button id="edit" class="icon" type="button"></button>
+                        </a>
+                    </div>
+                </div>
+                <div class="up-down">
+                    <p class="countUD"><a id="upclicks">0</a></p><button id="upvote" class="icon" type="button" onclick="increment()"></button>
+                    <p class="countUD"><a id="downclicks">0</a></p><button id="downvote" class="icon" type="button" onclick="decrement()"></button>
+                </div>
+            </div>
+            
+            <div id="comment2" class="box">
+                <div class="right-comment">
+                    <div class="user"> 
+                        <img class="user-icon" src="assets/sprites/myProfile_pic.png">
+                        <div class="user-info">
+                            <p class="username">Me</p>
+                            <p class="date-commented">15 mins ago</p>
+                        </div>
+                    </div>
+                    <div style="clear:both;" class="actl-comment">
+                        <p class="content-comment">okay.. huhu</p>
+                    </div>
+                    <div class="reply">
+                        <a href="reply.html">
+                            <button id="reply" class="icon" type="button"></button>
+                        </a>
+                        <p>Reply</p>
+                        <a href="editReply.html">
+                            <button id="edit" class="icon" type="button"></button>
+                        </a>
+                        <p>Edit</p>
+                        <a href="#">
+                            <button id="delete" class="icon" type="button"></button>
+                        </a>
+                        <p>Delete</p>
+                    </div>
+                </div>
+                <div class="up-down">
+                    <p class="countUD"><a id="upclicks">0</a></p><button id="upvote" class="icon" type="button" onclick="increment()"></button>
+                    <p class="countUD"><a id="downclicks">0</a></p><button id="downvote" class="icon" type="button" onclick="decrement()"></button>
+                </div>
+            </div>
+            
+        </div>
+
+
+        <div class="bottom-buttons">
+            <a href="logged_in.html">
+                <button class="bot-button">Back</button>
+            </a>
+            <a href="reply.html">
+                <button class="bot-button">Reply</button>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
