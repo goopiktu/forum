@@ -6,7 +6,15 @@ function editPost() {
     window.location.href="../forum/editPost.html";
 }
 
-let remove = true;
+function editProfile() {
+    window.location.href="../forum/editProfile.html"
+}
+
+function back() {
+    window.location.href="../forum/profile.html"
+}
+
+let remove = false;
 let a = document.getElementsByClassName("content");
 
 for(let i = 0; i < a.length; i += 1) {
@@ -20,6 +28,7 @@ for(let i = 0; i < a.length; i += 1) {
     });
 }
 
-document.getElementById("delete").addEventListener("click", () => {
+document.getElementById("delete").addEventListener("click", (e) => {
     remove = !remove;
 });
+
