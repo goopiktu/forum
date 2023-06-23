@@ -11,49 +11,40 @@
 
 <body>
   <div class="content">
-    <header class="header">
-      
-      <img class="logo" src="assets/sprites/League of Legends.png" alt="icon"></img> <!-- Supposed to be an icon -->
-          <nav class="header_navigation">
-            <div class="left_align">
-              <a href="#">
-                <button class="nav_button">Home</button>
-              </a>
-              <a href="#">
-                <button class="nav_button">Forum</button>
-              </a>
-            </div>
-          </nav>
-          <div class="right_align">
-            <a href="#">
-              <button class="nav_button">My Profile</button>
-            </a>
-
-            <img src="assets/sprites/myProfile_pic.png" alt="profile_pic">
-
-            <a href="#">
-              <button class="nav_button">Logout</button>
-            </a>
-          </div>
-      
-    </header>
+    <div class="header">
+      <div class="header-parts">
+        <img class="logo" src="assets/sprites/League of Legends.png" alt="icon"></img> <!-- Supposed to be an icon -->
+        <a href="#">
+          <button class="nav_button">Home</button>
+        </a>
+        <a href="#">
+          <button class="nav_button">Forum</button>
+        </a>
+      </div>
+      <div class="header-parts">
+        <a href="#">
+          <button class="nav_button right_nav">My Profile</button>
+        </a>
+        <div class="img-logout">
+          <img class="icon" src="assets/sprites/myProfile_pic.png" alt="profile_pic">
+          <a href="#">
+            <button class="nav_button right_nav" >Logout</button>
+          </a>
+        </div>
+      </div> 
+    </div>
 
     <input class="Search_bar" type="text" placeholder="Search..">
 
     <div class="container">
-      <div class="nav2_bar_wrapper">
-        <nav class="nav2_bar">
-          <p>Sort By</p>
-          <a href="#">
-            <button class="nav_button">Recent</button>
-          </a>
-          <a href="#">
-            <button class="nav_button">Popular</button>
-          </a>
-        
-  
-        
-        </nav>
+      <div class="nav_bar_2">
+        <p>Sort By</p>
+        <a href="#">
+          <button class="nav_button">Recent</button>
+        </a>
+        <a href="#">
+          <button class="nav_button">Popular</button>
+        </a>
       </div>
       <button class="create_post">Create Post</button>
     </div>
