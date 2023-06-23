@@ -152,11 +152,14 @@ a {
 }
 
 .post_container {
-    display: flex;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(440px, 1fr));
+    /* display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     width: 100%;
-    min-width: 675px;
+    min-width: 675px; */
 }
 
 .post_container > * {
@@ -166,6 +169,7 @@ a {
     width: 100%;
     height: auto;
     border-radius: 3px;
+    /* flex: 0 0 33.3333%; */
     flex: 1 1 300px;
 }
 

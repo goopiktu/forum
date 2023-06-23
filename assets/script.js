@@ -1,20 +1,24 @@
 function home() {
-    window.location.href="../forum/logged_in.html";
+    window.location.href="/logged_in.html";
 }
 
 function editPost() {
-    window.location.href="../forum/editPost.html";
+    window.location.href="/editPost.html";
+}
+
+function createPost() {
+     window.location.href="/createPost.html";
 }
 
 function editProfile() {
-    window.location.href="../forum/editProfile.html"
+    window.location.href="/editProfile.html";
 }
 
-function back() {
-    window.location.href="../forum/profile.html"
+function editReply() {
+    window.location.href="//"
 }
 
-let remove = false;
+let remove = true;
 let a = document.getElementsByClassName("content");
 
 for(let i = 0; i < a.length; i += 1) {
