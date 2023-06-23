@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title of Post</title>
+    <link rel="stylesheet" href="assets/viewpost.css">
+    <script src="assets/main.js"></script>
+</head>
+
+<body>
+    <div class="post">
+        <div class="header">
+            <div>
+                <p class="title">CALCULUS!!  &gt.&lt </p>
+                <p class="date-posted">2 Days Ago</p>
+            </div>
+            <div class="total-votes">
+                <p class="count">304</p><img src="assets/voting-arrow/up-arrow.png" alt="Up-Arrow">
+                <p class="count">49</p> <img src="assets/voting-arrow/down-arrow.png" alt="Down-Arrow">
+            </div>
+        </div>
+
+        <div id="title" class="box">
+            <p>
+                Calculus is essential to understanding the world in which we live. It is a powerful tool that can 
+                provide powerful insights into many aspects of life, from politics to physics. While calculus may seem 
+                like an intimidating subject, it is important to recognize that it is an essential tool for understanding science, 
+                technology, engineering, and mathematics. By teaching calculus at the preschool level, children are exposed to these theories 
+                and concepts at an early age and can expand their knowledge in these areas even further.
+            </p>
+        </div>
+    
+
+        <div class="comments">
+            <div class="comment-title">
+                <img class="comment-icon" src="assets/sprites/Icons/comment.png">
+                <p class="comment-name">3 Comments</p>
+            </div>
+            <div id="comment1" class="box">
+                <div class="right-comment">
+                    <div class="user"> 
+                        <img class="user-icon" src="assets/sprites/comments/giraffe.jpg">
+                        <div class="user-info">
+                            <p class="username">Giraffe</p>
+                            <p class="date-commented">2 days ago</p>
+                        </div>
+                    </div>
+                    <div style="clear:both;" class="actl-comment">
+                        <p class="content-comment">Calculus, man. It's a real pain in the arse, but I guess it's necessary for understanding the world, 
+                                                especially when you're dealing with physics and all that.</p>
+                    </div>
+                    <div class="reply">
+                        <a href="reply.html">
+                        <button id="reply" class="icon" type="button"></button>
+                        </a>
+                        <p>Reply</p>
+                    </div>
+                </div>
+                <div class="up-down">
+                    <p class="countUD"><a id="upclicks">0</a></p><button id="upvote" class="icon" type="button" onclick="increment()"></button>
+                    <p class="countUD"><a id="downclicks">0</a></p><button id="downvote" class="icon" type="button" onclick="decrement()"></button>
+                </div>
+            </div>
+
+            <div id="comment1" class="box">
+                <div class="right-comment">
+                    <div class="user"> 
+                        <img class="user-icon" src="assets/sprites/comments/Octopus.jpg">
+                        <div class="user-info">
+                            <p class="username">Octopus</p>
+                            <p class="date-commented">1 days ago - Edited</p>
+                        </div>
+                    </div>
+                    <div style="clear:both;" class="actl-comment">
+                        <p class="content-comment">Mate, calculus is like this love-hate relationship, you know? It's a proper headache sometimes, but when you get those 'aha' moments, it's like magic, 'no?</p>
+                    </div>
+                    <div class="reply">
+                        <a href="reply.html">
+                        <button id="reply" class="icon" type="button"></button>
+                        </a>
+                        <p>Reply</p>
+                    </div>
+                </div>
+                <div class="up-down">
+                    <p class="countUD"><a id="upclicks">0</a></p><button id="upvote" class="icon" type="button" onclick="increment()"></button>
+                    <p class="countUD"><a id="downclicks">0</a></p><button id="downvote" class="icon" type="button" onclick="decrement()"></button>
+                </div>
+            </div>
+
+
+            <div id="comment2" class="box">
+                <div class="right-comment">
+                    <div class="user"> 
+                        <img class="user-icon" src="assets/sprites/myProfile_pic.png">
+                        <div class="user-info">
+                            <p class="username">Me</p>
+                            <p class="date-commented">Just now</p>
+                        </div>
+                    </div>
+                    <div style="clear:both;" class="actl-comment">
+                        <p class="content-comment">Honestly, I used to despise calculus, but I gotta admit, it's got its perks. Like, it's mind-blowing how it can explain the world around us, ya know?</p>
+                    </div>
+                    <div class="reply">
+                        <a href="reply.html">
+                            <button id="reply" class="icon" type="button"></button>
+                        </a>
+                        <p>Reply</p>
+                        <a href="editReply.html">
+                            <button id="edit" class="icon" type="button"></button>
+                        </a>
+                        <p>Edit</p>
+                        <a href="#">
+                            <button id="delete" class="icon" type="button"></button>
+                        </a>
+                        <p>Delete</p>
+                    </div>
+                </div>
+                <div class="up-down">
+                    <p class="countUD"><a id="upclicks">0</a></p><button id="upvote" class="icon" type="button" onclick="increment()"></button>
+                    <p class="countUD"><a id="downclicks">0</a></p><button id="downvote" class="icon" type="button" onclick="decrement()"></button>
+                </div>
+            </div>
+
+            <div id="comment1" class="box">
+                <div class="right-comment">
+                    <div class="user"> 
+                        <img class="user-icon" src="assets/sprites/comments/Snake.jpg">
+                        <div class="user-info">
+                            <p class="username">Snake</p>
+                            <p class="date-commented">1 days ago - Edited</p>
+                        </div>
+                    </div>
+                    <div style="clear:both;" class="actl-comment">
+                        <p class="content-comment">The struggle is real, my friend. Calculus might not be my cup of tea, but I can't deny its power in unraveling the mysteries of politics and economics.</p>
+                    </div>
+                    <div class="reply">
+                        <a href="reply.html">
+                        <button id="reply" class="icon" type="button"></button>
+                        </a>
+                        <p>Reply</p>
+                    </div>
+                </div>
+                <div class="up-down">
+                    <p class="countUD"><a id="upclicks">0</a></p><button id="upvote" class="icon" type="button" onclick="increment()"></button>
+                    <p class="countUD"><a id="downclicks">0</a></p><button id="downvote" class="icon" type="button" onclick="decrement()"></button>
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+        
+
+
+        <div class="bottom-buttons">
+            <a href="logged_in.html">
+                <button class="bot-button">Back</button>
+            </a>
+            <a href="reply.html">
+                <button class="bot-button">Reply</button>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
