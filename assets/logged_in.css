@@ -166,10 +166,8 @@ a {
     background-color: rgba(255, 255, 255, 0.8);
     font-size: 30px;
     text-align: center;
-    /* width: 345px;
-    height: 221px; */
     width: 100%;
-    height: 221px;
+    height: auto;
     border-radius: 3px;
 }
 
@@ -193,29 +191,23 @@ a {
     min-width: 150px;
 }
 
-.header, .Search_bar, .container {
-    margin-left: auto;
-    /* width: 100%; */
+.post-fit{
+    display: inline-block;
 }
 
-.post_item {
-    /* display: flex;
+.post-item {
+    display: flex;
     flex-direction: column;
-    align-items: center; */
-    padding: 10px;
+    padding: 20px;
+    min-width: 220px;
 }
 
-.post_item > .comment_section {
+.comment_section {
     margin-bottom: 3px;
-    /* max-width: 314px; */
-    /* width: 100%; */
-    
-}
-
-.post_item > .header_post_item {
-    text-align: left;
     margin-top: 15px;
-    margin-bottom: 6px;  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .comment {
@@ -223,47 +215,51 @@ a {
     white-space: nowrap;
     background-color: #A5A5A5;
     margin-bottom: 3px;
-    width: 90%;
+    width: 100%;
     color: white;
     color: #000000;
     border-radius: 10px;
     font-size: 8px;
     height: 30px;
+}
+
+.header-post-item{
     display: flex;
-    align-items: center;
+    justify-content: space-between;
 }
 
-.title {
-    font-size: 16px;
-    color: #000000;
-    margin: 0px;
+.post-title{
+    font-size: 20px;
+    margin: 0px 5px 0px 0px;
 }
 
-.date-posted {
-    font-size: 6px;
+.left-align{
+    text-align: left;
+}
+
+.date-posted{
+    margin: 0;
     color: #9C9C9C;
-    margin: 0px;
+    font-size: 12.5px;
 }
 
-.total-votes {
+.total-votes, .post-info{
     display: flex;
-    margin-left: auto;
-    align-items: center;
-    flex-direction: row;
+    justify-content: space-between;
+    font-family: 'Roboto';
+    height: 32px;
+    min-width: 115px; 
+    margin-right: 5px;
 }
 
-.header_post_item {
-    display: flex;
+.count{
+    text-align: center;
+    margin-top: 10px;
+    font-size: 15px;
 }
 
-.topic_title{
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    width: 100%;
-}
-
-.total-votes > p {
-    font-size: 10px;
-    
+.arrow{
+    margin: 5px 3px 0px 3px;
+    max-height: 75%;
+    max-width: 75%;
 }
