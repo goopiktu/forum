@@ -123,3 +123,10 @@ html {
 .urpost {
     padding-left: 7.5px;
 }
+
+.icon {
+    width: 16em;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+}
