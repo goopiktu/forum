@@ -18,7 +18,15 @@ function editReply() {
     window.location.href="//"
 }
 
-let remove = true;
+function openProfile() {
+    window.location.href="/profile.html"
+}
+
+function back() {
+    window.location.href="/profile.html"
+}
+
+let remove = false;
 let a = document.getElementsByClassName("content");
 
 for(let i = 0; i < a.length; i += 1) {
