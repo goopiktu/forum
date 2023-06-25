@@ -260,3 +260,10 @@ body{
 a{
     text-decoration: none;
 }
+
+.posted-by {
+    color: #9C9C9C;
+    font-family: sans-serif;
+    font-size: 1em;
+    
+}

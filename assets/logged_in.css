@@ -5,8 +5,12 @@
 :root {
     --primary-color: #041536;
     font-family: 'Roboto';
+    
 }
 
+a:visited , a{
+    color: black;
+}
 
 * {
     box-sizing: border-box;

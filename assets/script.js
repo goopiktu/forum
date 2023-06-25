@@ -7,7 +7,7 @@ function editPost() {
 }
 
 function createPost() {
-     window.location.href="/createPost.html";
+    window.location.href="/createPost.html";
 }
 
 function editProfile() {
