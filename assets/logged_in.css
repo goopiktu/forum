@@ -30,7 +30,7 @@ a:visited , a{
 }
 
 body {
-    background: #041536;
+    background: linear-gradient(to top, #090f19 0% , #041536 100%);
     padding: 10px;
     display: flex;
     justify-content: center;

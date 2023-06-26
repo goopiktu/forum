@@ -257,12 +257,9 @@ body{
     float: right;
 }
 
-a{
-    text-decoration: none;
-}
-
-a:visited {
+a:visited, a{
     color:black;
+    text-decoration: none;
 }
 
 .posted-by {

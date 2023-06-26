@@ -40,7 +40,10 @@ for(let i = 0; i < a.length; i += 1) {
     });
 }
 
-document.getElementById("delete").addEventListener("click", (e) => {
-    remove = !remove;
-});
+// document.getElementById("delete").addEventListener("click", (e) => {
+//     remove = !remove;
+// });
+
+
+
 

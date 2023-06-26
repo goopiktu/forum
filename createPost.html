@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="assets/sign_posts.css">
-    <script src="assets/main.js"></script>
+    <script src="assets/main.js" defer></script>
     
 </head>
 
@@ -15,11 +15,10 @@
             <h1>Create Post</h1>
             <form>
                 <input type="text" id="title" placeholder="Title">
-                <!-- <input type="text" id="text" placeholder="Text"> -->
-                <textarea id="post" name="post">Text</textarea>
-                <br>
+                <textarea id="post" name="post" placeholder="Text"></textarea>
+                
                 <div class="bottom2">
-                    <button type="submit">Post</button>
+                    <button onclick="post()" type="submit" id="">Post</button>
                 </div>
             </form>
             
