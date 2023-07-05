@@ -1,17 +1,14 @@
-@font-face {
-    font-family: 'Roboto';
-    src: url(sprites/fonts/roboto/Roboto-Black.ttf);
-}
+
 
 .page {
     width:80%;
     margin:auto;
 }
 
-html {
+/* html {
     background: #041536;
     font-family: 'Roboto';
-}
+} */
 
 .box{
     background-color: #FFFFFF; 

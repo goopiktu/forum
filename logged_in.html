@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="assets/logged_in.css">
+    <link rel="stylesheet" href="assets/posts.css">
+    <link rel="stylesheet" href="assets/navbar.css">
+    <link rel="stylesheet" href="assets/root.css">
     <script src="assets/script.js"></script>
     
 </head>
@@ -15,42 +17,42 @@
       <div class="header-parts">
         <img class="logo" src="assets/sprites/Arryn House.png" alt="icon"></img> <!-- Supposed to be an icon -->
         <a href="#">
-          <button class="nav_button">Home</button>
+          <button class="nav-button">Home</button>
         </a>
         <a href="#">
-          <button class="nav_button">Forum</button>
+          <button class="nav-button">Forum</button>
         </a>
       </div>
       <div class="header-parts">
         <a href="#">
-          <button onclick="openProfile()" class="nav_button right_nav">My Profile</button>
+          <button onclick="openProfile()" class="nav-button right-nav">Profile</button>
         </a>
         <div class="img-logout">
           <img class="icon" src="assets/sprites/myProfile_pic.png" alt="profile_pic">
           <a href="#">
-            <button class="nav_button right_nav" >Logout</button>
+            <button class="nav-button right-nav" >Logout</button>
           </a>
         </div>
       </div> 
     </div>
 
-    <input class="Search_bar" type="text" placeholder="Search..">
+    <input class="Search-bar" type="text" placeholder="Search..">
 
-    <div class="container">
-      <div class="nav_bar_2">
+    <div class="nav2-container">
+      <div class="nav-bar-2">
         <p>Sort By</p>
         <a href="#">
-          <button class="nav_button">Recent</button>
+          <button class="nav-button">Recent</button>
         </a>
         <a href="#">
-          <button class="nav_button">Popular</button>
+          <button class="nav-button">Popular</button>
         </a>
       </div>
-      <button onclick="createPost()" class="create_post">Create Post</button>
+      <button onclick="createPost()" class="create-post">Create Post</button>
     </div>
 
   
-    <div class="post_container"> 
+    <div class="post-container"> 
 
       <div class="post-fit">
         <a href="viewpostA.html">
@@ -60,12 +62,12 @@
                 <p class="post-title left-align">Gobblin</p>
                 <p class="date-posted left-align">1 Day Ago</p>
               </div>
-              <div class="total-votes">
-                  <p class="count">34</p><img class="arrow" src="assets/voting-arrow/up-arrow.png" alt="Up-Arrow">
-                  <p class="count">5</p> <img class="arrow" src="assets/voting-arrow/down-arrow.png" alt="Down-Arrow">
+              <div class="up-down">
+                <p class="countUD"><a id="upclicks">0</a></p><button id="upvote" class="icon" type="button" onclick="increment()"></button>
+                <p class="countUD"><a id="downclicks">0</a></p><button id="downvote" class="icon" type="button" onclick="decrement()"></button>
               </div>
           </div>
-          <div class="comment_section">
+          <div class="comment-section">
                 <div class="comment" >
                   <p class="top-comment">Turtle</p>
                   <p></p>
@@ -89,7 +91,7 @@
                   <p class="count">100</p> <img class="arrow" src="assets/voting-arrow/down-arrow.png" alt="Down-Arrow">
               </div>
           </div>
-          <div class="comment_section">
+          <div class="comment-section">
                 <div class="comment">
                   <p class="top-comment">Me</p>
                   <p></p>
@@ -121,7 +123,7 @@
                   <p class="count">0</p> <img class="arrow" src="assets/voting-arrow/down-arrow.png" alt="Down-Arrow">
               </div>
           </div>
-          <div class="comment_section">
+          <div class="comment-section">
                 <!-- <div class="comment">
                   <p class="top-comment">Top1</p>
                   <p>Hellow Der! </p>
@@ -154,7 +156,7 @@
                   <p class="count">49</p> <img class="arrow" src="assets/voting-arrow/down-arrow.png" alt="Down-Arrow">
               </div>
             </div>
-          <div class="comment_section">
+          <div class="comment-section">
                 <div class="comment">
                   <p class="top-comment">Giraffe</p>
                   <p></p>
@@ -186,7 +188,7 @@
                   <p class="count">30</p> <img class="arrow" src="assets/voting-arrow/down-arrow.png" alt="Down-Arrow">
               </div>
           </div>
-          <div class="comment_section">
+          <div class="comment-section">
                 <div class="comment">
                   <p class="top-comment">Turtle</p>
                   <p></p>

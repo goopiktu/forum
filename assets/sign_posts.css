@@ -1,15 +1,4 @@
-@font-face {
-    font-family: 'Roboto';
-    src: url(sprites/fonts/roboto/Roboto-Black.ttf);
-}
-
-:root {
-    --primary-color: #041536;
-    font-family: 'Roboto';
-    background-color: #041536;
-}
 /*SIGN UP/IN CREATE/EDIT POST*/
-
 .box1, .box2, .box3 {
     background-color: #FFFFFF; 
     border-radius: 15px;
@@ -117,3 +106,6 @@ textarea{
     min-height: 180px;
     margin-bottom: 0px;
 } */
+
+
+
