@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="assets/sign_posts.css">
+
+    <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
     <script src="assets/main.js"></script>
-    
 </head>
 
 <body>
@@ -18,14 +19,14 @@
             </div>
             <form>
                 <div class="inputs">
-                    <input type="email" id="email" placeholder="Email">
-                    <input type="text" id="username" placeholder="Username">
-                    <input type="password" id="password" placeholder="Password">
-                    <input type="password" id="confirm" placeholder="Confirm Password">
+                    <input type="email" id="new-email" placeholder="Email">
+                    <input type="text" id="new-username" placeholder="Username">
+                    <input type="password" id="new-password" placeholder="Password">
+                    <input type="password" id="new-confirm" placeholder="Confirm Password">
                 </div>
                 <div class="bottom">
                     <p>Already have an account? <a href="signIn.html">Sign In</a></p>
-                    <button type="submit">Sign Up</button>
+                    <button onclick="signUp()" type="submit" id="submit-fields">Sign Up</button>
                 </div>    
             </form>
             

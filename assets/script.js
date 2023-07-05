@@ -26,6 +26,15 @@ function back() {
     window.location.href="/profile.html"
 }
 
+// would it be better/possible to use this function instead of the several diff functions?
+/*  openPage
+    function: Changes the window location to the location indicated by the parameter
+    fileName - file name of the html page you're going to
+*/
+function openPage(fileName){
+    window.location.href="/"+fileName+".html";
+}
+
 let remove = false;
 let a = document.getElementsByClassName("content");
 
@@ -43,7 +52,3 @@ for(let i = 0; i < a.length; i += 1) {
 // document.getElementById("delete").addEventListener("click", (e) => {
 //     remove = !remove;
 // });
-
-
-
-
