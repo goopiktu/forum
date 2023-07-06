@@ -1,0 +1,23 @@
+{
+  "name": "forum",
+  "version": "1.0.0",
+  "description": "",
+  "main": "scripts/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node scripts/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goopiktu/forum.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/goopiktu/forum/issues"
+  },
+  "homepage": "https://github.com/goopiktu/forum#readme",
+  "dependencies": {
+    "module_name": "^1.0.0"
+  }
+}

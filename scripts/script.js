@@ -5,6 +5,17 @@ const user_register = {
     confirm_pass: "",
 };
 
+const http = require('http');
+
+const server = http.createServer((req, res) => {
+    res.statusCode = 200;
+    console.log("Request url:" + req.url);
+});
+
+server.listen(3000, '127.0.0.1', () => {
+    console.log("Server listening...");
+});
+
 
 // function home() {
 //     window.location.href="/logged_in.html";
@@ -34,6 +45,7 @@ const user_register = {
 //     window.location.href="/profile.html"
 // }
 
+
 let remove = false;
 let a = document.getElementsByClassName("content");
 
@@ -47,6 +59,8 @@ for(let i = 0; i < a.length; i += 1) {
         y.removeChild(x);
     });
 }
+
+
 
 // document.getElementById("delete").addEventListener("click", (e) => {
 //     remove = !remove;
@@ -86,18 +100,19 @@ for(let i = 0; i < a.length; i += 1) {
 // register
 let user = [];
 
-var button = document.querySelector("#submit-button");
-var email = document.getElementById("email");
-var usernmae = document.getElementById("username");
-var password = document.getElementById("password");
-var confirm_pass = document.getElementById("confirm-pass");
+let button = document.querySelector("#submit-button");
+let email = document.getElementById("email");
+let usernmae = document.getElementById("username");
+let password = document.getElementById("password");
+let confirm_pass = document.getElementById("confirm-pass");
 
 
 button.addEventListener("click", function() {
     
     
 
-    var data = {
+    let data = {
+        "username": usernmae.value,
         "email": email.value,
         "text": username.value,
         "password": password.value,
