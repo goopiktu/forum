@@ -114,7 +114,6 @@ button.addEventListener("click", function() {
     let data = {
         "username": usernmae.value,
         "email": email.value,
-        "text": username.value,
         "password": password.value,
         "confirm-pass": confirm_pass.value,
     }
