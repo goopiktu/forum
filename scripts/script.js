@@ -5,16 +5,17 @@ const user_register = {
     confirm_pass: "",
 };
 
-const http = require('http');
 
-const server = http.createServer((req, res) => {
-    res.statusCode = 200;
-    console.log("Request url:" + req.url);
-});
+// const http = require('http');
 
-server.listen(3000, '127.0.0.1', () => {
-    console.log("Server listening...");
-});
+// const server = http.createServer((req, res) => {
+//     res.statusCode = 200;
+//     console.log("Request url:" + req.url);
+// });
+
+// server.listen(3000, '127.0.0.1', () => {
+//     console.log("Server listening...");
+// });
 
 
 // function home() {
@@ -98,30 +99,100 @@ for(let i = 0; i < a.length; i += 1) {
 
 
 // register
-let user = [];
+// let user = [];
 
-let button = document.querySelector("#submit-button");
-let email = document.getElementById("email");
-let usernmae = document.getElementById("username");
-let password = document.getElementById("password");
-let confirm_pass = document.getElementById("confirm-pass");
+// let button = document.querySelector("#submit-button");
+// let email = document.getElementById("email");
+// let usernmae = document.getElementById("username");
+// let password = document.getElementById("password");
+// let confirm_pass = document.getElementById("confirm-pass");
 
 
-button.addEventListener("click", function() {
+// button.addEventListener("click", function() {
+
+//     let data = {
+//         "username": usernmae.value,
+//         "email": email.value,
+//         "password": password.value,
+//         "confirm-pass": confirm_pass.value,
+//     }
+
+//     user.push(data);
+
+//     document.forms[0].reset();
+//     console.log(data);
+//     // console.log("Hello");
+// });
+
+// $('#load').click(function () {
+//   $('#content').load('/viewpost/viewpostA.html', function (content) {
+//      $('#content').dialog({
+        
+//         modal: true
+
+        
+//      });
+//      $('#content').dialog('show');
+//   });
+
+// });
+
+
+// $(function() {
+
+//     $( "#dialog-4" ).load('/viewpost/viewpostA.html', function (content) {
+//         $( "#dialog-4" ).dialog({
+//             draggable: false,
+//             autoOpen: false, 
+//             modal: true,
+//             position: {
+//              my: "center",
+//              at: "center"
+//             },
+//             buttons: {
+//                OK: function() {$(this).dialog("close");}
+//             },
+//             width: "50%",
+//          });
+//          $( "#opener-4" ).click(function() {
+//             $( "#dialog-4" ).dialog( "open" );
+//          });
+         
+
+//     }); 
     
+//  });
+
+
+
+ $(function() {
+
+    $( "#dialog-4" ).load('/viewpost/viewpostA.html', function (content) {
+        $( "#dialog-4" ).dialog({
+            draggable: false,
+            autoOpen: false, 
+            modal: true,
+            position: {
+             my: "center",
+             at: "center"
+            },
+            buttons: {
+               OK: function() {$(this).dialog("close");}
+            },
+            width: "50%",
+         });
+         $( ".opener" ).on("click", function() {
+            $( "#dialog-4" ).dialog( "open" );
+         });
+         
+
+    }); 
     
+ });
 
-    let data = {
-        "username": usernmae.value,
-        "email": email.value,
-        "password": password.value,
-        "confirm-pass": confirm_pass.value,
-    }
-
-    user.push(data);
-
-    document.forms[0].reset();
-    console.log(data);
-    // console.log("Hello");
-});
-
+// position: 'relative',
+// height: 'auto',
+// width: '3000px',
+// top: '-17.9883px',
+// left: '-337.488px',
+// display: 'block'

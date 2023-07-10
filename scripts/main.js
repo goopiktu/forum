@@ -25,7 +25,6 @@ title.addEventListener('input', function handleChange(event) {
 
 
 
-
 // let post = (event) => {
 //     // console.log(post.value);
 //     var postFit = document.createElement('div');

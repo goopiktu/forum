@@ -1,12 +1,35 @@
+/* Dialog box */
 
+
+.ui-widget-header,.ui-state-default, ui-button {
+    display: none;
+ }
+
+.ui-dialog {
+    background-color: #FFFFFF;
+    width: auto;
+    height: 100%;
+    max-height: 700px;
+    position: absolute;
+    box-shadow: 1px 1px 30px 5px;
+    border-radius: 10px;
+    outline: none;
+    overflow: scroll;
+}
+
+.ui-dialog::-webkit-scrollbar {
+    display: none;
+}
+
+.modal {
+    max-height: 300px;
+    overflow: auto;/* Or scroll, depending on your needs*/
+}
 
 a:visited , a{
     color: black;
 }
 
-* {
-    box-sizing: border-box;
-}
 
 
 .logo {
@@ -88,6 +111,7 @@ a {
 }
 
 .comment-section {
+    padding: 10px;
     margin-bottom: 3px;
     margin-top: 15px;
     display: flex;
@@ -132,47 +156,46 @@ a {
     text-align: left;
 }
 
-.date-posted, .author{
+.outer-date-posted, .author{
     margin: 0;
     color: #9C9C9C;
     font-size: 12.5px;
 }
 
-.total-votes, .post-info{
+.outer-total-votes, .post-info{
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: space-between;
     font-family: 'Roboto';
     height: 32px;
-    /* min-width: 115px;  */
-    margin-right: 5px;
+    /* margin-right: 5px; */
 }
 
-.count{
+.outer-count{
     text-align: center;
-    margin-top: 10px;
+    margin: 0px;
     font-size: 15px;
 }
 
-.arrow{
+/* .icon{
     margin: 5px 3px 0px 3px;
     max-height: 75%;
     max-width: 75%;
-}
+} */
 
 .author-date {
     display: flex;
 }
 
 
-.icon {
+.outer-arrow {
     /* width: 20px;
     height: 20px; */
     border: 0;
     display: inline-block;
 }
 
-.up-down{
+.outer-up-down{
     display: flex;
     flex-wrap: wrap;
     /* width: 20px; */
@@ -181,17 +204,17 @@ a {
     /* padding: 5px; */
 }
 
-#upvote:hover, #upvote:focus{
+#outer-upvote:hover, #outer-upvote:focus{
     background: url("voting-arrow/fc-up.png") no-repeat;
     background-size: 100%;
 }
 
-#downvote:hover, #downvote:focus{
+#outer-downvote:hover, #outer-downvote:focus{
     background: url("voting-arrow/fc-down.png") no-repeat;
     background-size: 100%;
 }
 
-#upvote{
+#outer-upvote{
 	background: url("voting-arrow/up-arrow.png") no-repeat;
     background-size: 100%;
 
@@ -202,7 +225,7 @@ a {
 
 }
 
-#downvote{
+#outer-downvote{
 	background: url("voting-arrow/down-arrow.png") no-repeat;
     background-size: 100%;
 
@@ -211,4 +234,280 @@ a {
     max-width: 25px;
     max-height: 25px;
     /* margin-bottom: -10px; */
+}
+
+.spacer {
+    padding: 3px;
+}
+
+/**/
+
+@font-face {
+    font-family: 'Roboto';
+    src: url(sprites/fonts/roboto/Roboto-Black.ttf);
+}
+
+:root {
+    --primary-color: #041536;
+    font-family: 'Roboto';
+    background-color: #041536;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.post{
+    background-color: #FFFFFF;
+    height: 100%;
+    width: 100%;
+    /* border-radius: 20px; */
+    position: relative;
+    /* margin: 45px 0px; */
+}
+
+.post-header{
+    display: flex;
+    justify-content: space-between;
+    min-width: 200px;
+    padding: 30px;
+    /* margin: 10px; */
+}
+
+.title{
+    font-size: 30px;
+    margin: 0;
+}
+
+.date-posted{
+    margin: 0;
+    color: #9C9C9C;
+    font-size: 15px;
+}
+
+.total-votes{
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Roboto';
+    height: 32px; 
+    width: 150px;
+}
+
+.box{
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+    border-radius: 20px;
+}
+
+#title > p{
+    padding: 10px;
+    font-size: 20px;
+}
+ 
+#title{
+    background-color: #EAEAEA;
+}
+
+#comment1{
+    background-color: #D9D9D9;
+    width: 95%;
+    margin-bottom: 20px;
+    display: inline-block; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#comment2{
+    background-color: #D9D9D9;
+    width: 85%;
+    margin-bottom: 20px;
+    left: 5%;
+    display: inline-block; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comments{
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+    border-radius: 20px;
+}
+
+.comment-title{
+    display: flex;
+    padding: 5px;
+    margin-bottom: 7px;
+}
+
+.comment-icon{
+    width: 32px;
+    height: 32px; 
+}
+
+.comment-name{
+    margin: 10px 0px 5px 5px;
+}
+
+.count{
+    text-align: center;
+    margin-top: 9px;
+}
+
+.countUD{
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 2px;
+    font-size: 14px;
+}
+
+.icon {
+    width: 32px;
+    height: 32px;
+    border: 0;
+    display: inline-block;
+}
+
+.up-down{
+    display: flex;
+    flex-wrap: wrap;
+    font-family: 'Roboto';
+    width: 45px;
+    min-width: 45px;
+    max-height: 70px;
+    padding: 5px;
+}
+
+#upvote:hover, #upvote:focus{
+    background: url("voting-arrow/fc-up.png") no-repeat;
+    background-size: 75%;
+}
+
+#downvote:hover, #downvote:focus{
+    background: url("voting-arrow/fc-down.png") no-repeat;
+    background-size: 75%;
+}
+
+#upvote{
+	background: url("voting-arrow/up-arrow.png") no-repeat;
+    background-size: 75%;
+    min-height: 16px;
+    min-width: 16px;
+}
+
+#downvote{
+	background: url("voting-arrow/down-arrow.png") no-repeat;
+    background-size: 75%;
+    min-height: 16px;
+    min-width: 16px;
+    margin-bottom: -10px;
+}
+
+.user-icon {
+    max-width: 40px;
+    max-height: 40px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+}
+  
+.user-info > img {
+    display: inline;
+    padding: 5px;
+}
+
+.user {
+    margin:0;
+    display:flex; 
+    float: left;
+    padding: 5px;
+}
+
+.username, .date-commented{
+    margin: 0px;
+    padding: 2px 5px;
+    margin-left: 5px;
+}
+
+.date-commented{
+    font-size: 14px;
+    padding: 1px 5px;
+    color: #9C9C9C;
+}
+
+.content-comment{
+    padding: 5px; 
+    margin-left: 40px;
+
+}
+
+.reply{
+    display: flex; 
+    flex-direction: row;
+    margin-left: 5px; 
+}
+
+.reply > p{
+    margin: 3px 20px 0px 0px;
+}
+
+#reply{
+    background: url("sprites/Icons/reply.png") no-repeat;
+    background-size: 75%;
+    min-height: 16px;
+    min-width: 16px;
+    margin: 0;
+}
+
+#edit{
+    background: url("sprites/Icons/edit.png") no-repeat;
+    background-size: 75%;
+    min-height: 16px;
+    min-width: 16px;
+    margin: 0;
+}
+
+#delete{
+    background: url("sprites/Icons/delete.png") no-repeat;
+    background-size: 75%;
+    min-height: 16px;
+    min-width: 16px;
+    margin: 0;
+}
+
+.bot-button{
+    color: #FFFFFF;
+    font-family: 'Roboto';
+    background-color: #1758D7;
+    width: 100px;
+    height: 50px;
+    border: 0px;
+    border-radius: 15px;
+    margin: 0px 10px 10px 10px;
+}
+
+.bottom-buttons{
+    margin: 10px 30px 30px 30px;
+    float: right;
+}
+
+a:visited, a{
+    color:black;
+    text-decoration: none;
+}
+
+.posted-by {
+    color: #9C9C9C;
+    font-family: sans-serif;
+    font-size: 1em;
 }

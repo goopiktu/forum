@@ -7,8 +7,12 @@
     <link rel="stylesheet" href="assets/posts.css">
     <link rel="stylesheet" href="assets/navbar.css">
     <link rel="stylesheet" href="assets/root.css">
+    <!-- <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css"> -->
     <!-- <link rel="stylesheet" href="assets/viewpost.css"> -->
-    <script src="assets/src/script.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+   
+    <script src="scripts/script.js" defer></script>
     
 </head>
 
@@ -47,6 +51,8 @@
 
     <input class="Search-bar" type="text" placeholder="Search..">
 
+  
+
     <div class="nav2-container">
       <div class="nav-bar-2">
         <p>Sort By</p>
@@ -57,7 +63,7 @@
           <button class="nav-button">Popular</button>
         </a>
       </div>
-      <button id="signin"     onclick="createPost()" class="create-post">Sign In</button>
+      <button id="signin" onclick="createPost()" class="create-post">Sign In</button>
 
       <!-- <button id="createpost" onclick="createPost()" class="create-post">Create Post</button> -->
     </div>
@@ -66,23 +72,23 @@
     <div class="post-container"> 
 
       <div class="post-fit">
-        <a href="viewpostA.html">
+        <a class="opener">
           <div class="post-item">
             <div class="header-post-item">
               <div>
                 <p class="post-title left-align">Gobblin</p>
                 <div class="author-date">
                   <p class="author left-align">posted by #</p>
-                  <p class="date-posted left-align">1 Day Ago</p>
+                  <p class="outer-date-posted left-align">1 Day Ago</p>
                 </div>
                 
               </div>
-              <div class="total-votes">
-                  <!-- <p class="countUD"><a id="downclicks">0</a></p> -->
-                  <button id="upvote" class="icon" type="button" onclick="increment()"></button>
-                  <p class="count">34</p>
-                  <button id="downvote" class="icon" type="button" onclick="decrement()"></button>
-                  
+              <div class="outer-total-votes">
+                  <button id="outer-upvote" class="outer-arrow" type="button" onclick="increment()"></button>
+                  <p class="outer-count">34</p>
+                  <span class="spacer"></span>
+                  <button id="outer-downvote" class="outer-arrow" type="button" onclick="decrement()"></button>
+                  <p class="outer-count">310</p>
               </div>
           </div>
           <div class="comment-section">
@@ -100,7 +106,7 @@
       </div>
       
     
-      </div>
+      <!-- </div>
       <div class="post-fit">
         <a href="viewpostB.html">
           <div class="post-item">
@@ -147,7 +153,7 @@
               </div>
           </div>
           <div class="comment-section">
-                <!-- <div class="comment">
+                <div class="comment">
                   <p class="top-comment">Top1</p>
                   <p>Hellow Der! </p>
                 </div>
@@ -158,7 +164,7 @@
                 <div class="comment">
                   <p class="top-comment">Top1</p>
                   <p>Ur Gei </p>
-                </div> -->
+                </div>
             </div>
 
         </a>
@@ -220,19 +226,21 @@
                   <p class="top-comment">Me</p>
                   <p></p>
                 </div>
-                <!-- <div class="comment">
+                <div class="comment">
                   <p class="top-comment">Top1</p>
                   <p></p>
-                </div> -->
+                </div>
             </div>
         </a>
       </div>      
-      </div>
+      </div> -->
 
+      <div id = "dialog-4"></div>
+  
       
-  
-  
+      
 
 <body>
+   
 
 </html>
