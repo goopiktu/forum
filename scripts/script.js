@@ -1,23 +1,3 @@
-const user_register = {
-    email: "",
-    text: "",
-    password: "",
-    confirm_pass: "",
-};
-
-
-// const http = require('http');
-
-// const server = http.createServer((req, res) => {
-//     res.statusCode = 200;
-//     console.log("Request url:" + req.url);
-// });
-
-// server.listen(3000, '127.0.0.1', () => {
-//     console.log("Server listening...");
-// });
-
-
 // function home() {
 //     window.location.href="/logged_in.html";
 // }
@@ -61,114 +41,10 @@ for(let i = 0; i < a.length; i += 1) {
     });
 }
 
+$(function() {
 
-
-// document.getElementById("delete").addEventListener("click", (e) => {
-//     remove = !remove;
-// });
-
-
-
-// document.querySelector("#submit-post").addEventListener("click", function(e) {
-//     e.preventDefault();  // Prevents page refresh
-
-//     let name = currentUser.name;
-//     let user = new User(name);  // Create a user based on the current name
-
-//     let title = document.querySelector("input#post-title").value;
-//     let content = document.querySelector("textarea#post-body").value;
-//     let date = document.querySelector("input#post-date").value;
-
-    
-//     if (validateFields(title, content)) {
-//         // HINT: If the number of Posts is ZERO, clear post-container first
-//         if (postCtr === 0) {
-//             document.querySelector("div#post-container").textContent = "";
-//         }
-//         resetFilter();
-//         postCtr = postCtr + 1;
-//         let post = new Post(postCtr, title, content, date, user);
-//         posts.push(post);
-
-//         refreshDisplay(posts);
-//         resetCreatePost();  // Reset the contents of Create Post
-//     }
-// });
-
-
-
-
-// register
-// let user = [];
-
-// let button = document.querySelector("#submit-button");
-// let email = document.getElementById("email");
-// let usernmae = document.getElementById("username");
-// let password = document.getElementById("password");
-// let confirm_pass = document.getElementById("confirm-pass");
-
-
-// button.addEventListener("click", function() {
-
-//     let data = {
-//         "username": usernmae.value,
-//         "email": email.value,
-//         "password": password.value,
-//         "confirm-pass": confirm_pass.value,
-//     }
-
-//     user.push(data);
-
-//     document.forms[0].reset();
-//     console.log(data);
-//     // console.log("Hello");
-// });
-
-// $('#load').click(function () {
-//   $('#content').load('/viewpost/viewpostA.html', function (content) {
-//      $('#content').dialog({
-        
-//         modal: true
-
-        
-//      });
-//      $('#content').dialog('show');
-//   });
-
-// });
-
-
-// $(function() {
-
-//     $( "#dialog-4" ).load('/viewpost/viewpostA.html', function (content) {
-//         $( "#dialog-4" ).dialog({
-//             draggable: false,
-//             autoOpen: false, 
-//             modal: true,
-//             position: {
-//              my: "center",
-//              at: "center"
-//             },
-//             buttons: {
-//                OK: function() {$(this).dialog("close");}
-//             },
-//             width: "50%",
-//          });
-//          $( "#opener-4" ).click(function() {
-//             $( "#dialog-4" ).dialog( "open" );
-//          });
-         
-
-//     }); 
-    
-//  });
-
-
-
- $(function() {
-
-    $( "#dialog-4" ).load('/viewpost/viewpostA.html', function (content) {
-        $( "#dialog-4" ).dialog({
+    $( "#post-display" ).load('/viewpost/viewpostA.html', function (content) {
+        $( "#post-display" ).dialog({
             draggable: false,
             autoOpen: false, 
             modal: true,
@@ -182,17 +58,11 @@ for(let i = 0; i < a.length; i += 1) {
             width: "50%",
          });
          $( ".opener" ).on("click", function() {
-            $( "#dialog-4" ).dialog( "open" );
+            $( "#post-display" ).dialog( "open" );
          });
          
 
     }); 
     
- });
+});
 
-// position: 'relative',
-// height: 'auto',
-// width: '3000px',
-// top: '-17.9883px',
-// left: '-337.488px',
-// display: 'block'
