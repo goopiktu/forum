@@ -1,13 +1,3 @@
-@font-face {
-    font-family: 'Roboto';
-    src: url(sprites/fonts/roboto/Roboto-Black.ttf);
-}
-
-:root {
-    --primary-color: #041536;
-    font-family: 'Roboto';
-    background-color: #041536;
-}
 /*SIGN UP/IN CREATE/EDIT POST*/
 
 .box1 {
