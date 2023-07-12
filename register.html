@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="assets/root.css">
     <link rel="stylesheet" href="assets/sign_posts.css">
-    <script src="assets/script.js" defer></script>
-    
+
+    <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
+    <script src="assets/main.js"></script>
 </head>
 
 <body>
@@ -19,14 +19,14 @@
             </div>
             <form>
                 <div class="inputs">
-                    <input name= "email"         type="email"         id="email"         placeholder="Email">
-                    <input name= "username"      type="username"      id="username"      placeholder="Username">
-                    <input name= "password"      type="password"      id="password"      placeholder="Password">
-                    <input name= "confirm-pass"  type="confirm-pass"  id="confirm-pass"  placeholder="Confirm Password">
+                    <input type="email" id="new-email" placeholder="Email">
+                    <input type="text" id="new-username" placeholder="Username">
+                    <input type="password" id="new-password" placeholder="Password">
+                    <input type="password" id="new-confirm" placeholder="Confirm Password">
                 </div>
                 <div class="bottom">
                     <p>Already have an account? <a href="signIn.html">Sign In</a></p>
-                    <button id="submit-button" type="button">Sign Up</button>
+                    <button onclick="signUp()" type="submit" id="submit-fields">Sign Up</button>
                 </div>    
             </form>
             
