@@ -1,3 +1,9 @@
+// const { response, text } = require("express");
+
+import add from '../index';
+add(head, body);
+
+
 // THIS STUFF IS FOR REGISTER + SIGN UP
 let errorIncomplete = "Please fill up all the fields";
 let errorNotMatch = "The passwords you have entered do not match";
@@ -16,21 +22,74 @@ function decrement() {
 };
 
 
+function createPost() {
+  
 
-const title = document.getElementById('title');
+  var title; 
+  title = post_thoughts();
+  console.log(title);
+  // add_to_screen(title);
+}
 
-title.addEventListener('input', function handleChange(event) {
-  console.log(event.target);
+function post_thoughts() {
+  window.location.href="/createPost.html";
+  let title = document.querySelector('#post-title').value;
+  let body = document.querySelector('#post-body').value;
 
-  console.log(event.target.value);
-});
+  // $(".post-container").load('index.html');
+  
+  // location.replace("logged_in.html");
+  // console.log(title);
+  // console.log(body);
+  // loadIndex();
+  add(title,body);
+  
 
+}
 
+function loadIndex() {
+  fetch('logged_in.html')
+  .then(response=> response.text())
+  .then(text => document.getElementsByClassName('.post-container').innerHTML = text)
+  
+}
 
+function add_to_screen(title) {
 
+  const post = "<div class='post-fit'>" +
+                  "<a class='opener'>" +
+                    "<div class='post-item'>" +
+                      "<div class='header-post-item'>" +
 
+                        "<div>" +
+                          "<p class='post-title left-align'>"+ title + "</p>" +
+                          "<div class='author-date'>" +
+                            "<p class='author left-align'>posted by #</p>" +
+                            "<p class='outer-date-posted left-align'>1 Day Ago</p>" +
+                          "</div>" +
+                        "</div>" +
 
+                        "<div class='outer-total-votes'>" +
+                            "<button id='outer-upvote' class='outer-arrow' type='button' onclick='increment()'></button>" +
+                            "<p class='outer-count'></p>" +
+                            "<span class='spacer'></span>" +
+                            "<button id='outer-downvote' class='outer-arrow' type='button' onclick='decrement()'></button>" +
+                            "<p class='outer-count'></p>" +
+                        "</div>" +
+                    "</div>" +
+                    "<div class='comment-section'>" +
+                          
+                    "</div>" +
+                  "</a>" +
+                "</div>";
 
+  document.querySelector(".post-container").innerHTML += post
+}
+
+// function getQueryParameter(name) {
+//   const urlParams = new URLSearchParams(window.location.search);
+//   return urlParams.get(name);
+// }
 // let post = (event) => {
 //     // console.log(post.value);
 //     var postFit = document.createElement('div');

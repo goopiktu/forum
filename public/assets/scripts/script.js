@@ -6,9 +6,7 @@
 //     window.location.href="/editPost.html";
 // }
 
-// function createPost() {
-//     window.location.href="/createPost.html";
-// }
+
 
 // function editProfile() {
 //     window.location.href="/editProfile.html";

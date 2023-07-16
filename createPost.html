@@ -7,7 +7,11 @@
     <link rel="stylesheet" href="assets/sign_posts.css">
     <link rel="stylesheet" href="assets/root.css">
 
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+    
     <script src="scripts/main.js" defer></script>
+    
     
 </head>
 
@@ -16,21 +20,26 @@
         <div class="boxContent2">
             <h1>Create Post</h1>
             <form id="post-form">
-                <input id="post-title" type="text"  placeholder="Title">
-                <textarea id="post-body" name="post" placeholder="Text"></textarea>
+
+                <div class="inputs">
+                    <input id="post-title" type="text"  placeholder="Title">
+                    <textarea id="post-body" name="post" placeholder="Text"></textarea>
+                </div>
                 
-                <div class="bottom2">
-                    <button onclick="post()" type="submit" id="">Post</button>
+                <div class="bottom-2">
+                    <button onclick="post_thoughts()" type="button" id="submit-fields">Post</button>
                 </div>
             </form>
-            
         </div>
+
+        <div class="post-container"></div>
         
     </div>
 
 
     
 </body>
+
 </html>
 
 <!-- helow whai r u gei  -->
