@@ -86,7 +86,7 @@
 } 
 
 .nav-bar-2{
-    flex-grow: 0.925;
+    flex-grow: 1;
     align-items: center;
     background-color: #D9D9D9;
     padding: 20px;
@@ -115,4 +115,8 @@
     display: flex;
     align-items: center;
     gap: 20px;
+}
+
+#sign-up {
+    min-height: 50px;
 }

@@ -1,69 +1,70 @@
 // imports
 const exp = require('constants');
 const express = require('express');
-const {MongoClient} = require('mongodb');
+const app = express();
 const path = require('path');
+const router = express.Router();
+// const http = require('http');
 
 
-
-
+const {MongoClient} = require('mongodb');
 const uri = "mongodb+srv://aldwin:gsavblsplVmZKem2@forumcluster.xn9ni4j.mongodb.net/?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-const app = express();
+
 //gsavblsplVmZKem2
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(__dirname + '/public'))
 
 
-// app.get('/', (req, res) => {
-//     res.send("Hello");
+// router.get('/', (req,res) => {
+//   res.sendFile('views/index.html', { root: __dirname });
+// });
+ 
+
+// router.get('/register', (req,res) => {
+//   res.sendFile('views/register.html', { root: __dirname });
 // });
 
-// app.get('/api/users', (req, res) => {
-
-//     client
-//     .connect()
-//     .then(client =>
-//       client
-//         .db("test")
-//         .collection("test")
-//         .find()
-//         .toArray()
-//     )
-//     .then(cols => {
-//       res.send(cols);
-//     })
-//     .finally(() => {
-//       client.close();
-//     });
-    
+// router.post('/register', (req, res) => {
+//   console.log('it worked');
+//   res.redirect(302, '/register');
 // });
 
-app.set('views', path.join(__dirname + '/views'));
-app.use(express.static(__dirname + '/public'));
-app.set('view engine', 'ejs');
 
-
-app.get('/home', (req, res) => {
-
-  res.render('index');
+router.get('/register', (req, res) => {
+  res.sendFile('views/register.html', { root: __dirname });
 });
 
-app.listen(3000, () => {
-    console.log("started");
+router.get('/signIn', (req,res) => {
+  res.sendFile('views/signIn.html', { root: __dirname });
 });
 
-// const { MongoClient } = require('mongodb');
+router.get('/', (req, res) => {
+  res.sendFile('views/index.html', { root: __dirname });
+});
 
-// async function main() {
-//     const uri = ""
-// }
-// const server = http.createServer((req, res) => {
-//     res.statusCode = 200;
-//     console.log("Request url:" + req.url);
-// });
 
-// server.listen(3000, '127.0.0.1', () => {
-//     console.log("Server listening...");
-// });
+
+
+//add the router
+app.use('/', router);
+app.listen(process.env.port || 3000);
+ 
+console.log('Running at Port 3000');
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // console.log("HEllo>");

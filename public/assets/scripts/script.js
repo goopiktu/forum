@@ -6,6 +6,15 @@
 //     window.location.href="/editPost.html";
 // }
 
+const register = document.getElementById('sign-up');
+if(register) {
+    register.addEventListener('click', function(e) {
+        console.log("clicked");
+        fetch('/register', {method: 'POST'})
+    });
+    
+}
+
 
 
 // function editProfile() {
@@ -39,28 +48,28 @@ for(let i = 0; i < a.length; i += 1) {
     });
 }
 
-$(function() {
+// $(function() {
 
-    $( "#post-display" ).load('/viewpost/viewpostA.html', function (content) {
-        $( "#post-display" ).dialog({
-            draggable: false,
-            autoOpen: false, 
-            modal: true,
-            position: {
-             my: "center",
-             at: "center"
-            },
-            buttons: {
-               OK: function() {$(this).dialog("close");}
-            },
-            width: "50%",
-         });
-         $( ".opener" ).on("click", function() {
-            $( "#post-display" ).dialog( "open" );
-         });
+//     $( "#post-display" ).load('viewpost/viewpostA.html', function (content) {
+//         $( "#post-display" ).dialog({
+//             draggable: false,
+//             autoOpen: false, 
+//             modal: true,
+//             position: {
+//              my: "center",
+//              at: "center"
+//             },
+//             buttons: {
+//                OK: function() {$(this).dialog("close");}
+//             },
+//             width: "50%",
+//          });
+//          $( ".opener" ).on("click", function() {
+//             $( "#post-display" ).dialog( "open" );
+//          });
          
 
-    }); 
+//     }); 
     
-});
+// });
 

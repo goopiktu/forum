@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="assets/posts.css">
-    <link rel="stylesheet" type="text/css" href="assets/navbar.css">
-    <link rel="stylesheet" type="text/css" href="assets/root.css">
+    <link rel="stylesheet" href="assets/posts.css">
+    <link rel="stylesheet" href="assets/navbar.css">
+    <link rel="stylesheet" href="assets/root.css">
     
-    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js" defer></script>
+    <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js" defer></script>
    
     <script src="assets/scripts/script.js" defer></script>
     
@@ -40,7 +40,7 @@
           </a>
         </div> -->
 
-        <a href="#">
+        <a href="/signIn">
           <button id="login" class="nav-button right-nav">Login</button>
         </a>
         
@@ -62,7 +62,10 @@
           <button class="nav-button">Popular</button>
         </a>
       </div>
-      <button id="signin" class="create-post">Sign In</button>
+      <a href="/register" class="nav-bar-2-outbutton">
+        <button id="sign-up" class="create-post">Sign Up</button>
+      </a>
+      
 
       <!-- <button id="createpost" onclick="createPost()" class="create-post">Create Post</button> -->
     </div>
