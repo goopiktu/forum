@@ -159,15 +159,11 @@ async function add(head, body, list) {
     function: checks if the input is complete & if passwords match
 */
 function validateFieldsReg(email, username, password, confirm) {
-  if (email === "") {
+  if (email === "" || username === "") {
       // showError(errorIncomplete);
       return false;
   }
-  if (username === "") {
-      // showError(errorIncomplete);
-      return false;
-  }
-  if (password === "") {
+  if (password === "" || password.length < 8) {
       // showError(errorIncomplete);
       return false;
   }

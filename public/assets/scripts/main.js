@@ -1,6 +1,7 @@
 // THIS STUFF IS FOR REGISTER + SIGN UP
 let errorIncomplete = "Please fill up all the fields";
 let errorNotMatch = "The passwords you have entered do not match";
+let errorShort = "Your password needs to be at least 8 characters";
 
 //THIS FOR UP AND DOWNVOTE
 var upclicks = 0;
@@ -157,6 +158,10 @@ function validateFieldsReg(email, username, password, confirm) {
     }
     if (confirm === "") {
         showError(errorIncomplete);
+        return false;
+    }
+    if (password.length < 8){
+        showError(errorShort);
         return false;
     }
     if (password !== confirm) {
