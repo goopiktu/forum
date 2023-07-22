@@ -32,6 +32,11 @@ app.use(express.static(__dirname + '/public'))
 // });
 
 
+// temporary way of getting to the html file will soon dynamically change
+router.get('/profile', (req, res) => {
+  res.sendFile('views/profile.html', { root: __dirname });
+});
+
 router.get('/register', (req, res) => {
   res.sendFile('views/register.html', { root: __dirname });
 });
@@ -71,6 +76,7 @@ router.get('/editPost', (req, res) => {
 router.get('/reply', (req, res) => {
   res.sendFile('views/reply.html', { root: __dirname });
 });
+
 
 
 
