@@ -17,26 +17,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'))
 
 
-// router.get('/', (req,res) => {
-//   res.sendFile('views/index.html', { root: __dirname });
-// });
- 
-
-// router.get('/register', (req,res) => {
-//   res.sendFile('views/register.html', { root: __dirname });
-// });
-
-// router.post('/register', (req, res) => {
-//   console.log('it worked');
-//   res.redirect(302, '/register');
-// });
-
-
-// temporary way of getting to the html file will soon dynamically change
-router.get('/profile', (req, res) => {
-  res.sendFile('views/profile.html', { root: __dirname });
-});
-
 router.get('/register', (req, res) => {
   res.sendFile('views/register.html', { root: __dirname });
 });
@@ -77,8 +57,12 @@ router.get('/reply', (req, res) => {
   res.sendFile('views/reply.html', { root: __dirname });
 });
 
+// way to dynamically route html pages 
 
-
+router.get('/post/:id', (req , res) => {
+  console.log(req.params.id);
+  res.sendFile('views/post/' + req.params.id + '.html', { root: __dirname });
+});
 
 
 
