@@ -48,9 +48,32 @@ router.get('/logged_in', (req, res) => {
   res.sendFile('views/logged_in.html', { root: __dirname });
 });
 
-router.get('/createPost', (req, res) => {
-  res.sendFile('views/createPost.html', { root: __dirname });
+router.get('/profile', (req, res) => {
+  res.sendFile('views/profile.html', { root: __dirname });
 });
+
+router.get('/createPost', (req, res) => {
+  res.sendFile('views/other/createPost.html', { root: __dirname });
+});
+
+router.get('/editProfile', (req, res) => {
+  res.sendFile('views/other/editProfile.html', { root: __dirname });
+});
+
+router.get('/editComment', (req, res) => {
+  res.sendFile('views/other/editComment.html', { root: __dirname });
+});
+
+router.get('/editPost', (req, res) => {
+  res.sendFile('views/editPost.html', { root: __dirname });
+});
+
+router.get('/reply', (req, res) => {
+  res.sendFile('views/reply.html', { root: __dirname });
+});
+
+
+
 
 
 // switching from sign in to register and vice versa doesnt work 
