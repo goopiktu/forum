@@ -18,7 +18,7 @@
                 <img src="assets/sprites/Arryn House.png">
                 <h2>Sign Up</h2>
             </div>
-            <form>
+            <form onsubmit="signUp()" name="regForm">
                 <div class="inputs">
                     <input type="email" id="new-email" placeholder="Email">
                     <input type="text" id="new-username" placeholder="Username">
@@ -27,7 +27,7 @@
                 </div>
                 <div class="bottom">
                     <p>Already have an account? <a href="signIn.html">Sign In</a></p>
-                    <button onclick="signUp()" type="submit" id="submit-fields">Sign Up</button>
+                    <button type="submit" id="submit-fields">Sign Up</button>
                 </div>    
             </form>
             
