@@ -5,17 +5,27 @@ const app = express();
 const path = require('path');
 const router = express.Router();
 // const http = require('http');
-
-
+const mongoose = require("mongoose");
 const {MongoClient} = require('mongodb');
 const uri = "mongodb+srv://aldwin:gsavblsplVmZKem2@forumcluster.xn9ni4j.mongodb.net/?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+const client = new MongoClient(uri);
+
+
+// mongoose.connect(uri, {
+//     useNewUrlParser:true, useUnifiedTopology:true
+// }, (err) => {
+//     if(err) {
+//         console.log(err);
+//     } else {
+//         console.log("successfully connected");
+//     }
+// });
+
 
 //gsavblsplVmZKem2
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'))
-
 
 router.get('/register', (req, res) => {
   res.sendFile('views/register.html', { root: __dirname });
@@ -77,7 +87,7 @@ console.log('Running at Port 3000');
 
 // console.log("HEllo>");
 async function add(head, body) {
-  const myDB = client.db("posts");
+  const myDB = client.db("node_forum");
   const myColl = myDB.collection("userposts");
 
   const doc = {Title: head, Body: body};
@@ -86,6 +96,8 @@ async function add(head, body) {
     'A document was inserted with the _id: ${result.insertedId}',
   );
 }
+
+add("testing", "testing")
 
 
 
