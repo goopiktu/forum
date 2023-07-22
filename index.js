@@ -36,16 +36,20 @@ router.get('/register', (req, res) => {
   res.sendFile('views/register.html', { root: __dirname });
 });
 
-router.get('/signIn', (req,res) => {
-  res.sendFile('views/signIn.html', { root: __dirname });
-});
-
-router.get('/', (req, res) => {
+router.get('/', (req,res) => {
   res.sendFile('views/index.html', { root: __dirname });
 });
 
+router.get('/guest_view', (req, res) => {
+  res.sendFile('views/guest_view.html', { root: __dirname });
+});
+
+router.get('/logged_in', (req, res) => {
+  res.sendFile('views/logged_in.html', { root: __dirname });
+});
 
 
+// switching from sign in to register and vice versa doesnt work 
 
 //add the router
 app.use('/', router);

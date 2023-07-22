@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/posts.css">
+    <link rel="stylesheet" href="assets/navbar.css">
+    <link rel="stylesheet" href="assets/root.css">
+    
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js" defer></script>
+    <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js" defer></script>
+   
+    <script src="assets/scripts/script.js" defer></script>
+    
+</head>
+
+<body>
+  <div class="content">
+    <div class="header">
+      <div class="header-parts">
+        <img class="logo" src="assets/sprites/Arryn House.png" alt="icon"></img> <!-- Supposed to be an icon -->
+        <a href="#">
+          <button class="nav-button">Home</button>
+        </a>
+        <a href="#">
+          <button class="nav-button">Forum</button>
+        </a>
+      </div>
+      
+      <div class="header-parts">
+        
+        <!-- <a href="#">
+          <button onclick="openProfile()" class="nav-button right-nav">Profile</button>
+        </a>
+        <div class="img-logout">
+          <img class="icon" src="assets/sprites/myProfile_pic.png" alt="profile_pic">
+          <a href="#">
+            <button class="nav-button right-nav" >Logout</button>
+          </a>
+        </div> -->
+
+        <a href="/">
+          <button id="login" class="nav-button right-nav">Login</button>
+        </a>
+        
+        
+      </div> 
+    </div>
+
+    <input class="Search-bar" type="text" placeholder="Search..">
+
+  
+
+    <div class="nav2-container">
+      <div class="nav-bar-2">
+        <p>Sort By</p>
+        <a href="#">
+          <button class="nav-button">Recent</button>
+        </a>
+        <a href="#">
+          <button class="nav-button">Popular</button>
+        </a>
+      </div>
+      <a href="/register" class="nav-bar-2-outbutton">
+        <button id="sign-up" class="create-post">Sign Up</button>
+      </a>
+      
+
+      <!-- <button id="createpost" onclick="createPost()" class="create-post">Create Post</button> -->
+    </div>
+
+  
+    <div class="post-container"> 
+
+      <div class="post-fit">
+        <a class="opener">
+          <div class="post-item">
+            <div class="header-post-item">
+              <div>
+                <p class="post-title left-align">Gobblin</p>
+                <div class="author-date">
+                  <p class="author left-align">posted by #</p>
+                  <p class="outer-date-posted left-align">1 Day Ago</p>
+                </div>
+                
+              </div>
+              <div class="outer-total-votes">
+                  <button id="outer-upvote" class="outer-arrow" type="button" onclick="increment()"></button>
+                  <p class="outer-count">34</p>
+                  <span class="spacer"></span>
+                  <button id="outer-downvote" class="outer-arrow" type="button" onclick="decrement()"></button>
+                  <p class="outer-count">310</p>
+              </div>
+          </div>
+          <div class="comment-section">
+                <div class="comment" >
+                  <p class="top-comment">Turtle</p>
+                </div>
+                <div class="comment" >
+                  <p class="top-comment">Whale</p>
+                </div>
+                <div class="comment" >
+                  <p class="top-comment">Snake</p>
+                </div>
+           </div>
+        </a>
+      </div>
+      
+    
+      <!-- </div>
+      <div class="post-fit">
+        <a href="viewpostB.html">
+          <div class="post-item">
+            <div class="header-post-item">
+              <div>
+                  <p class="post-title left-align">Whos Joe?</p>
+                  <p class="date-posted left-align">3 Days Ago</p>
+              </div>
+              <div class="total-votes">
+                  <p class="count">1.5k</p><img class="arrow" src="assets/voting-arrow/up-arrow.png" alt="Up-Arrow">
+                  <p class="count">100</p> <img class="arrow" src="assets/voting-arrow/down-arrow.png" alt="Down-Arrow">
+              </div>
+          </div>
+          <div class="comment-section">
+                <div class="comment">
+                  <p class="top-comment">Me</p>
+                  <p></p>
+                </div>
+                <div class="comment">
+                  <p class="top-comment">#1 Wamen Lover</p>
+                  <p></p>
+                </div>
+                <div class="comment">
+                  <p class="top-comment">Baldwin</p>
+                  <p></p>
+                </div>
+          </div>
+        </a>
+      </div>
+
+      </div>
+
+      <div class="post-fit">
+        <a href="viewpostC.html">
+          <div class="post-item">
+            <div class="header-post-item">
+              <div>
+                  <p class="post-title left-align">PB&J</p>
+                  <p class="date-posted left-align">Just now</p>
+              </div>
+              <div class="total-votes">
+                  <p class="count">0</p><img class="arrow" src="assets/voting-arrow/up-arrow.png" alt="Up-Arrow">
+                  <p class="count">0</p> <img class="arrow" src="assets/voting-arrow/down-arrow.png" alt="Down-Arrow">
+              </div>
+          </div>
+          <div class="comment-section">
+                <div class="comment">
+                  <p class="top-comment">Top1</p>
+                  <p>Hellow Der! </p>
+                </div>
+                <div class="comment">
+                  <p class="top-comment">Top2</p>
+                  <p>Owgei </p>
+                </div>
+                <div class="comment">
+                  <p class="top-comment">Top1</p>
+                  <p>Ur Gei </p>
+                </div>
+            </div>
+
+        </a>
+        
+      </div>
+      </div>
+      
+      <div class="post-fit">
+        <a href="viewpostD.html">
+          <div class="post-item">
+            <div class="header-post-item">
+              <div>
+                  <p class="post-title left-align">CALCULUS!! &gt.&lt</p>
+                  <p class="date-posted left-align">2 Days Ago</p>
+              </div>
+              <div class="total-votes">
+                  <p class="count">304</p><img class="arrow" src="assets/voting-arrow/up-arrow.png" alt="Up-Arrow">
+                  <p class="count">49</p> <img class="arrow" src="assets/voting-arrow/down-arrow.png" alt="Down-Arrow">
+              </div>
+            </div>
+          <div class="comment-section">
+                <div class="comment">
+                  <p class="top-comment">Giraffe</p>
+                  <p></p>
+                </div>
+                <div class="comment">
+                  <p class="top-comment">Octopus</p>
+                  <p></p>
+                </div>
+                <div class="comment">
+                  <p class="top-comment">Snake</p>
+                  <p></p>
+                </div>
+          </div>
+        </a>
+        
+      </div>
+        </div>
+
+      <div class="post-fit">
+        <a href="viewpostE.html">
+          <div class="post-item">
+            <div class="header-post-item">
+              <div>
+                  <p class="post-title left-align">LAMP!</p>
+                  <p class="date-posted left-align">6 Days Ago</p>
+              </div>
+              <div class="total-votes">
+                  <p class="count">150</p><img class="arrow" src="assets/voting-arrow/up-arrow.png" alt="Up-Arrow">
+                  <p class="count">30</p> <img class="arrow" src="assets/voting-arrow/down-arrow.png" alt="Down-Arrow">
+              </div>
+          </div>
+          <div class="comment-section">
+                <div class="comment">
+                  <p class="top-comment">Turtle</p>
+                  <p></p>
+                </div>
+                <div class="comment">
+                  <p class="top-comment">Me</p>
+                  <p></p>
+                </div>
+                <div class="comment">
+                  <p class="top-comment">Top1</p>
+                  <p></p>
+                </div>
+            </div>
+        </a>
+      </div>      
+      </div> -->
+
+      <div id = "post-display"></div>
+  
+      
+      
+
+<body>
+   
+
+</html>

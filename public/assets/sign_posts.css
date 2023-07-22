@@ -7,6 +7,7 @@
     display: flex;
     width: 80%;
     height: 80%;
+    min-width: 370px;
     max-width: 600px;
 }
 
@@ -19,7 +20,8 @@
     flex-direction: column;
     margin: 20px auto;
     /* background-color: yellow; */
-    width: 80%;
+    width: 85%;
+    min-width: 370px;
     height: 60%;
 }
 
@@ -79,7 +81,9 @@ button{
     float: right;
     border-width: 0px;
     font-family: 'Roboto';
+    align-self: center;
 }
+
 
 #title {
     height: 5%;
