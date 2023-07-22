@@ -66,7 +66,7 @@ router.post('/', (req, res) => {
     console.log("added user?");
     res.redirect('/');
   }
-  
+  res.redirect('/');
   // req
 });
 
@@ -151,6 +151,8 @@ async function add(head, body, list) {
 //     console.log('Saved!');
 //   });
 
+//======================================================================NOT SURE IF DIS SHUD BE HERE PERO BAHALA
+
 // THIS STUFF IS FOR REGISTER + SIGN UP
 
 /*  validateFields
@@ -158,29 +160,29 @@ async function add(head, body, list) {
 */
 function validateFieldsReg(email, username, password, confirm) {
   if (email === "") {
-      showError(errorIncomplete);
+      // showError(errorIncomplete);
       return false;
   }
   if (username === "") {
-      showError(errorIncomplete);
+      // showError(errorIncomplete);
       return false;
   }
   if (password === "") {
-      showError(errorIncomplete);
+      // showError(errorIncomplete);
       return false;
   }
   if (confirm === "") {
-      showError(errorIncomplete);
+      // showError(errorIncomplete);
       return false;
   }
   if (password !== confirm) {
-      showError(errorNotMatch);
+      // showError(errorNotMatch);
       return false;
   }
   return true;
 }
 
-function showError(errorTxt) {
-  // document.querySelector("#post-error").innerHTML = errorSep + "[ERROR]    " + "<span>" + errorText + "</span>" + "    !     ";
-  console.log(errorTxt);
-}
+// function showError(errorTxt) {
+//   // document.querySelector("#post-error").innerHTML = errorSep + "[ERROR]    " + "<span>" + errorText + "</span>" + "    !     ";
+//   console.log(errorTxt);
+// }
