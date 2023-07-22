@@ -7,10 +7,11 @@
     <link rel="stylesheet" href="assets/sign_posts.css">
     <link rel="stylesheet" href="assets/root.css">
 
-    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script> -->
     
-    <script src="scripts/main.js" defer></script>
+    <script src="assets/scripts/script.js" defer></script>
+    <script src="assets/scripts/main.js" defer></script>
     
     
 </head>
@@ -25,8 +26,10 @@
                     <input id="post-title" type="text"  placeholder="Title">
                     <textarea id="post-body" name="post" placeholder="Text"></textarea>
                 </div>
-                
                 <div class="bottom-2">
+                    <a href="logged_in">
+                        <button class="back">Back</button>
+                    </a>
                     <button onclick="post_thoughts()" type="button" id="submit-fields">Post</button>
                 </div>
             </form>

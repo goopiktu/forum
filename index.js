@@ -48,6 +48,10 @@ router.get('/logged_in', (req, res) => {
   res.sendFile('views/logged_in.html', { root: __dirname });
 });
 
+router.get('/createPost', (req, res) => {
+  res.sendFile('views/createPost.html', { root: __dirname });
+});
+
 
 // switching from sign in to register and vice versa doesnt work 
 

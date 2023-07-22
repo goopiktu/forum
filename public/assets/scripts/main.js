@@ -23,8 +23,6 @@ function decrement() {
 
 
 function createPost() {
-  
-
   var title; 
   title = post_thoughts();
   console.log(title);
@@ -32,7 +30,7 @@ function createPost() {
 }
 
 function post_thoughts() {
-  window.location.href="/createPost.html";
+  window.location.href="/createPost";
   let title = document.querySelector('#post-title').value;
   let body = document.querySelector('#post-body').value;
 
