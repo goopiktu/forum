@@ -32,6 +32,11 @@ app.use(express.static(__dirname + '/public'))
 // });
 
 
+// temporary way of getting to the html file will soon dynamically change
+router.get('/profile', (req, res) => {
+  res.sendFile('views/profile.html', { root: __dirname });
+});
+
 router.get('/register', (req, res) => {
   res.sendFile('views/register.html', { root: __dirname });
 });
@@ -51,6 +56,7 @@ router.get('/logged_in', (req, res) => {
 router.get('/createPost', (req, res) => {
   res.sendFile('views/createPost.html', { root: __dirname });
 });
+
 
 
 // switching from sign in to register and vice versa doesnt work 
