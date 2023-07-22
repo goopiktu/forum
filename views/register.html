@@ -18,7 +18,7 @@
                 <img src="assets/sprites/Arryn House.png">
                 <h2>Sign Up</h2>
             </div>
-            <form>
+            <form onsubmit="signUp()" name="regForm">
                 <div class="inputs">
                     <input type="email" id="new-email" placeholder="Email">
                     <input type="text" id="new-username" placeholder="Username">
@@ -26,11 +26,8 @@
                     <input type="password" id="new-confirm" placeholder="Confirm Password">
                 </div>
                 <div class="bottom">
-                    <div>
-                        <p>Already have an account? <a href="/">Sign In</a></p>
-                        <p>Too lazy to make an account? <a href="guest_view">Sign in as guest</a></p>
-                    </div>
-                    <button onclick="signUp()" type="submit" id="submit-fields">Sign Up</button>
+                    <p>Already have an account? <a href="signIn.html">Sign In</a></p>
+                    <button type="submit" id="submit-fields">Sign Up</button>
                 </div>    
             </form>
             

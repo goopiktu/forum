@@ -1,7 +1,7 @@
 // const { response, text } = require("express");
 
 // import add from '../../../index';
-add(head, body);
+// add(head, body);
 
 
 // THIS STUFF IS FOR REGISTER + SIGN UP
