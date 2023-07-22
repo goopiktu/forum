@@ -5,7 +5,7 @@ let postTemp = document.querySelector("#contentTemp").innerHTML;
 let posttempFunc = Handlebars.compile(postTemp);
 
 let temp1obj1 = {
-    content:"This part here can incorporate HTML tags",
+    content:"This part here can ow HTML tags",
   };
 
 let temp1FromObj1 = posttempFunc(temp1obj1);

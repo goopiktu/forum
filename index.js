@@ -122,11 +122,11 @@ console.log('Running at Port 3000');
 
 
 // console.log("HEllo>");
-async function add(head, body) {
+async function add(head, body, list) {
   const myDB = client.db("node_forum");
   const myColl = myDB.collection("userposts");
 
-  const doc = {Title: head, Body: body};
+  const doc = {Title: head, Body: body, List: list};
   const result = await myColl.insertOne(doc);
   console.log(
     'A document was inserted with the _id: ${result.insertedId}',
@@ -135,14 +135,14 @@ async function add(head, body) {
 
 
 
-// add("testing", "testing")
+// const cars = ["Saab", "Volvo", "BMW"];
 
 // var fs = require('fs');
 
-// fs.appendFile('mynewfile1.txt', 'Hello content!', function (err) {
-//     if (err) throw err;
-//     console.log('Saved!');
-//   });
+fs.appendFile('mynewfile1.txt', 'Hello content!', function (err) {
+    if (err) throw err;
+    console.log('Saved!');
+  });
 
 
 
