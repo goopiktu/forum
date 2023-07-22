@@ -31,7 +31,6 @@ a:visited , a{
 }
 
 
-
 .logo {
     margin: 3px 10px 5px 10px;
     min-height: 55px;
@@ -261,11 +260,11 @@ body{
 
 .post{
     background-color: #FFFFFF;
-    height: 100%;
-    width: 100%;
-    /* border-radius: 20px; */
+    height: 90%;
+    width: 90%;
+    border-radius: 20px;
     position: relative;
-    /* margin: 45px 0px; */
+    margin: 50px 0px;
 }
 
 .post-header{
@@ -273,7 +272,7 @@ body{
     justify-content: space-between;
     min-width: 200px;
     padding: 30px;
-    /* margin: 10px; */
+    margin: 10px;
 }
 
 .title{
@@ -304,12 +303,12 @@ body{
     border-radius: 20px;
 }
 
-#title > p{
+#content > p{
     padding: 10px;
     font-size: 20px;
 }
  
-#title{
+#content{
     background-color: #EAEAEA;
 }
 

@@ -67,6 +67,10 @@ router.get('/reply', (req, res) => {
   res.sendFile('views/reply.html', { root: __dirname });
 });
 
+router.get('/viewpostTemp', (req, res) => {
+  res.sendFile('views/viewpostTemp.html', { root: __dirname });
+});
+
 // way to dynamically route html pages 
 
 router.get('/post/:id', (req , res) => {
@@ -99,12 +103,12 @@ async function add(head, body) {
 
 add("testing", "testing")
 
-var fs = require('fs');
+// var fs = require('fs');
 
-fs.appendFile('mynewfile1.txt', 'Hello content!', function (err) {
-    if (err) throw err;
-    console.log('Saved!');
-  });
+// fs.appendFile('mynewfile1.txt', 'Hello content!', function (err) {
+//     if (err) throw err;
+//     console.log('Saved!');
+//   });
 
 
 
