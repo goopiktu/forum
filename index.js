@@ -61,11 +61,13 @@ router.post('/', (req, res) => {
     password: req.body.password,
     confirm: req.body.confirm
   });
-  if (validateFieldsReg(req.body.email,req.body.username,req.body.password,req.body.confirm)){
-    myColl.insertOne(newUser);
-    console.log("added user?");
-    res.redirect('/');
-  }
+  // if (validateFieldsReg(req.body.email,req.body.username,req.body.password,req.body.confirm)){
+  //   myColl.insertOne(newUser);
+  //   console.log("added user?");
+  //   res.redirect('/');
+  // }
+  myColl.insertOne(newUser);
+  console.log("added user?");
   res.redirect('/');
   // req
 });
@@ -179,10 +181,17 @@ function validateFieldsReg(email, username, password, confirm) {
       // showError(errorNotMatch);
       return false;
   }
+  if (!uniqueUsername(username)){
+    return false;
+  }
   return true;
 }
 
-// function showError(errorTxt) {
-//   // document.querySelector("#post-error").innerHTML = errorSep + "[ERROR]    " + "<span>" + errorText + "</span>" + "    !     ";
-//   console.log(errorTxt);
-// }
+function uniqueUsername(name){
+  testName = userinfo.find({username:name});
+  if (testName !== null){
+    return false;
+  }
+  return true;
+}
+
