@@ -75,19 +75,6 @@ app.listen(process.env.port || 3000);
 console.log('Running at Port 3000');
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 // console.log("HEllo>");
 async function add(head, body) {
   const myDB = client.db("posts");
@@ -99,5 +86,8 @@ async function add(head, body) {
     'A document was inserted with the _id: ${result.insertedId}',
   );
 }
+
+
+
 
 
