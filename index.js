@@ -4,13 +4,15 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const router = express.Router();
+const bodyParser = require("body-parser");
 // const http = require('http');
-const mongoose = require("mongoose");
+var mongoose = require('mongoose');
+var schema = mongoose.Schema;
 const {MongoClient} = require('mongodb');
 const uri = "mongodb+srv://aldwin:gsavblsplVmZKem2@forumcluster.xn9ni4j.mongodb.net/?retryWrites=true&w=majority";
-const client = new MongoClient(uri);
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
-
+app.use(bodyParser.urlencoded({extended: true}));
 // mongoose.connect(uri, {
 //     useNewUrlParser:true, useUnifiedTopology:true
 // }, (err) => {
@@ -22,13 +24,43 @@ const client = new MongoClient(uri);
 // });
 
 
+const userinfoSchema = {
+
+  email: String,
+  username: String,
+  password: String,
+  confirm: String
+}
+
+const userinfo = mongoose.model("userinfo", userinfoSchema);
+
 //gsavblsplVmZKem2
+
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'))
 
-router.get('/register', (req, res) => {
+router.get('/', (req, res) => {
   res.sendFile('views/register.html', { root: __dirname });
+});
+
+//Add to database
+const myDB = client.db("node_forum");
+const myColl = myDB.collection("userinfo");
+
+router.post('/', (req, res) => {
+  
+  let newUser = new userinfo({
+    email: req.body.email,
+    username: req.body.username,
+    password: req.body.password,
+    confirm: req.body.confirm
+  });
+  myColl.insertOne(newUser);
+  console.log("added user?");
+  res.redirect('/');
+  // req
 });
 
 router.get('/', (req,res) => {
@@ -101,14 +133,16 @@ async function add(head, body) {
   );
 }
 
+
+
 // add("testing", "testing")
 
 // var fs = require('fs');
 
-fs.appendFile('mynewfile1.txt', 'Hello content!', function (err) {
-    if (err) throw err;
-    console.log('Saved!');
-  });
+// fs.appendFile('mynewfile1.txt', 'Hello content!', function (err) {
+//     if (err) throw err;
+//     console.log('Saved!');
+//   });
 
 
 
