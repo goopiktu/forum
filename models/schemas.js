@@ -1,9 +1,6 @@
 var mongoose = require('mongoose');
 var schema = mongoose.Schema;
-
-
-
-const db = require('mongodb');
+const {MongoClient} = require('mongodb');
 const uri = "mongodb+srv://aldwin:gsavblsplVmZKem2@forumcluster.xn9ni4j.mongodb.net/?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -13,15 +10,25 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 // const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 
-try {
-    mongoose.connect(uri, 
-        {useNewUrlParser: true, useUnifiedTopology: true},
-        () => console.log(" Mongoose is connected"));
-} catch (e) {
-    console.log("could not connect");
+
+// try {
+//     mongoose.connect(uri, 
+//         {useNewUrlParser: true, useUnifiedTopology: true},
+//         () => console.log(" Mongoose is connected"));
+// } catch (e) {
+//     console.log("could not connect");
+// }
+
+async function add(head, body) {
+    const myDB = client.db("node_forum");
+    const myColl = myDB.collection("userposts");
+  
+    const doc = {Title: head, Body: body};
+    const result = await myColl.insertOne(doc);
+    console.log(
+      'A document was inserted with the _id: ${result.insertedId}',
+    );
 }
-
-
 
 
 

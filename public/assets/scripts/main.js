@@ -2,7 +2,7 @@
 
 // import add from '../../../index';
 // add(head, body);
-
+import userinfoSchema from "../../../models/schemas";
 
 // THIS STUFF IS FOR REGISTER + SIGN UP
 let errorIncomplete = "Please fill up all the fields";
@@ -190,12 +190,20 @@ function showError(errorTxt) {
 }
 
 function signUp(){
-    let email = document.querySelector("input#new-email").value;
-    let username = document.querySelector("input#new-username").value;
-    let password = document.querySelector("input#new-password").value;
-    let confirm = document.querySelector("input#new-confirm").value;
-    if (validateFieldsReg(email, username, password, confirm)) {
-        alert("UY GUMANA YUNG SUBMIT up");
+    let input_email = document.querySelector("input#new-email").value;
+    let input_username = document.querySelector("input#new-username").value;
+    let input_password = document.querySelector("input#new-password").value;
+    let input_confirm = document.querySelector("input#new-confirm").value;
+    if (validateFieldsReg(input_email, input_username, input_password, input_confirm)) {
+      
+      const user = {
+        email: input_email,
+        username: input_username,
+        password: input_password,
+      };     
+
+      userinfoSchema.userinfo.collection.insertOne(user);
+      alert("UY GUMANA YUNG SUBMIT up");
     }
 }
 
