@@ -12,6 +12,10 @@ const {MongoClient} = require('mongodb');
 const uri = "mongodb+srv://aldwin:gsavblsplVmZKem2@forumcluster.xn9ni4j.mongodb.net/?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
+// THIS STUFF IS FOR REGISTER + SIGN UP
+let errorIncomplete = "Please fill up all the fields";
+let errorNotMatch = "The passwords you have entered do not match";
+
 app.use(bodyParser.urlencoded({extended: true}));
 // mongoose.connect(uri, {
 //     useNewUrlParser:true, useUnifiedTopology:true
@@ -57,9 +61,12 @@ router.post('/', (req, res) => {
     password: req.body.password,
     confirm: req.body.confirm
   });
-  myColl.insertOne(newUser);
-  console.log("added user?");
-  res.redirect('/');
+  if (validateFieldsReg(req.body.email,req.body.username,req.body.password,req.body.confirm)){
+    myColl.insertOne(newUser);
+    console.log("added user?");
+    res.redirect('/');
+  }
+  
   // req
 });
 
@@ -139,11 +146,41 @@ async function add(head, body, list) {
 
 // var fs = require('fs');
 
-fs.appendFile('mynewfile1.txt', 'Hello content!', function (err) {
-    if (err) throw err;
-    console.log('Saved!');
-  });
+// fs.appendFile('mynewfile1.txt', 'Hello content!', function (err) {
+//     if (err) throw err;
+//     console.log('Saved!');
+//   });
 
+// THIS STUFF IS FOR REGISTER + SIGN UP
 
+/*  validateFields
+    function: checks if the input is complete & if passwords match
+*/
+function validateFieldsReg(email, username, password, confirm) {
+  if (email === "") {
+      showError(errorIncomplete);
+      return false;
+  }
+  if (username === "") {
+      showError(errorIncomplete);
+      return false;
+  }
+  if (password === "") {
+      showError(errorIncomplete);
+      return false;
+  }
+  if (confirm === "") {
+      showError(errorIncomplete);
+      return false;
+  }
+  if (password !== confirm) {
+      showError(errorNotMatch);
+      return false;
+  }
+  return true;
+}
 
-
+function showError(errorTxt) {
+  // document.querySelector("#post-error").innerHTML = errorSep + "[ERROR]    " + "<span>" + errorText + "</span>" + "    !     ";
+  console.log(errorTxt);
+}
