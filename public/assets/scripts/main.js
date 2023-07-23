@@ -16,7 +16,6 @@ function decrement() {
     document.getElementById("downclicks").innerHTML = downclicks;
 };
 
-
 function createPost() {
   var title; 
   title = post_thoughts();
@@ -143,32 +142,38 @@ function add_to_screen(title) {
 /*  validateFields
     function: checks if the input is complete & if passwords match
 */
+
 function validateFieldsReg(email, username, password, confirm) {
-    if (email === "") {
-        showError(errorIncomplete);
-        return false;
-    }
-    if (username === "") {
-        showError(errorIncomplete);
-        return false;
-    }
-    if (password === "") {
-        showError(errorIncomplete);
-        return false;
-    }
-    if (confirm === "") {
-        showError(errorIncomplete);
-        return false;
-    }
-    if (password.length < 8){
-        showError(errorShort);
-        return false;
-    }
-    if (password !== confirm) {
-        showError(errorNotMatch);
-        return false;
-    }
-    return true;
+  if (email === "" || username === "") {
+      // showError(errorIncomplete);
+      return false;
+  }
+  if (password === "" || password.length < 8) {
+      // showError(errorIncomplete);
+      return false;
+  }
+  if (confirm === "") {
+      // showError(errorIncomplete);
+      return false;
+  }
+  if (password !== confirm) {
+      // showError(errorNotMatch);
+      return false;
+  }
+  // if (!uniqueUsername(username)){
+  //   return false;
+  // }
+  return true;
+}
+
+function validateFieldCreatePost(title, body) {
+  if (title === "") {
+      return false;
+  }
+  if (body === "") {
+      return false;
+  }
+  return true;
 }
 
 function validateFieldSignIn(username, password) {
@@ -177,18 +182,6 @@ function validateFieldSignIn(username, password) {
       return false;
   }
   if (password === "") {
-      showError(errorIncomplete);
-      return false;
-  }
-  return true;
-}
-
-function validateFieldCreatePost(title, body) {
-  if (title === "") {
-      showError(errorIncomplete);
-      return false;
-  }
-  if (body === "") {
       showError(errorIncomplete);
       return false;
   }
@@ -212,11 +205,11 @@ function signUp(){
     }
 }
 
-async function signIn(){
+function signIn(){
   let username = document.querySelector("input#username").value;
   let password = document.querySelector("input#password").value;
   if (validateFieldSignIn(username, password)) {
-    alert("UY GUMANA YUNG SUBMIT up");
+      alert("UY GUMANA YUNG SUBMIT for signin");
   }
 }
 
@@ -228,3 +221,7 @@ function createPost(){
     alert("UY GUMANA YUNG CreatePost");
   }
 }
+
+module.exports = {validateFieldsReg,  validateFieldCreatePost}
+
+console.log("imported main");

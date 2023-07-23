@@ -1,15 +1,15 @@
 // imports
-const exp = require('constants');
+const exp = require('constants');// REMOVE
 const express = require('express');
 const app = express();
-const path = require('path');
+const path = require('path');// REMOVE
 const router = express.Router();
-const bodyParser = require("body-parser");
+const bodyParser = require("body-parser");// REMOVE
 // const http = require('http');
 var mongoose = require('mongoose');
-var schema = mongoose.Schema;
+var schema = mongoose.Schema; // REMOVE
 const {MongoClient} = require('mongodb');
-const { type } = require('os');
+const { type } = require('os');// REMOVE
 const uri = "mongodb+srv://aldwin:gsavblsplVmZKem2@forumcluster.xn9ni4j.mongodb.net/?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -17,7 +17,7 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 let errorIncomplete = "Please fill up all the fields";
 let errorNotMatch = "The passwords you have entered do not match";
 
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({extended: true})); //REMOVE
 // mongoose.connect(uri, {
 //     useNewUrlParser:true, useUnifiedTopology:true
 // }, (err) => {
@@ -314,7 +314,6 @@ function uniqueUsername(name){
   return true;
 }
 
-module.exports = currentUser;
 
 
 
