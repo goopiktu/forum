@@ -12,7 +12,15 @@
         <div class="inside">
             <h1>Edit Profile</h1>
                 <div class="left">
-                    <img src="/assets/sprites/Ellipse 2.png">
+                    <img src="/assets/sprites/Ellipse 2.png" id ="profilePic">
+                    <input type="file" class="upload" accept="image/jpeg, image/jpg, image/png">
+                    <script>
+                        let profilePic = document.getElementById("profilePic");
+                        let inputFile = document.getElementsByClassName("upload")[0];
+                        inputFile.onchange = function() {
+                        profilePic.src = URL.createObjectURL(inputFile.files[0]);
+                        }
+                    </script>
                     <form class="edit">
                         <input type="text" placeholder="Username">
                     </form>

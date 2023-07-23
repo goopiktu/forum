@@ -73,3 +73,10 @@ for(let i = 0; i < a.length; i += 1) {
     
 // });
 
+
+let profilePic = document.getElementById("profilePic");
+let inputFile = document.getElementsByClassName("upload")[0];
+
+inputFile.onchange = function() {
+    profilePic.src = URL.createObjectURL(inputFile.files[0]);
+}

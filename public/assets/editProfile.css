@@ -96,3 +96,15 @@ textarea{
     border: none;
     cursor: pointer;
 }
+
+.upload {
+    background-color: #FFFFFF;
+    display: flex;
+    margin-left: 1em;
+}
+
+#profilePic {
+    height: 255px;
+    width: 255px;
+    border-radius: 50%;
+}
