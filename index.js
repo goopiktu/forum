@@ -113,19 +113,18 @@ router.post('/', async (req, res) => {
     });
     let result = await promise;
     
-    const query = await myColl.find({password: req.body.password});  
+    const query = await myColl.find({username: req.body.username, password: req.body.password});  
     for await (const doc of query) {
-      testing = doc.password;
+      password = doc.password;
+      username = doc.username;
     }
 
-
-    console.log(testing);
-    if (testing === req.body.password) {
+    if (password === req.body.password && username == req.body.username) {
       res.redirect('/logged_in');
     }
   
   } catch (error) {
-    console.log("wrong shit try again");
+    console.log("Incorrect Username or Password");
     res.redirect('/');
   }
 })
