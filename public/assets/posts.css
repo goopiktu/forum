@@ -204,17 +204,17 @@ a {
 }
 
 #outer-upvote:hover, #outer-upvote:focus{
-    background: url("voting-arrow/fc-up.png") no-repeat;
+    background: url("assets/voting-arrow/fc-up.png") no-repeat;
     background-size: 100%;
 }
 
 #outer-downvote:hover, #outer-downvote:focus{
-    background: url("voting-arrow/fc-down.png") no-repeat;
+    background: url("assets/voting-arrow/fc-down.png") no-repeat;
     background-size: 100%;
 }
 
 #outer-upvote{
-	background: url("voting-arrow/up-arrow.png") no-repeat;
+	background: url("assets/oting-arrow/up-arrow.png") no-repeat;
     background-size: 100%;
 
     min-height: 16px;
@@ -225,7 +225,7 @@ a {
 }
 
 #outer-downvote{
-	background: url("voting-arrow/down-arrow.png") no-repeat;
+	background: url("assets/voting-arrow/down-arrow.png") no-repeat;
     background-size: 100%;
 
     min-height: 16px;
@@ -272,7 +272,7 @@ body{
     justify-content: space-between;
     min-width: 200px;
     padding: 30px;
-    margin: 10px;
+    margin: 10px 10px 5px;
 }
 
 .title{

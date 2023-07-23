@@ -36,7 +36,20 @@ const userinfoSchema = {
   confirm: String
 }
 
+const postinfoSchema = {
+  username: String, 
+  title: String,
+  datePosted: Date, 
+  body: String, 
+  edited: Number, 
+  upvote: Number, 
+  downvote: Number, 
+  comments: Array
+}
+
 const userinfo = mongoose.model("userinfo", userinfoSchema);
+
+const postinfo = mongoose.model("userposts", postinfoSchema);
 
 //gsavblsplVmZKem2
 
@@ -45,17 +58,21 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'))
 
+
+// router stuffs 
+
 router.get('/register', (req, res) => {
   res.sendFile('views/register.html', { root: __dirname });
 });
 
 //Add to database
-const myDB = client.db("node_forum");
-const myColl = myDB.collection("userinfo");
 const postColl = myDB.collection("userposts");
 
 router.post('/register', (req, res) => {
-  
+  //Add to database
+  const myDB = client.db("node_forum");
+  const myColl = myDB.collection("userinfo");
+
   let newUser = new userinfo({
     email: req.body.email,
     username: req.body.username,
@@ -103,6 +120,43 @@ router.get('/createPost', (req, res) => {
   res.sendFile('views/other/createPost.html', { root: __dirname });
 });
 
+router.post('/createPost', (req, res) => {
+  //Add to database
+  const myDB = client.db("node_forum");
+  const myColl = myDB.collection("userposts");
+
+  let newPost = new postinfo({
+    username: "Current User", 
+    title: req.body.title,
+    datePosted: new Date(), 
+    body: req.body.postBody, 
+    edited: 0, 
+    upvote: 0, 
+    downvote: 0, 
+    comments: []
+  });
+  if (validateFieldCreatePost(req.body.title, req.body.postBody)){
+    myColl.insertOne(newPost);
+    console.log(req.body.title);
+    console.log("added post?");
+    res.redirect('/logged_in');
+  }
+  res.redirect('/createPost');
+  // req
+});
+
+// console.log("HEllo>");
+async function add(head, body, list) {
+  const myDB = client.db("node_forum");
+  const myColl = myDB.collection("userposts");
+
+  const doc = {Title: head, Body: body, List: list};
+  const result = await myColl.insertOne(doc);
+  console.log(
+    'A document was inserted with the _id: ${result.insertedId}',
+  );
+}
+
 router.get('/editProfile', (req, res) => {
   res.sendFile('views/other/editProfile.html', { root: __dirname });
 });
@@ -141,21 +195,11 @@ app.listen(process.env.port || 3000);
 console.log('Running at Port 3000');
 
 
-// console.log("HEllo>");
-async function add(head, body, list) {
-  const myDB = client.db("node_forum");
-  const myColl = myDB.collection("userposts");
 
-  const doc = {Title: head, Body: body, List: list};
-  const result = await myColl.insertOne(doc);
-  console.log(
-    'A document was inserted with the _id: ${result.insertedId}',
-  );
-}
+// const comments = [["username", "day-commented", "body", "upvotes", "downvotes"], "Volvo", "BMW"];
 
+// add("test","test", comments)
 
-
-// const cars = ["Saab", "Volvo", "BMW"];
 
 // var fs = require('fs');
 
@@ -191,6 +235,16 @@ function validateFieldsReg(email, username, password, confirm) {
   // if (!uniqueUsername(username)){
   //   return false;
   // }
+  return true;
+}
+
+function validateFieldCreatePost(title, body) {
+  if (title === "") {
+      return false;
+  }
+  if (body === "") {
+      return false;
+  }
   return true;
 }
 

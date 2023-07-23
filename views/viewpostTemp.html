@@ -13,20 +13,7 @@
 <body>
     <div class="post">
 
-        <div class="post-header">
-            <div>
-                <p class="title">Gobblin</p>
-                <p class="date-posted">1 Day Ago</p>
-                <p class="posted-by">by #</p>
-            </div>
-            <div class="outer-total-votes">
-                <p class="count">34</p><img src="assets/voting-arrow/up-arrow.png" alt="Up-Arrow">
-                <p class="count">5</p> <img src="assets/voting-arrow/down-arrow.png" alt="Down-Arrow">
-            </div>
-        </div>
-
-        <div id="content-box" class="box">
-            <p id="content"></p>
+        <div id ="postContent"> 
         </div>
 
         <div class="comments">
@@ -172,7 +159,24 @@
     </div>
 
     <script id="contentTemp" type="text/x-handlebars">
-        {{content}}
+        <div class="post-header">
+            <div>
+                <p class="title">{{title}}</p>
+                <p class="date-posted">{{datePosted}}
+                    {{#if edited}}
+                        {{edited}}
+                    {{/if}}
+                </p>
+                <p class="posted-by">by {{username}}</p>
+            </div>
+            <div class="outer-total-votes">
+                <p class="count">{{upvote}}</p><img src="assets/voting-arrow/up-arrow.png" alt="Up-Arrow">
+                <p class="count">{{downvote}}</p> <img src="assets/voting-arrow/down-arrow.png" alt="Down-Arrow">
+            </div>
+        </div>
+
+        <div id="content-box" class="box">
+            <p>{{body}}</p>
     </script>
 
     <script src="assets/scripts/handlebars.js"></script>
