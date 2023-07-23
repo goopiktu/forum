@@ -36,6 +36,15 @@ const userinfoSchema = {
   confirm: String
 }
 
+const commentinfoSchema = {
+  username: String, 
+  datePosted: Date, 
+  body: String, 
+  edited: Number, 
+  upvote: Number, 
+  downvote: Number
+  }
+
 const postinfoSchema = {
   username: String, 
   title: String,
@@ -44,7 +53,9 @@ const postinfoSchema = {
   edited: Number, 
   upvote: Number, 
   downvote: Number, 
-  comments: Array
+  comments : {
+    type: [commentinfoSchema]
+  }
 }
 
 const userinfo = mongoose.model("userinfo", userinfoSchema);
@@ -95,7 +106,8 @@ async function returnPosts() {
     console.log(doc);
   }
 }
-returnPosts();
+
+// returnPosts();
 
 router.get('/', (req,res) => {
   res.sendFile('views/index.html', { root: __dirname });
@@ -130,7 +142,16 @@ router.post('/createPost', (req, res) => {
     edited: 0, 
     upvote: 0, 
     downvote: 0, 
-    comments: []
+    comments: [
+      {
+        username: "Current User", 
+        datePosted: new Date(), 
+        body: "test comment", 
+        edited: 0, 
+        upvote: 2, 
+        downvote: 3
+      }
+    ]
   });
   if (validateFieldCreatePost(req.body.title, req.body.postBody)){
     myColl.insertOne(newPost);
