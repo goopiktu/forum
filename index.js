@@ -98,11 +98,11 @@ router.post('/register', (req, res) => {
   // req
 });
 
-router.get('/login', (req, res) => {
+router.get('/', (req,res) => {
   res.sendFile('views/index.html', { root: __dirname });
-})
+});
 
-router.post('/login', async (req, res) => {
+router.post('/', async (req, res) => {
   // console.log(req.body.username);
   try {
     const myDB = client.db("node_forum");
@@ -144,10 +144,6 @@ async function returnPosts() {
 }
 
 //  returnPosts();
-
-router.get('/', (req,res) => {
-  res.sendFile('views/index.html', { root: __dirname });
-});
 
 router.get('/guest_view', (req, res) => {
   res.sendFile('views/guest_view.html', { root: __dirname });
