@@ -20,17 +20,17 @@
                 <h2>Sign In</h2>
             </div>
             <div id="error-container"></div>
-            <form onsubmit="signIn()" name="signInForm">
+            <form onsubmit="signIn()" name="signInForm" action="/login" method = "post">
                 <div class="inputs">
-                    <input type="text" id="username" placeholder="Username" autocomplete="username">
-                    <input type="password" id="password" placeholder="Password" autocomplete="off">
+                    <input name = "username" type="text" id="username" placeholder="Username" autocomplete="username">
+                    <input name = "password" type="password" id="password" placeholder="Password" autocomplete="off">
                 </div>
                 <div class="bottom">
                     <div>
                         <p>Don't have an account? <a href="register">Sign Up</a></p>
                         <p>Too lazy to make an account? <a href="guest_view">Sign in as guest</a></p>
                     </div>
-                    <button type="submit">Sign In</button>
+                    <button type="submit">Sign In</button> 
                 </div>
             </form>
         </div>

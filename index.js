@@ -97,6 +97,41 @@ router.post('/register', (req, res) => {
   // req
 });
 
+router.get('/login', (req, res) => {
+  res.sendFile('views/index.html', { root: __dirname });
+})
+
+router.post('/login', async (req, res) => {
+  // console.log(req.body.username);
+  try {
+    const myDB = client.db("node_forum");
+    const myColl = myDB.collection("userinfo");
+    const check = await myColl.find({username: req.body.username});
+    const password = await myColl.find({password: req.body.password});
+    
+    // console.log(check.username);
+
+    for await (const doc of check) {
+      console.log(doc.password);
+      // password = doc.password;
+      // console.log(typeof(password));
+    }
+    
+    // console.log(typeof(req.body.password));
+    // console.log(typeof(password));
+    console.log(password);
+    if (password === req.body.password) {
+      res.render('logged_in');
+    } 
+    else {
+      console.log("hi");
+      res.send("Incorrect Password");
+    }
+  } catch (error) {
+    res.send("Incorrect Details");
+  }
+})
+
 async function returnPosts() {
   const myDB = client.db("node_forum");
   const myColl = myDB.collection("userposts");
@@ -107,7 +142,7 @@ async function returnPosts() {
   }
 }
 
-// returnPosts();
+//  returnPosts();
 
 router.get('/', (req,res) => {
   res.sendFile('views/index.html', { root: __dirname });
