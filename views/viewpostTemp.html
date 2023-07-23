@@ -21,34 +21,12 @@
                 <img class="comment-icon" src="../assets/sprites/Icons/comment.png">
                 <p class="comment-name">1 Comment</p>
             </div>
-            <div id="comment1" class="box">
-                <div class="right-comment">
-                    <a href="viewprofileA.html">
-                    <div class="user"> 
-                        <img class="user-icon" src="../assets/sprites/comments/Turtle.jpg">
-                        <div class="user-info">
-                            <p class="username">Turtle</p>
-                            <p class="date-commented">30 mins ago</p>
-                        </div>
-                    </div>
-                    </a>
-                    <div style="clear:both;" class="actl-comment">
-                        <p class="content-comment">my PrEciOussss</p>
-                    </div>
-                    <div class="reply">
-                        <a href="reply.html">
-                        <button id="reply" class="icon" type="button"></button>
-                        </a>
-                        <p>Reply</p>
-                    </div>
-                </div>
-                <div class="up-down">
-                    <p class="countUD"><a id="upclicks">0</a></p><button id="upvote" class="icon" type="button" onclick="increment()"></button>
-                    <p class="countUD"><a id="downclicks">0</a></p><button id="downvote" class="icon" type="button" onclick="decrement()"></button>
-                </div>
+
+            <div id="commentBox">
+
             </div>
 
-            <div id="comment2" class="box">
+            <!-- <div id="comment2" class="box">
                 <div class="right-comment">
                     <a href="profile.html">
                     <div class="user"> 
@@ -81,9 +59,9 @@
                     <p class="countUD"><a id="upclicks">0</a></p><button id="upvote" class="icon" type="button" onclick="increment()"></button>
                     <p class="countUD"><a id="downclicks">0</a></p><button id="downvote" class="icon" type="button" onclick="decrement()"></button>
                 </div>
-            </div>
+            </div> -->
 
-            <div id="comment2" class="box">
+            <!-- <div id="comment2" class="box">
                 <div class="right-comment">
                     <a href="viewprofileC.html">
                     <div class="user"> 
@@ -108,9 +86,9 @@
                     <p class="countUD"><a id="upclicks">0</a></p><button id="upvote" class="icon" type="button" onclick="increment()"></button>
                     <p class="countUD"><a id="downclicks">0</a></p><button id="downvote" class="icon" type="button" onclick="decrement()"></button>
                 </div>
-            </div>
+            </div> -->
             
-            <div id="comment2" class="box">
+            <!-- <div id="comment2" class="box">
                 <div class="right-comment">
                     <a href="profile.html">
                     <div class="user"> 
@@ -143,7 +121,7 @@
                     <p class="countUD"><a id="upclicks">0</a></p><button id="upvote" class="icon" type="button" onclick="increment()"></button>
                     <p class="countUD"><a id="downclicks">0</a></p><button id="downvote" class="icon" type="button" onclick="decrement()"></button>
                 </div>
-            </div>
+            </div> -->
             
         </div>
 
@@ -158,7 +136,7 @@
         </div>
     </div>
 
-    <script id="contentTemp" type="text/x-handlebars">
+    <script id="postTemp" type="text/x-handlebars">
         <div class="post-header">
             <div>
                 <p class="title">{{title}}</p>
@@ -177,6 +155,39 @@
 
         <div id="content-box" class="box">
             <p>{{body}}</p>
+    </script>
+
+    <script id="commentTemp" type="text/x-handlebars">
+        <div id="comment1" class="box">
+                <div class="right-comment">
+                    <a href="viewprofileA.html">
+                        <div class="user"> 
+                            <img class="user-icon" src="../assets/sprites/comments/Turtle.jpg">
+                            <div class="user-info">
+                                <p class="username">{{username}}</p>
+                                <p class="date-commented">{{datePosted}}
+                                    {{#if edited}}
+                                        {{edited}}
+                                    {{/if}}
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                    <div style="clear:both;" class="actl-comment">
+                        <p class="content-comment">{{body}}</p>
+                    </div>
+                    <div class="reply">
+                        <a href="reply.html">
+                        <button id="reply" class="icon" type="button"></button>
+                        </a>
+                        <p>Reply</p>
+                    </div>
+                </div>
+                <div class="up-down">
+                    <p class="countUD"><a id="upclicks">{{upvote}}</a></p><button id="upvote" class="icon" type="button" onclick="increment()"></button>
+                    <p class="countUD"><a id="downclicks">{{downvote}}</a></p><button id="downvote" class="icon" type="button" onclick="decrement()"></button>
+                </div>
+            </div>
     </script>
 
     <script src="assets/scripts/handlebars.js"></script>
