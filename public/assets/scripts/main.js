@@ -183,6 +183,18 @@ function validateFieldSignIn(username, password) {
   return true;
 }
 
+function validateFieldCreatePost(title, body) {
+  if (title === "") {
+      showError(errorIncomplete);
+      return false;
+  }
+  if (body === "") {
+      showError(errorIncomplete);
+      return false;
+  }
+  return true;
+}
+
 function showError(errorTxt) {
     // document.querySelector("#post-error").innerHTML = errorSep + "[ERROR]    " + "<span>" + errorText + "</span>" + "    !     ";
     alert(errorTxt);
@@ -204,5 +216,14 @@ function signIn(){
   let password = document.querySelector("input#password").value;
   if (validateFieldSignIn(username, password)) {
       alert("UY GUMANA YUNG SUBMIT for signin");
+  }
+}
+
+function createPost(){
+  let input_title = document.querySelector("input#post-title").value;
+  let textarea_postBody = document.querySelector("textarea#post-body").value;
+  if (validateFieldCreatePost(input_title, textarea_postBody)) {
+    const fd = new FormData
+    alert("UY GUMANA YUNG CreatePost");
   }
 }
