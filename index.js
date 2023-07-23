@@ -71,10 +71,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'))
 
 
+
+// DEFAULT USER GUEST 
+var currentUser = "guest";
+
 // router stuffs 
 
 router.get('/register', (req, res) => {
   res.sendFile('views/register.html', { root: __dirname });
+  currentUser = "guest";
 });
 
 
@@ -100,7 +105,9 @@ router.post('/register', (req, res) => {
 
 router.get('/', (req,res) => {
   res.sendFile('views/index.html', { root: __dirname });
+  currentUser = "guest";
 });
+
 
 router.post('/', async (req, res) => {
   // console.log(req.body.username);
@@ -120,6 +127,7 @@ router.post('/', async (req, res) => {
     }
 
     if (password === req.body.password && username == req.body.username) {
+      currentUser = username;
       res.redirect('/logged_in');
     }
   
@@ -128,9 +136,6 @@ router.post('/', async (req, res) => {
     res.redirect('/');
   }
 })
-// 12112399
-
-
 
 async function returnPosts() {
   const myDB = client.db("node_forum");
@@ -146,10 +151,14 @@ async function returnPosts() {
 
 router.get('/guest_view', (req, res) => {
   res.sendFile('views/guest_view.html', { root: __dirname });
+  console.log("guest view");
+  console.log(currentUser);
 });
 
 router.get('/logged_in', (req, res) => {
   res.sendFile('views/logged_in.html', { root: __dirname });
+  console.log("logged in");
+  console.log(currentUser);
 });
 
 router.get('/profile', (req, res) => {
@@ -304,6 +313,8 @@ function uniqueUsername(name){
   }
   return true;
 }
+
+module.exports = currentUser;
 
 
 

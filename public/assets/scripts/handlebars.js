@@ -44,3 +44,5 @@ let tempCommentCont = commenttempFunc(commentCont);
 
 document.querySelector("#commentBox").innerHTML += tempCommentCont;
 document.querySelector("#commentBox").innerHTML += tempCommentCont;
+
+
