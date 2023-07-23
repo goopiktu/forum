@@ -45,7 +45,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'))
 
-router.get('/', (req, res) => {
+router.get('/register', (req, res) => {
   res.sendFile('views/register.html', { root: __dirname });
 });
 
@@ -53,7 +53,7 @@ router.get('/', (req, res) => {
 const myDB = client.db("node_forum");
 const myColl = myDB.collection("userinfo");
 
-router.post('/', (req, res) => {
+router.post('/register', (req, res) => {
   
   let newUser = new userinfo({
     email: req.body.email,
@@ -66,7 +66,7 @@ router.post('/', (req, res) => {
     console.log("added user?");
     res.redirect('/');
   }
-  res.redirect('/');
+  res.redirect('/register');
   // req
 });
 
