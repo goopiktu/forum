@@ -65,8 +65,6 @@ router.get('/register', (req, res) => {
   res.sendFile('views/register.html', { root: __dirname });
 });
 
-//Add to database
-const postColl = myDB.collection("userposts");
 
 router.post('/register', (req, res) => {
   //Add to database
@@ -89,16 +87,15 @@ router.post('/register', (req, res) => {
 });
 
 async function returnPosts() {
-  const postResults = await postColl.find();
+  const myDB = client.db("node_forum");
+  const myColl = myDB.collection("userposts");
+  const postResults = await myColl.find();
 
   for await (const doc of postResults) {
     console.log(doc);
   }
 }
 returnPosts();
-
-
-
 
 router.get('/', (req,res) => {
   res.sendFile('views/index.html', { root: __dirname });
