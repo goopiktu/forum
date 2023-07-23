@@ -52,6 +52,7 @@ router.get('/register', (req, res) => {
 //Add to database
 const myDB = client.db("node_forum");
 const myColl = myDB.collection("userinfo");
+const postColl = myDB.collection("userposts");
 
 router.post('/register', (req, res) => {
   
@@ -69,6 +70,18 @@ router.post('/register', (req, res) => {
   res.redirect('/register');
   // req
 });
+
+async function returnPosts() {
+  const postResults = await postColl.find();
+
+  for await (const doc of postResults) {
+    console.log(doc);
+  }
+}
+returnPosts();
+
+
+
 
 router.get('/', (req,res) => {
   res.sendFile('views/index.html', { root: __dirname });
@@ -188,4 +201,6 @@ function uniqueUsername(name){
   }
   return true;
 }
+
+
 
