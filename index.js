@@ -9,6 +9,7 @@ const bodyParser = require("body-parser");
 var mongoose = require('mongoose');
 var schema = mongoose.Schema;
 const {MongoClient} = require('mongodb');
+const { type } = require('os');
 const uri = "mongodb+srv://aldwin:gsavblsplVmZKem2@forumcluster.xn9ni4j.mongodb.net/?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -97,6 +98,41 @@ router.post('/register', (req, res) => {
   // req
 });
 
+router.get('/login', (req, res) => {
+  res.sendFile('views/index.html', { root: __dirname });
+})
+
+router.post('/login', async (req, res) => {
+  // console.log(req.body.username);
+  try {
+    const myDB = client.db("node_forum");
+    const myColl = myDB.collection("userinfo");
+
+    let promise = new Promise((resolve, reject) => {
+      setTimeout(() => resolve("done!"), 1000)
+    });
+    let result = await promise;
+    
+    const query = await myColl.find({password: req.body.password});  
+    for await (const doc of query) {
+      testing = doc.password;
+    }
+
+
+    console.log(testing);
+    if (testing === req.body.password) {
+      res.redirect('/logged_in');
+    }
+  
+  } catch (error) {
+    console.log("wrong shit try again");
+    res.redirect('/');
+  }
+})
+// 12112399
+
+
+
 async function returnPosts() {
   const myDB = client.db("node_forum");
   const myColl = myDB.collection("userposts");
@@ -107,7 +143,7 @@ async function returnPosts() {
   }
 }
 
-// returnPosts();
+//  returnPosts();
 
 router.get('/', (req,res) => {
   res.sendFile('views/index.html', { root: __dirname });

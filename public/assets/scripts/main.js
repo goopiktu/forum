@@ -212,11 +212,11 @@ function signUp(){
     }
 }
 
-function signIn(){
+async function signIn(){
   let username = document.querySelector("input#username").value;
   let password = document.querySelector("input#password").value;
   if (validateFieldSignIn(username, password)) {
-      alert("UY GUMANA YUNG SUBMIT for signin");
+    alert("UY GUMANA YUNG SUBMIT up");
   }
 }
 
