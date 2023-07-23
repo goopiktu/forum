@@ -197,6 +197,7 @@ function validateFieldCreatePost(title, body) {
 
 function showError(errorTxt) {
     // document.querySelector("#post-error").innerHTML = errorSep + "[ERROR]    " + "<span>" + errorText + "</span>" + "    !     ";
+    document.querySelector("#error-container").innerHTML = errorTxt;
     alert(errorTxt);
 }
 
