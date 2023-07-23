@@ -9,6 +9,7 @@ const bodyParser = require("body-parser");
 var mongoose = require('mongoose');
 var schema = mongoose.Schema;
 const {MongoClient} = require('mongodb');
+const { type } = require('os');
 const uri = "mongodb+srv://aldwin:gsavblsplVmZKem2@forumcluster.xn9ni4j.mongodb.net/?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -106,31 +107,31 @@ router.post('/login', async (req, res) => {
   try {
     const myDB = client.db("node_forum");
     const myColl = myDB.collection("userinfo");
-    const check = await myColl.find({username: req.body.username});
-    const password = await myColl.find({password: req.body.password});
-    
-    // console.log(check.username);
 
-    for await (const doc of check) {
-      console.log(doc.password);
-      // password = doc.password;
-      // console.log(typeof(password));
-    }
+    let promise = new Promise((resolve, reject) => {
+      setTimeout(() => resolve("done!"), 1000)
+    });
+    let result = await promise;
     
-    // console.log(typeof(req.body.password));
-    // console.log(typeof(password));
-    console.log(password);
-    if (password === req.body.password) {
-      res.render('logged_in');
-    } 
-    else {
-      console.log("hi");
-      res.send("Incorrect Password");
+    const query = await myColl.find({password: req.body.password});  
+    for await (const doc of query) {
+      testing = doc.password;
     }
+
+
+    console.log(testing);
+    if (testing === req.body.password) {
+      res.redirect('/logged_in');
+    }
+  
   } catch (error) {
-    res.send("Incorrect Details");
+    console.log("wrong shit try again");
+    res.redirect('/');
   }
 })
+// 12112399
+
+
 
 async function returnPosts() {
   const myDB = client.db("node_forum");
