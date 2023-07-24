@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title of Post</title>
+    <link rel="stylesheet" href="assets/viewpost.css">
+    <script src="assets/main.js"></script>
+</head>
+
+<body>
+    <div class="post">
+        <div class="header">
+            <div>
+                <p class="title">Title of Post 123456789</p>
+                <p class="date-posted"># Days Ago</p>
+            </div>
+            <div class="total-votes">
+                <p class="count">12.5k</p><img src="assets/voting-arrow/up-arrow.png" alt="Up-Arrow">
+                <p class="count">3.5k</p> <img src="assets/voting-arrow/down-arrow.png" alt="Down-Arrow">
+            </div>
+        </div>
+
+        <div id="title" class="box">
+            <p>
+                I can't fucking take it any more. Among Us has singlehandedly ruined my life. 
+                The other day my teacher was teaching us Greek Mythology and he mentioned a pegasus 
+                and I immediately thought 'Pegasus? more like Mega Sus!!!!' and I've never wanted to kms more. 
+                I can't look at a vent without breaking down and fucking crying. I can't eat pasta without thinking
+                'IMPASTA??? THATS PRETTY SUS!!!!' Skit 4 by Kanye West. The lyrics ruined me. 
+                A Mongoose, or the 25th island of greece. The scientific name for pig. I can't fucking take it anymore. 
+            </p>
+            <p>Please fucking end my suffering.</p>
+        </div>
+    
+
+        <div class="comments">
+            <div class="comment-title">
+                <img class="comment-icon" src="assets/sprites/Icons/comment.png">
+                <p class="comment-name"># Comments</p>
+            </div>
+            <div id="comment1" class="box">
+                <div class="right-comment">
+                    <a href="viewprofileH.html">
+                    <div class="user"> 
+                        <img class="user-icon" src="assets/sprites/comments/baldwin.jpg">
+                        <div class="user-info">
+                            <p class="username">Baldwin</p>
+                            <p class="date-commented"># days ago</p>
+                        </div>
+                    </div>
+                    </a>
+                    <div style="clear:both;" class="actl-comment">
+                        <p class="content-comment">Damn sounds tuff</p>
+                    </div>
+                    <div class="reply">
+                        <a href="reply.html">
+                        <button id="reply" class="icon" type="button"></button>
+                        </a>
+                        <p>Reply</p>
+                    </div>
+                </div>
+                <div class="up-down">
+                    <p class="countUD"><a id="upclicks">0</a></p><button id="upvote" class="icon" type="button" onclick="increment()"></button>
+                    <p class="countUD"><a id="downclicks">0</a></p><button id="downvote" class="icon" type="button" onclick="decrement()"></button>
+                </div>
+            </div>
+            <div id="comment1" class="box">
+                <div class="right-comment">
+                    <a href="viewprofileG.html">
+                    <div class="user"> 
+                        <img class="user-icon" src="assets/sprites/comments/ilikewomen.jpg">
+                        <div class="user-info">
+                            <p class="username">#1 Wamen Lover</p>
+                            <p class="date-commented"># days ago - Edited</p>
+                        </div>
+                    </div>
+                    <div style="clear:both;" class="actl-comment">
+                        <p class="content-comment">I like women! Women are godesses I respect them so much. Like legit dude. Pussy is God if uk what I mean. Heil PekPek. Kish Kish mwah</p>
+                    </div>
+                    <div class="reply">
+                        <a href="reply.html">
+                        <button id="reply" class="icon" type="button"></button>
+                        </a>
+                        <p>Reply</p>
+                    </div>
+                </div>
+                <div class="up-down">
+                    <p class="countUD"><a id="upclicks">0</a></p><button id="upvote" class="icon" type="button" onclick="increment()"></button>
+                    <p class="countUD"><a id="downclicks">0</a></p><button id="downvote" class="icon" type="button" onclick="decrement()"></button>
+                </div>
+            </div>
+            <div id="comment2" class="box">
+                <div class="right-comment">
+                    <a href="profile.html">
+                    <div class="user"> 
+                        <img class="user-icon" src="assets/sprites/myProfile_pic.png">
+                        <div class="user-info">
+                            <p class="username">Me</p>
+                            <p class="date-commented"># days ago</p>
+                        </div>
+                    </div>
+                    </a>
+                    <div style="clear:both;" class="actl-comment">
+                        <p class="content-comment">wowie saym</p>
+                    </div>
+                    <div class="reply">
+                        <a href="reply.html">
+                            <button id="reply" class="icon" type="button"></button>
+                        </a>
+                        <p>Reply</p>
+                        <a href="editReply.html">
+                            <button id="edit" class="icon" type="button"></button>
+                        </a>
+                        <p>Edit</p>
+                        <a href="#">
+                            <button id="delete" class="icon" type="button"></button>
+                        </a>
+                        <p>Delete</p>
+                    </div>
+                </div>
+                <div class="up-down">
+                    <p class="countUD"><a id="upclicks">0</a></p><button id="upvote" class="icon" type="button" onclick="increment()"></button>
+                    <p class="countUD"><a id="downclicks">0</a></p><button id="downvote" class="icon" type="button" onclick="decrement()"></button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="bottom-buttons">
+            <a href="logged_in.html">
+                <button class="bot-button">Back</button>
+            </a>
+            <a href="reply.html">
+                <button class="bot-button">Reply</button>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
