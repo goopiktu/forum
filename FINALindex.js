@@ -25,7 +25,8 @@ app.use(express.urlencoded({extended: true}));
 
 // set the folder `public` as folder containing static assets
 // such as css, js, and image files
-app.use(express.static(__dirname + '/public'));
+app.use(express.static('public'));
+app.use(express.static(__dirname + '/css'));
 
 // define the paths contained in `./routes/routes.js`
 app.use('/', routes);

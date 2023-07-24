@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Roboto';
-    src: url(sprites/fonts/roboto/Roboto-Black.ttf);
+    src: url(../assets/sprites/fonts/roboto/Roboto-Black.ttf);
 }
 
 :root {
