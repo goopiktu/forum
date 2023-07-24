@@ -1,0 +1,91 @@
+<div class="post">
+
+        <div class="post-header">
+
+            <div>
+                <p class="title">{{title}}</p>
+                <p class="date-posted">{{datePosted}}
+                    {{#if edited}}
+                        {{edited}}
+                    {{/if}}
+                </p>
+                <p class="posted-by">by {{username}}</p>
+            </div>
+
+
+            <div class="outer-total-votes">
+                <p class="count">{{upvote}}</p><img src="assets/voting-arrow/up-arrow.png" alt="Up-Arrow">
+                <p class="count">{{downvote}}</p> <img src="assets/voting-arrow/down-arrow.png" alt="Down-Arrow">
+            </div>
+
+        </div>
+
+
+        <div id="content-box" class="box">
+            <p>{{body}}</p>
+        </div>
+
+
+        <div class="comments">
+
+            <div class="comment-title">
+                <img class="comment-icon" src="../assets/sprites/Icons/comment.png">
+                <p class="comment-name">1 Comment</p>
+            </div>
+
+
+            <div id="commentBox">
+
+                <div id="comment1" class="box">
+
+                    <div class="right-comment">
+
+                        <a href="viewprofileA.html">
+                            <div class="user"> 
+                                <img class="user-icon" src="../assets/sprites/comments/Turtle.jpg">
+                                <div class="user-info">
+                                    <p class="username">{{commentUsername}}</p>
+                                    <p class="date-commented">{{dateCommented}}
+                                        {{#if commentEdited}}
+                                            {{commentEdited}}
+                                        {{/if}}
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+
+
+                        <div style="clear:both;" class="actl-comment">
+                            <p class="content-comment">{{comment}}</p>
+                        </div>
+
+
+                        <div class="reply">
+                            <a href="reply.html">
+                                <button id="reply" class="icon" type="button"></button>
+                            </a>
+                            <p>Reply</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="up-down">
+                        <p class="countUD"><a id="upclicks">{{commentUpvote}}</a></p><button id="upvote" class="icon" type="button" onclick="increment()"></button>
+                        <p class="countUD"><a id="downclicks">{{commentDownvote}}</a></p><button id="downvote" class="icon" type="button" onclick="decrement()"></button>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        <div class="bottom-buttons">
+            <a href="logged_in.html">
+                <button class="bot-button">Back</button>
+            </a>
+            <a href="reply.html">
+                <button class="bot-button">Reply</button>
+            </a>
+        </div>
+    </div>
