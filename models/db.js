@@ -36,8 +36,9 @@ const database = {
         limits the fields returned based on the string `projection`
         callback function is called after the execution of findOne() function
     */
-    findOne: async function(model, query, projection) {
-        return await model.findOne(query, projection);
+    findOne:  function(model, query, projection) {
+        console.log("finNoe"+model.findOne(query, projection));
+        return  model.findOne(query, projection);
     },
 
     /*
