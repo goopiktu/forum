@@ -2,7 +2,7 @@
 const express = require('express');
 
 // import module `hbs`
-const hbs = require('express-handlebars');
+const exphbs = require('express-handlebars');
 
 // import module `routes` from `./routes/routes.js`
 const routes = require('./routes/route.js');
@@ -14,7 +14,9 @@ const app = express();
 const port = 3000;
 
 // set `hbs` as view engine
-app.set('view engine', 'handlebars');
+app.engine("hbs", exphbs.engine({extname: "hbs"}));
+app.set("view engine", "hbs");
+app.set("views", './views');
 
 app.use(express.json());
 
@@ -23,7 +25,7 @@ app.use(express.urlencoded({extended: true}));
 
 // set the folder `public` as folder containing static assets
 // such as css, js, and image files
-app.use(express.static('public'));
+app.use(express.static(__dirname + '/public'));
 
 // define the paths contained in `./routes/routes.js`
 app.use('/', routes);
@@ -31,9 +33,9 @@ app.use('/', routes);
 // if the route is not defined in the server, render `../views/error.hbs`
 // always define this as the last middleware
 
-app.use(function (req, res) {
-    res.render('error');
-});
+// app.use(function (req, res) {
+//     res.render('error');
+// });
 
 // connects to the database
 db.connect();

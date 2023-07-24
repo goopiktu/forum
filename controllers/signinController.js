@@ -4,7 +4,7 @@ const User = require('../models/UserModel.js');
  
 const signinController = {
     getSignIn : function (req, res){
-        res.render("signIn", {layout: 'signinReg'});
+        res.render("signIn", {layout: 'signInReg'});
     },
    
     // dis part i am not rlly sure of ehe
@@ -20,7 +20,7 @@ const signinController = {
             if (result){
                 res.redirect('/logged_in');
             } else {
-                res.render('signIn', {isValid: false});
+                res.render('signIn', {layout: 'signInReg'});
             }
         } catch (err){
             res.status(500).send(err);
