@@ -1,59 +1,60 @@
 var mongoose = require('mongoose');
-var schema = mongoose.Schema;
+var Schema = mongoose.Schema;
 const {MongoClient} = require('mongodb');
 const uri = "mongodb+srv://aldwin:gsavblsplVmZKem2@forumcluster.xn9ni4j.mongodb.net/?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 
-// const db = require('mongodb');
-// const uri = "mongodb+srv://aldwin:gsavblsplVmZKem2@forumcluster.xn9ni4j.mongodb.net/?retryWrites=true&w=majority";
-// const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-
-
-
-// try {
-//     mongoose.connect(uri, 
-//         {useNewUrlParser: true, useUnifiedTopology: true},
-//         () => console.log(" Mongoose is connected"));
-// } catch (e) {
-//     console.log("could not connect");
-// }
-
-async function add(head, body) {
-    const myDB = client.db("node_forum");
-    const myColl = myDB.collection("userposts");
-  
-    const doc = {Title: head, Body: body};
-    const result = await myColl.insertOne(doc);
-    console.log(
-      'A document was inserted with the _id: ${result.insertedId}',
-    );
-}
-
-
-
 // userinfo
-let userinfoSchema = new schema({
+const userinfoSchema = new Schema({
 
     email: {type:String, required:true},
     username: {type:String, required:true},
-    password: {type:String, required:true}
-
-
+    password: {type:String, required:true},
+    confirm: {type:String, required:true}
 });
 
+// Comments
+const commentinfoSchema = new Schema({
+    username: String, 
+    datePosted: Date, 
+    body: String, 
+    edited: Number, 
+    upvote: Number, 
+    downvote: Number
+})
 
 // userpost
-let userpostsSchema = new schema({
+const postinfoSchema = new Schema({
 
-    title: {type:String, required:true},
-    body_content: {type:String, required:true}
-
-    
+    username: String, 
+    title: String,
+    datePosted: Date, 
+    body: String, 
+    edited: Number, 
+    upvote: Number, 
+    downvote: Number, 
+    comments : {
+      type: [commentinfoSchema]
+    }
 });
+  
+const userinfo = mongoose.model('userinfo', userinfoSchema);
+const postinfo = mongoose.model('userposts', postinfoSchema);
 
-let userinfo = mongoose.model('userinfo', userinfoSchema, 'userinfo');
-let userposts = mongoose.model('userposts', userpostsSchema, 'userposts');
+module.exports = userinfo, postinfo;
 
-let mySchemas = {'userinfo':userinfo, 'userposts':userposts};
-module.exports = mySchemas;
+// FOR TESTING
+
+// let newUser = new userinfo({
+//     email:"kewlemail@yahoo.com",
+//     username: "nootdoot",
+//     password: "banananan",
+//     confirm: "banananan"
+//   });
+  
+// const myDB = client.db("node_forum");
+// const myColl = myDB.collection("userinfo");
+
+// myColl.insertOne(newUser);
+// console.log("added user?");
