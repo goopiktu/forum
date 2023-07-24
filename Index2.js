@@ -165,3 +165,27 @@ console.log('Running at Port 3000');
 // }
 
 // returnPosts();
+
+
+// PLS DO NOT DELETE - JAYZ
+
+// router.get('/viewpostTemp', (req, res) =>{
+//   var info = {
+//       username: "i hate life", 
+//       title: "Goblin",
+//       datePosted: "June 20, 2023",
+//       body:"This part here can ow HTML tags",
+//       edited:"(edited)", 
+//       upvote: 3, 
+//       downvote: 35, 
+//       commentUsername: "pootTroot", 
+//       dateCommented: "Date", 
+//       comment: "my PrEciOussss", 
+//       commentEdited: Number, 
+//       upvcommentUpvoteote: 0, 
+//       commentDownvote: 0, 
+//       layout: 'viewpost'
+//   }
+//   res.render("index", info);
+//   // IDK HOW TO USE CUSTOM LAYOUT 
+// });
