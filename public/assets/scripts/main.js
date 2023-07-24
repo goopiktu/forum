@@ -221,7 +221,3 @@ function createPost(){
     alert("UY GUMANA YUNG CreatePost");
   }
 }
-
-module.exports = {validateFieldsReg,  validateFieldCreatePost}
-
-console.log("imported main");
