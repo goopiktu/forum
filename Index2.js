@@ -18,13 +18,14 @@ const uri = "mongodb+srv://aldwin:gsavblsplVmZKem2@forumcluster.xn9ni4j.mongodb.
 // })
 
 // Assets 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+// app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'))
 
 // Handlebars 
-app.set("view engine", "hbs");
 app.engine("hbs", exphbs.engine({extname: "hbs"}));
+app.set("view engine", "hbs");
+// app.set("views", "./views");
 
 // Routers GET
 router.get('/', (req,res) => {
@@ -66,6 +67,10 @@ router.get('/editPost', (req, res) => { // FIX VISUAL OF EDIT POST
 router.get('/reply', (req, res) => {
     res.sendFile('views/other/reply.html', { root: __dirname });
 });
+
+// router.get('/viewpostTemp', (req, res) => {
+//     res.sendFile('views/viewpostTemp.html', { root: __dirname });
+// });
 
 
 // ROUTER POST
@@ -157,7 +162,9 @@ app.use('/', router);
 
 // TEST 
 const routerPost = require('./routes/route.js')
+const handlebars = require('./routes/mainRouters.js')
 app.use('/', routerPost.router);
+app.use('/', handlebars.router);
 
 app.listen(process.env.port || 3000);
  

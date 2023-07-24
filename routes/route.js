@@ -160,26 +160,8 @@ router.post('/createPost', (req, res) => {
     // req
 });
 
-router.get('/viewpostTemp', (req, res) => {
-  var data = {
-    username: "nootdoot", 
-    title: "Goblin",
-    datePosted: "June 7, 2023",
-    body:"This part here can ow HTML tags",
-    edited:"(edited)", 
-    upvote: 3, 
-    downvote: 35, 
-    commentUsername: "pootTroot", 
-    dateCommented: "Dat", 
-    comment: "my PrEciOussss", 
-    commentEdited: Number, 
-    upvcommentUpvoteote: 0, 
-    commentDownvote: 0
-  }
-  res.render('viewpostTemp', data)
-  // res.sendFile('views/viewpostTemp.html', { root: __dirname });
-});
-
 module.exports.router = router;
 module.exports.currentUser = currentUser;
 console.log("imported router");
+
+
