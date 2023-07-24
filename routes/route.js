@@ -1,16 +1,11 @@
 var express = require('express');
-var router = express.Router();
-var schemas = require('../models/schemas');
+const signinController = require('../controllers/signinController');
 
 
-schemas.userposts.collection.insertOne();
-
-const express = require(`express`);
-const signinController = require(`../controllers/signinController`);
 
 const app = express();
 
 app.get('/', signinController.getSignIn);
-app.post('/', signinController.postLogIn);
+app.post('/', signinController.postSignIn);
 
 module.exports = app;
