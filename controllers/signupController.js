@@ -4,7 +4,7 @@ const User = require('../models/UserModel.js');
 const signupController = {
 
     getSignUp: function (req, res) {
-        res.render("register", {layout: 'signInReg'});
+        res.render("signUp", {layout: 'signInReg'});
     },
 
     postSignUp: async function (req, res) {
@@ -37,7 +37,7 @@ const signupController = {
                 var success = await db.insertOne(User, user);
                 if( success ){
                     console.log('User successfully added');
-                    res.render('signIn', {isRegistered: true});
+                    res.render('signUp', {layout: 'signInReg'});
                 }
                 else{
                     console.log('User not added');

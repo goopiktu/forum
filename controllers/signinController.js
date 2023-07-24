@@ -18,7 +18,7 @@ const signinController = {
             const result = await db.findOne(User,query,projection);
 
             if (result){
-                res.redirect('/logged_in');
+                res.redirect('/signUp');
             } else {
                 res.render('signIn', {layout: 'signInReg'});
             }

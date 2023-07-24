@@ -10,7 +10,7 @@ app.get('/', signinController.getSignIn);
 app.post('/', signinController.postSignIn);
 
 //SignUp
-app.get('/', signupController.getSignUp);
-app.post('/', signupController.postSignUp);
+app.get('/signUp', signupController.getSignUp);
+app.post('/signUp', signupController.postSignUp);
 
 module.exports = app;
