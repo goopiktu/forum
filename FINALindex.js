@@ -9,7 +9,6 @@ const db = require(`./models/db`);
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(__dirname + './public'));
 
 app.set(`view engine`, `hbs`);
 hbs.registerPartials(__dirname + './views/partial');
