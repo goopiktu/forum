@@ -8,47 +8,99 @@
     </head>
     <body>
     <div class="page">
-        <div class="head">
-            <div class="left">
+        <div class="navbar">
+            <div class="header-parts">
+                <img class="logo" src="assets/sprites/Arryn House.png" alt="icon"></img> <!-- Supposed to be an icon -->
+                <a href="/">
+                    <button class="nav-button">Home</button>
+                </a>
+            </div>
+            <div class="header-parts">
+                <div class="logout">
+                    <a href="/">
+                        <button class="nav-button right-nav">Logout</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="header">
+            <div class="content">
                 <img src="assets/sprites/Ellipse 2.png">
-                <div class="name">Michelangelo di Lodovico Buonarroti Simoni</div>
-            </div>
-            <div class="right">
-                <div class="top">
-                    <a href="logged_in">
-                        <button type="button" class="home" onclick="home()">Home</button>
+                <div class="right">
+                    <div class="name">Michelangelo di Lodovico Buonarroti Simoni</div>
+                    <div class="aboutme">About Me</div>
+                    <div class="description">I am an ID 121 student of UA High School. I am Asian. I want to be the Greatest Programmer in the World.</div>
+                    <div class="stats">
+                        <div class="inside">
+                            <p class="value">8</p>
+                            <p class="variable">Posts</p>
+                            <span class="spacer"></span>
+                            <p class="value">10</p>
+                            <p class="variable">Comments</p>
+                            <span class="spacer"></span>
+                            <p class="value">100</p>
+                            <p class="variable">Upvotes</p>
+                        </div>
+                    </div>
+                    <a>
+                    <button onclick="location.href='editProfile'" class="editprofbtn">Edit Profile</button>
                     </a>
-                </div>
-                <div class="bottom">
-                    <a href = "editProfile">
-                        <button type="button" class="bigword" id="editprof" onclick="editProfile()">
-                            <span class="customer"></span>
-                            <div>Edit Profile</div>
-                        </button>
-                    </a>
-                    <button type="button" class="bigword" id="delete">
-                        <div class="trash"></div>
-                        <div>Delete Post</div>
-                    </button>
-                    <button type="button" class="bigword" id="editpost" onclick="editPost()">
-                        <div class="hand"></div>
-                        <div>Edit Post</div>
-                    </button>
-                </div>
+            </div>
             </div>
         </div>
-        <div class="about">
-            <div class="aboutme">About Me</div>
-            <div class="description">I am an ID 121 student of UA High School. I am Asian. I want to be the Greatest Programmer in the World.</div>
-        </div>
-        <div class="post">
-            <div class="urpost">Your Post</div>
-            <div class="box">
-                <div class="content" name="1"></div>
-                <div class="content" name="2"></div>
-                <div class="content" name="3"></div>
+        <div class="sortbar">
+            <div class="navbar2">
+                <p>Sort By</p>
+                <a href="#">
+                    <button class="nav-button">Date</button>
+                </a>
+                <a href="#">
+                    <button class="nav-button">Upvotes</button>
+                </a>
+                <a href="#">
+                    <button class="nav-button">Downvotes</button>
+                </a>
+                <input class="Searchbar" type="text" placeholder="Search..">
             </div>
+            <a href="/createPost" class="nav-bar-2-outbutton">
+                <button id="createpost" class="create-post">Create Post</button>
+            </a>
         </div>
-        </div>
+        <div class="userpost"> 
+            <div class="post-fit">
+              <a class="opener">
+                <div class="post-item">
+                  <div class="header-post-item">
+                    <div>
+                      <p class="post-title left-align">Gobblin</p>
+                      <div class="author-date">
+                        <p class="author left-align">posted by Michelangelo di Lodovico Buonarroti Simoni</p>
+                        <p class="outer-date-posted left-align">1 Day Ago</p>
+                      </div>
+                      
+                    </div>
+                    <div class="outer-total-votes">
+                        <button id="outer-upvote" class="outer-arrow" type="button" onclick="increment()"></button>
+                        <p class="outer-count">34</p>
+                        <span class="spacer"></span>
+                        <button id="outer-downvote" class="outer-arrow" type="button" onclick="decrement()"></button>
+                        <p class="outer-count">310</p>
+                    </div>
+                </div>
+                <div class="comment-section">
+                      <div class="comment" >
+                        <p class="top-comment">Turtle</p>
+                      </div>
+                      <div class="comment" >
+                        <p class="top-comment">Whale</p>
+                      </div>
+                      <div class="comment" >
+                        <p class="top-comment">Snake</p>
+                      </div>
+                 </div>
+              </a>
+            </div>
+          </div>
+    </div>
     </body>
 </html>
