@@ -205,17 +205,17 @@ a {
 }
 
 #outer-upvote:hover, #outer-upvote:focus{
-    background: url("assets/voting-arrow/fc-up.png") no-repeat;
+    background: url("../assets/voting-arrow/fc-up.png") no-repeat;
     background-size: 100%;
 }
 
 #outer-downvote:hover, #outer-downvote:focus{
-    background: url("assets/voting-arrow/fc-down.png") no-repeat;
+    background: url("../assets/voting-arrow/fc-down.png") no-repeat;
     background-size: 100%;
 }
 
 #outer-upvote{
-	background: url("assets/oting-arrow/up-arrow.png") no-repeat;
+	background: url("../assets/voting-arrow/up-arrow.png") no-repeat;
     background-size: 100%;
 
     min-height: 16px;
@@ -226,7 +226,7 @@ a {
 }
 
 #outer-downvote{
-	background: url("assets/voting-arrow/down-arrow.png") no-repeat;
+	background: url("../assets/voting-arrow/down-arrow.png") no-repeat;
     background-size: 100%;
 
     min-height: 16px;
@@ -389,24 +389,24 @@ body{
 }
 
 #upvote:hover, #upvote:focus{
-    background: url("voting-arrow/fc-up.png") no-repeat;
+    background: url("../assets/voting-arrow/fc-up.png") no-repeat;
     background-size: 75%;
 }
 
 #downvote:hover, #downvote:focus{
-    background: url("voting-arrow/fc-down.png") no-repeat;
+    background: url("../assets/voting-arrow/fc-down.png") no-repeat;
     background-size: 75%;
 }
 
 #upvote{
-	background: url("voting-arrow/up-arrow.png") no-repeat;
+	background: url("../assets/voting-arrow/up-arrow.png") no-repeat;
     background-size: 75%;
     min-height: 16px;
     min-width: 16px;
 }
 
 #downvote{
-	background: url("voting-arrow/down-arrow.png") no-repeat;
+	background: url("../assets/voting-arrow/down-arrow.png") no-repeat;
     background-size: 75%;
     min-height: 16px;
     min-width: 16px;

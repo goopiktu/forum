@@ -1,0 +1,40 @@
+<div id="comment1" class="box">
+
+    <div class="right-comment">
+
+        <a href="viewprofileA.html">
+            <div class="user"> 
+                <img class="user-icon" src="../assets/sprites/comments/Turtle.jpg">
+                <div class="user-info">
+                    <p class="username">{{this.username}}</p>
+                    <p class="date-commented">{{this.datePosted}}
+                        {{#if this.edited}}
+                            {{this.edited}}
+                        {{/if}}
+                    </p>
+                </div>
+            </div>
+        </a>
+
+
+        <div style="clear:both;" class="actl-comment">
+            <p class="content-comment">{{this.body}}</p>
+        </div>
+
+{{!-- 
+        <div class="reply">
+            <a href="reply.html">
+                <button id="reply" class="icon" type="button"></button>
+            </a>
+            <p>Reply</p>
+        </div> --}}
+
+    </div>
+
+
+    <div class="up-down">
+        <p class="countUD"><a id="upclicks">{{this.upvote}}</a></p><button id="upvote" class="icon" type="button" onclick="increment()"></button>
+        <p class="countUD"><a id="downclicks">{{this.downvote}}</a></p><button id="downvote" class="icon" type="button" onclick="decrement()"></button>
+    </div>
+
+</div>

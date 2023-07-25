@@ -36,46 +36,11 @@
 
         <div id="commentBox">
 
-            <div id="comment1" class="box">
+            {{#each comments}}
 
-                <div class="right-comment">
+                {{> comment}}
 
-                    <a href="viewprofileA.html">
-                        <div class="user"> 
-                            <img class="user-icon" src="../assets/sprites/comments/Turtle.jpg">
-                            <div class="user-info">
-                                <p class="username">{{commentUsername}}</p>
-                                <p class="date-commented">{{dateCommented}}
-                                    {{#if commentEdited}}
-                                        {{commentEdited}}
-                                    {{/if}}
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-
-
-                    <div style="clear:both;" class="actl-comment">
-                        <p class="content-comment">{{comment}}</p>
-                    </div>
-
-
-                    <div class="reply">
-                        <a href="reply.html">
-                            <button id="reply" class="icon" type="button"></button>
-                        </a>
-                        <p>Reply</p>
-                    </div>
-
-                </div>
-
-
-                <div class="up-down">
-                    <p class="countUD"><a id="upclicks">{{commentUpvote}}</a></p><button id="upvote" class="icon" type="button" onclick="increment()"></button>
-                    <p class="countUD"><a id="downclicks">{{commentDownvote}}</a></p><button id="downvote" class="icon" type="button" onclick="decrement()"></button>
-                </div>
-
-            </div>
+            {{/each}}
 
         </div>
 
