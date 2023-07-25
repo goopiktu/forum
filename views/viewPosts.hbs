@@ -7,11 +7,15 @@
         </a>
     </div>
     <div class="header-parts">
-        <a href={{link }}>
-            <button onclick="openProfile()" class="nav-button right-nav">Profile</button>
-        </a>
+        {{#if currentUser}}
+            <a href={{link }}>
+                <button onclick="openProfile()" class="nav-button right-nav">Profile</button>
+            </a>
+        {{/if}}
         <div class="img-logout">
+            {{#if currentUser}}
             <img class="icon" src="assets/sprites/default.png" alt="profile_pic">
+            {{/if}}
             <a href="/">
                 <button class="nav-button right-nav">Logout</button>
             </a>
@@ -68,12 +72,10 @@
 
     {{#if currentUser}}
         <div class="bottom-buttons">
-            {{!-- <a href="logged_in.html">
-                <button class="bot-button">Back</button>
-            </a> --}}
+            {{{editDelete currentUser}}}
             <a href="/createComment">
                 <button class="bot-button">Reply</button>
             </a>
-        </div>
+            </div>
     {{/if}}
 </div>

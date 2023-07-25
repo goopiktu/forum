@@ -11,11 +11,15 @@
       </a>
     </div>
     <div class="header-parts">
-      <a href={{link username}}>
-        <button class="nav-button right-nav">Profile</button>
-      </a>
+        {{#if user}}
+          <a href={{link username}}>
+            <button class="nav-button right-nav">Profile</button>
+          </a>
+        {{/if}}
       <div class="img-logout">
+        {{#if user}}
         <img class="icon" src="assets/sprites/default.png" alt="profile_pic">
+        {{/if}}
         <a href="/">
           <button class="nav-button right-nav">Logout</button>
         </a>
@@ -25,9 +29,8 @@
 
   <div class="nav2-container">
     <input class="Search-bar" type="text" placeholder="Search..">
-    <a href="/createPost">
-        <button id="sign-up" class="create-post">Create Post</button>
-    </a>
+
+    {{{signUp user}}}
 
   </div>
 

@@ -20,8 +20,20 @@ app.engine("hbs", exphbs.engine({
         link: function(linkIndex) {
             var result = "viewPost/" + linkIndex;
             return result;
+        }, 
+        editDelete: function(arg) {
+           if (arg === 1){
+            return "<a href='/homepage'><button class='bot-button'>Delete</button></a> <a href='/editComment'><button class='bot-button'>Edit</button></a>"
+           }
+        }, 
+        signUp: function(arg) {
+            if (arg){
+                return "<a href='/createPost'><button id='sign-up' class='create-post'>Create Post</button></a>"
+            }else{
+                return "<a href='/signUp'><button id='sign-up' class='create-post'>Sign Up</button></a>"
+            }
+        }   
     }
-}
 }));
 
 app.set("view engine", "hbs");
