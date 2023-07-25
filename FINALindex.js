@@ -35,7 +35,7 @@ app.use(express.urlencoded({extended: true}));
 // set the folder `public` as folder containing static assets
 // such as css, js, and image files
 app.use(express.static('public'));
-app.use(express.static(__dirname + '/css'));
+// app.use(express.static(__dirname + '/css'));
 
 // handlebar helper 
 

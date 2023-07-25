@@ -35,18 +35,20 @@ const signupController = {
         }
 
         try {
-            const query = {username: name, password: pass};
+            const query = {username: name};
             const projection = {username:1};
             const result = await db.findOne(User,query,projection);
 
             if (result){
                 // username already exists
-                alert("Username already exists");
-                // res.redirect('/register');
+                console.log("Username already exists");
+                res.render('signUp', {layout: 'signInReg'});
             } else if (pass.length < 8){
-                alert("Your password needs at least 8 characters");
+                console.log("Your password needs at least 8 characters");
+                res.render('signUp', {layout: 'signInReg'});
             } else if (pass !== confirm) {
-                alert("The passwords you have inputted do not match");
+                console.log("The passwords you have inputted do not match");
+                res.render('signUp', {layout: 'signInReg'});
             } else {
                 var success = await db.insertOne(User, user);
                 if( success ){
@@ -55,6 +57,7 @@ const signupController = {
                 }
                 else{
                     console.log('User not added');
+                    res.render('signUp', {layout: 'signInReg'});
                 }
                 // res.render('signIn', {isValid: true});
             }
@@ -62,7 +65,7 @@ const signupController = {
             res.status(500).send(err);
         }
         
-        var success = await db.insertOne(User, user);
+        // var success = await db.insertOne(User, user);
 
     }
 

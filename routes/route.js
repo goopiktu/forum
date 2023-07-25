@@ -34,6 +34,7 @@ app.get('/viewPost/:id',viewPostController.viewPost);
 
 //ViewProfile
 app.get('/profile', viewProfileController.viewProfile);
+app.get('/profile/:user', viewProfileController.viewProfile);
 
 
 module.exports = app;
