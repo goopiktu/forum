@@ -17,9 +17,17 @@ The phase includes:
 **[HOW TO RUN]**
 -
 - (1.) Download the code as zip file.
+
 - (2.) Extract the folder.
+
 - (3.) Go inside the folder -> Go to [MCO] Phase-2 folder
+
 - (4.) Click the folder path -> type cmd -> press enter (if successful, it will open a cmd window)
-- (5.) Type 'npm install' (this will install all necessarries libraries for the website to run locally) -> then do 'CTRL + C'
-- (7.) Type 'node index.js' (if successful, it will connect to the database and opens a localhost website)
-- (8.) Go to any browser -> type 'localhost:3000' in the URL
+
+- (5.) Type 'npm install sometimes you need to "npm install -g"' (this will install all necessarries libraries for the website to run locally) 
+
+- (6.) Type 'node index.js or nodemon start' (if successful, it will connect to the database)
+
+- (7.) Go to any browser -> type 'localhost:3000' in the URL
+
+
