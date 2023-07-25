@@ -19,7 +19,7 @@ const editCreateController = {
 
         var resultPost;
         var ID;
-        
+
         resultPost = await db.getLast(Post);
         if (resultPost[0]  === undefined){
             ID = 0;
@@ -37,6 +37,7 @@ const editCreateController = {
             downvote: 0,
             comments: [], 
             postID: ID,
+            currentUser: 0
         }
         var success = await db.insertOne(Post, post);
         if( success ){
