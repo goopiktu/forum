@@ -2,7 +2,7 @@ const db = require('../models/db.js');
 const Post = require('../models/PostModel.js');
  
 const viewPostController = {
-    viewPost : async function (req, res){
+    viewPost: async function (x, req, res){
 
         var allPosts;
         try{

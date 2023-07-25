@@ -7,6 +7,11 @@ const editCreateController = {
         res.render("createPost", {layout: 'editCreate'});
     },
     postCreatePost : async function (req, res){
+
+        var result;
+        result = await db.getLast(Post);
+        console.log(result);
+
         const post = {
             username: "idk yet how",
             title: req.body.title,
@@ -15,7 +20,8 @@ const editCreateController = {
             edited: 0,
             upvote: 0,
             downvote: 0,
-            comments: []
+            comments: [], 
+            postID: 3,
         }
         var success = await db.insertOne(Post, post);
         if( success ){

@@ -84,8 +84,11 @@ const database = {
     */
     deleteMany: async function(model, conditions) {
         return await model.deleteMany(conditions);
-    }
+    }, 
 
+    getLast: async function(model) {
+        return await model.find().sort({_id:-1}).limit(1).lean();
+    }
 }
 
 //exporting
