@@ -66,13 +66,14 @@
 
         </div>
 
-
-    <div class="bottom-buttons">
-        {{!-- <a href="logged_in.html">
-            <button class="bot-button">Back</button>
-        </a> --}}
-        <a href="/createComment">
-            <button class="bot-button">Reply</button>
-        </a>
-    </div>
+    {{#if currentUser}}
+        <div class="bottom-buttons">
+            {{!-- <a href="logged_in.html">
+                <button class="bot-button">Back</button>
+            </a> --}}
+            <a href="/createComment">
+                <button class="bot-button">Reply</button>
+            </a>
+        </div>
+    {{/if}}
 </div>
