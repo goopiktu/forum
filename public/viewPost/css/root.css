@@ -1,0 +1,32 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url(../../assets/sprites/fonts/roboto/Roboto-Black.ttf);
+}
+
+:root {
+    --primary-color: #041536;
+    font-family: 'Roboto';
+    
+}
+
+body {
+    background-attachment: fixed;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.page {
+    width:80%;
+    margin:auto;
+    position: sticky;
+}
+
+html {
+    
+    background: linear-gradient(to top, #090f19 0% , #041536 100%);
+    background-attachment: fixed;
+    height: 100%;
+}
