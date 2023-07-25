@@ -1,14 +1,23 @@
 console.log("hello i am from home");
 
-const posts = Array.from(document.getElementsByClassName('.post-fit'));
+// const posts = Array.from(document.getElementsByClassName('.post-fit'));
 
-console.log(posts);
-var x = 0;
-posts.forEach(post => {
-    post.addEventListener('click', function handleClick(event){
-    console.log('post clicked', event);
-    console.log('x = ' + x );
-    res.redirect('/viewPost?postIndex=' + x);
-    x += 1;
+// console.log(posts);
+// var x = 0;
+// posts.forEach(post => {
+//     post.addEventListener('click', function handleClick(event){
+//     console.log('post clicked', event);
+//     console.log('x = ' + x );
+//     res.redirect('/viewPost?postIndex=' + x);
+//     x += 1;
+//   });
+// });
+
+$(document).ready(function () {
+  const postFitDiv = $(".post-fit");
+
+  postFitDiv.on("click", function () {
+    
+    console.log("post-fit div was clicked!");
   });
 });

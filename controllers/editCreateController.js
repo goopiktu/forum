@@ -33,6 +33,12 @@ const editCreateController = {
         res.render("editPost", {layout: 'editCreate'});
     },
 
+    deletePost : function (req, res) {
+        
+    },
+
+
+
     createComment : function (req, res){
         res.render("createComment", {layout: 'editCreate'});
     },
@@ -40,6 +46,11 @@ const editCreateController = {
     editComment : function (req, res){
         res.render("editComment", {layout: 'editCreate'});
     },
+
+
+
+
+
 };
 
 module.exports = editCreateController;
