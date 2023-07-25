@@ -47,11 +47,9 @@ const signupController = {
         } catch (err){
             res.status(500).send(err);
         }
-
-
+        
         var success = await db.insertOne(User, user);
 
-        
     }
 
 }

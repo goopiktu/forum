@@ -5,8 +5,6 @@ const viewPostController = {
     viewPost : function (req, res){
         res.render("viewPosts", {layout: 'viewPost'});
     },
-   
-   
 };
 
 module.exports = viewPostController;

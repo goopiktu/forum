@@ -41,6 +41,10 @@
   </div>
 
   <div class="post-container"> 
-    {{> post}}
+    {{#each comment}}
+      <a href="/viewpost">
+        {{> post}}
+      </a>
+    {{/each}}
   </div>
 </div> 
