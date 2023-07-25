@@ -29,4 +29,4 @@ var CommentSchema = new mongoose.Schema({
 });
 
 //export
-module.exports = mongoose.Schema('Comment', CommentSchema);
+module.exports = mongoose.Schema('usercomments', CommentSchema, 'usercomments');

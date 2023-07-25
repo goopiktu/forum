@@ -222,6 +222,6 @@ function createPost(){
   }
 }
 
-module.exports = {validateFieldsReg,  validateFieldCreatePost}
+// module.exports = {validateFieldsReg,  validateFieldCreatePost}
 
 console.log("imported main");

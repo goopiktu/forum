@@ -4,7 +4,7 @@ const db = require('../models/db.js');
 const homepageController = {
     guestView : function (req, res){
         var info = {
-            posts: [
+            post: [
                 {
                     title: "helow bost", 
                     username: "Current User", 
@@ -14,14 +14,14 @@ const homepageController = {
                 }, 
                
             ], 
-            layout: 'homepage'
+            layout: 'home'
         }
         res.render("homepage", info);
     },
    
     // dis part i am not rlly sure of ehe
     userView : function (req, res){
-        res.render("homepage", {layout: 'homepage'});
+        res.render("homepage", {layout: 'home'});
     },
 };
 
