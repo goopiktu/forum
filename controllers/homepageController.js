@@ -1,6 +1,6 @@
 const db = require('../models/db.js');
 const Post = require('../models/PostModel.js');
-const signinController = require('../controllers/signinController');
+const User = require('../models/UserModel.js');
  
 const homepageController = {
     guestView : async function (req, res){
@@ -11,8 +11,11 @@ const homepageController = {
         } catch (err){
             res.status(500).send(err);
         }
-        console.log(signinController.currentUser);
-        if (signinController.currentUser === undefined){
+
+        currentUser = await db.findMany(User,{online: 1},{})
+        console.log(currentUser);
+
+        if (currentUser.length === 0){
             var info = {
                 user: 0, 
                 posts: allPosts, 
@@ -21,10 +24,11 @@ const homepageController = {
             console.log("guestView");
         } else {
             var info = {
-                user: signinController.currentUser, 
+                user: currentUser, 
                 posts: allPosts, 
                 layout: 'home'
             }
+            // console.log(currentUser);
             console.log("userView");
         }
         res.render("homepage", info);

@@ -2,10 +2,19 @@
 const db = require('../models/db.js');
 const User = require('../models/UserModel.js');
 
-const signinController = {
-    currentUser : 'guest', 
 
-    getSignIn : function (req, res){
+const signinController = { 
+
+    getSignIn : async function (req, res){
+        const update = {
+            $set: {
+                online: 0 
+              }
+        }
+        await db.updateOne(User,{}, update);
+
+
+
         res.render("signIn", {layout: 'signInReg'});
     },
    
@@ -15,13 +24,28 @@ const signinController = {
         const pass = req.body.password;
 
         try{
+            allUser = await db.findMany(User,{},{});
+        } catch (err){
+            res.status(500).send(err);
+        }
+
+        for (let i = 0; i < allUser.length; i++) {
+            allUser[i].online = 0;
+            console.log(allUser[i]);
+        } 
+
+        try{
             const query = {username: name, password: pass};
             const projection = {username:1};
             const result = await db.findOne(User,query,projection);
 
             if (result){
-                currentUser = result.username;
-                console.log(currentUser);
+                const update = {
+                    $set: {
+                        online: 1  
+                      }
+                }
+                await db.updateOne(User,query, update);
                 res.redirect('homepage');
             } else { 
                 res.render('signIn', {layout: 'signInReg'});
