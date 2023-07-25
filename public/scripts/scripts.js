@@ -1,4 +1,4 @@
-console.log("hello i am from home");
+// console.log("hello i am from home");
 
 // const posts = Array.from(document.getElementsByClassName('.post-fit'));
 
@@ -12,12 +12,3 @@ console.log("hello i am from home");
 //     x += 1;
 //   });
 // });
-
-$(document).ready(function () {
-  const postFitDiv = $(".post-fit");
-
-  postFitDiv.on("click", function () {
-    
-    console.log("post-fit div was clicked!");
-  });
-});

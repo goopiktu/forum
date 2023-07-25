@@ -41,3 +41,22 @@
     {{/each}}
   </div>
 </div> 
+
+<script>
+  document.querySelector('.Search-bar').addEventListener('input', filterList);
+  function filterList() {
+    const searchInput = document.querySelector('.Search-bar');
+    const filter = searchInput.value.toLowerCase();
+    const listItems = document.querySelectorAll('.post-fit');
+
+    listItems.forEach((item) =>{
+      let text = item.textContent;
+      if(text.toLowerCase().includes(filter.toLowerCase())) {
+        item.style.display = '';
+      }
+      else {
+        item.style.display = 'none';
+      }
+    });
+  }
+</script>
