@@ -1,8 +1,10 @@
 // import scemas
 const db = require('../models/db.js');
 const User = require('../models/UserModel.js');
- 
+
 const signinController = {
+    currentUser : 'guest', 
+
     getSignIn : function (req, res){
         res.render("signIn", {layout: 'signInReg'});
     },
@@ -18,6 +20,8 @@ const signinController = {
             const result = await db.findOne(User,query,projection);
 
             if (result){
+                currentUser = result.username;
+                console.log(currentUser);
                 res.redirect('homepage');
             } else { 
                 res.render('signIn', {layout: 'signInReg'});
@@ -25,7 +29,10 @@ const signinController = {
         } catch (err){
             res.status(500).send(err);
         }
-    }
+    },
+
 };
 
 module.exports = signinController;
+
+

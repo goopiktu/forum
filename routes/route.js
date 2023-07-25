@@ -1,10 +1,10 @@
 var express = require('express');
-const signinController = require('../controllers/signinController');
 const signupController = require('../controllers/signupController');
 const homepageController = require('../controllers/homepageController');
 const editCreateController = require('../controllers/editCreateController');
 const viewPostController = require('../controllers/viewPostController');
 const viewProfileController = require('../controllers/viewProfileController');
+const signinController = require('../controllers/signinController');
 
 const app = express();
 
@@ -18,6 +18,8 @@ app.post('/signUp', signupController.postSignUp);
 
 //Homepage
 app.get('/homepage', homepageController.guestView);
+app.get('/recentPosts', homepageController.sortRecent);
+app.get('/popularPosts', homepageController.sortPopular);
 
 //EditCreate 
 app.get('/createPost', editCreateController.getCreatePost);
@@ -27,7 +29,7 @@ app.get('/createComment', editCreateController.createComment);
 app.get('/editComment', editCreateController.editComment);
 
 //ViewPost 
-app.get('/viewPost', viewPostController.viewPost);
+// app.get('/viewPost', viewPostController.viewPost);
 app.get('/viewPost/:id',viewPostController.viewPost);
 
 //ViewProfile
