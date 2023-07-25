@@ -4,6 +4,7 @@ const signupController = require('../controllers/signupController');
 const homepageController = require('../controllers/homepageController');
 const editCreateController = require('../controllers/editCreateController');
 const viewPostController = require('../controllers/viewPostController');
+const viewProfileController = require('../controllers/viewProfileController');
 
 const app = express();
 
@@ -27,5 +28,8 @@ app.get('/editComment', editCreateController.editComment);
 
 //ViewPost 
 app.get('/viewPost', viewPostController.viewPost);
+
+//ViewProfile
+app.get('/profile', viewProfileController.viewProfile);
 
 module.exports = app;
