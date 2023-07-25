@@ -42,6 +42,27 @@ const homepageController = {
             layout: 'home'
         }
         res.render("homepage", info);
+    },
+
+    sortPopular : async function (req, res){
+        var allPosts =[];
+        try{
+            allPosts = await db.findMany(Post,{},{});
+            sortedPopularPosts = allPosts.sort(
+                (p1, p2)=>(p1.upvote<p2.upvote) ? 1 : 
+                (p1.upvote>p2.upvote) ? -1 : 0
+            );
+
+
+        } catch (err){
+            res.status(500).send(err);
+        }
+        
+        var info = {
+            posts: sortedPopularPosts, 
+            layout: 'home'
+        }
+        res.render("homepage", info);
     }
 };
 
