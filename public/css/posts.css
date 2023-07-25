@@ -184,6 +184,7 @@ a {
 
 .author-date {
     display: flex;
+    flex-direction: column;
 }
 
 
