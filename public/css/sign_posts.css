@@ -42,12 +42,12 @@ h1 {
 }
 
 form{
-    display: flex;
+    /* display: flex; */
     flex-direction: column;
 }
 
 .inputs {
-    display: inline-flex;
+    /* display: inline-flex; */
     flex-direction: column;
     /* background-color: red; */
 }
@@ -92,11 +92,6 @@ button{
 }
 
 
-#title {
-    height: 5%;
-    /* margin-bottom: 0px; */
-}
-
 textarea{
     width:97%;
     min-height: 180px;
@@ -111,7 +106,9 @@ textarea{
     resize: none;
 }
 
-
+.spacer{
+    padding: 10px;
+}
 /* #text {
     height: 70%;
     min-height: 180px;
