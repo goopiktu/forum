@@ -19,7 +19,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    min-width: 735px;
+    min-width: 675px;
 }
 
 #postHeader{
@@ -92,7 +92,7 @@
 
 .nav2-container {
     width: 100%;
-    min-width: 735px;
+    min-width: 675px;
     margin: 20px 0px;
     display: flex;
     justify-content: space-between;
