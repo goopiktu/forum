@@ -14,7 +14,17 @@ const app = express();
 const port = 3000;
 
 // set `hbs` as view engine
-app.engine("hbs", exphbs.engine({extname: "hbs"}));
+app.engine("hbs", exphbs.engine({
+    extname: "hbs", 
+    helpers: {
+        link: function(linkIndex) {
+            var result = "viewPost/" + linkIndex;
+            console.log(result);
+            return result;
+    }
+}
+}));
+
 app.set("view engine", "hbs");
 app.set("views", './views');
 
@@ -27,6 +37,16 @@ app.use(express.urlencoded({extended: true}));
 // such as css, js, and image files
 app.use(express.static('public'));
 app.use(express.static(__dirname + '/css'));
+
+// handlebar helper 
+
+
+// exphbs.handlebars.registerHelper('link', function(linkIndex) {
+//     var result = "<a href=/viewPost/" + linkIndex + ">";
+//     console.log(result);
+//     return result;
+// });
+
 
 // define the paths contained in `./routes/routes.js`
 app.use('/', routes);
