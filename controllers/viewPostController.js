@@ -12,7 +12,7 @@ const viewPostController = {
         }
 
         var x = 0;
-        console.log(allPosts[x]);
+        // console.log(allPosts[x]);
         
         var info = {
             username: allPosts[x].username, 

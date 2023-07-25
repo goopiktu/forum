@@ -1,5 +1,6 @@
+console.log("hello i am from home");
 
-const posts = Array.from(document.getElementsByClassName('.post-fit'));
+const posts = document.getElementsByClassName('.post-fit');
 
 console.log(posts);
 var x = 0;
