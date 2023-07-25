@@ -2,18 +2,18 @@ const db = require('../models/db.js');
 // const post = require('../models/PostModel.js');
  
 const homepageController = {
-    guestView : function (req, res){
+    guestView : async function (req, res){
+
+        const allPosts = [];
+        try{
+            allPosts = await db.findMany(User,null,null);
+            console.log(allPosts);
+        } catch (err){
+            res.status(500).send(err);
+        }
+
         var info = {
-            posts: [
-                {
-                    title: "helow bost", 
-                    username: "Current User", 
-                    datePosted: new Date(),   
-                    upvote: 2, 
-                    downvote: 3
-                }, 
-               
-            ], 
+            posts: allPosts, 
             layout: 'home'
         }
         res.render("homepage", info);
