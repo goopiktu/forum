@@ -20,7 +20,7 @@ The phase includes:
 
 - (2.) Extract the folder.
 
-- (3.) Go inside the folder -> Go to [MCO] Phase-2 folder
+- (3.) Go inside the folder -> Go to FORUM folder
 
 - (4.) Click the folder path -> type cmd -> press enter (if successful, it will open a cmd window)
 
