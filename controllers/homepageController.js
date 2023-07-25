@@ -13,7 +13,7 @@ const homepageController = {
         }
 
         currentUser = await db.findMany(User,{online: 1},{})
-        console.log(currentUser);
+        // console.log(currentUser);
 
         if (currentUser.length === 0){
             var info = {
@@ -28,7 +28,7 @@ const homepageController = {
                 posts: allPosts, 
                 layout: 'home'
             }
-            // console.log(currentUser);
+            console.log(currentUser);
             console.log("userView");
         }
         res.render("homepage", info);
