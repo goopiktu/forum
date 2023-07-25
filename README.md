@@ -31,3 +31,24 @@ The phase includes:
 - (7.) Go to any browser -> type 'localhost:3000' in the URL
 
 
+## Sample Users ##
+
+
+- username: "gup"
+- password: "123"
+
+
+- username: "gup's friend"
+- password: "123123123"
+
+
+- username: "hello"
+- password: "12345678"
+
+
+- username: "nobody"
+- password: "12345678"
+
+
+- username: "test"
+- password: "12345678"
