@@ -4,16 +4,14 @@ const User = require('../models/UserModel.js');
 const signupController = {
 
     getSignUp: async function (req, res) {
-        try{
-            allUser = await db.findMany(User,{},{});
-        } catch (err){
-            res.status(500).send(err);
+        
+        const update = {
+            $set: {
+                online: 0 
+              }
         }
+        await db.updateOne(User,{}, update);
 
-        for (let i = 0; i < allUser.length; i++) {
-            allUser[i].online = 0;
-            console.log(allUser[i]);
-        } 
         res.render("signUp", {layout: 'signInReg'});
     },
 
