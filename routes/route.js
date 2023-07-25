@@ -1,16 +1,16 @@
 var express = require('express');
-const signinCon = require('../controllers/signinController');
 const signupController = require('../controllers/signupController');
 const homepageController = require('../controllers/homepageController');
 const editCreateController = require('../controllers/editCreateController');
 const viewPostController = require('../controllers/viewPostController');
 const viewProfileController = require('../controllers/viewProfileController');
+const signinController = require('../controllers/signinController');
 
 const app = express();
 
 //SignIn
-app.get('/', signinCon.signinController.getSignIn);
-app.post('/', signinCon.signinController.postSignIn);
+app.get('/', signinController.getSignIn);
+app.post('/', signinController.postSignIn);
 
 //SignUp
 app.get('/signUp', signupController.getSignUp);

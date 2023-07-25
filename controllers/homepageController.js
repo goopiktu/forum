@@ -3,7 +3,7 @@ const Post = require('../models/PostModel.js');
 const signinController = require('../controllers/signinController');
  
 const homepageController = {
-    view : async function (req, res){
+    guestView : async function (req, res){
 
         var allPosts;
         try{
