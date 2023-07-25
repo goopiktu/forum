@@ -36,6 +36,10 @@ var UserSchema = new mongoose.Schema({
     upvotes: {
         type:Number,
         required:true
+    }, 
+    online: {
+        type:Number,
+        required:true 
     }
 });
 

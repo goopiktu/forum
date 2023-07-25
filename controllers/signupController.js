@@ -17,7 +17,11 @@ const signupController = {
             email: email,
             username: name,
             password: pass,
-            confirm: confirm,
+            confirm: confirm, 
+            posts: 0, 
+            comments: 0,
+            upvotes: 0, 
+            online: 0
         }
 
         try {
@@ -37,7 +41,7 @@ const signupController = {
                 var success = await db.insertOne(User, user);
                 if( success ){
                     console.log('User successfully added');
-                    res.render('signUp', {layout: 'signInReg'});
+                    res.render('signIn', {layout: 'signInReg'});
                 }
                 else{
                     console.log('User not added');

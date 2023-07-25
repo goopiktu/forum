@@ -11,8 +11,8 @@ const homepageController = {
         } catch (err){
             res.status(500).send(err);
         }
-
-        if (signinController.currentUser === 'guest'){
+        console.log(signinController.currentUser);
+        if (signinController.currentUser === undefined){
             var info = {
                 user: 0, 
                 posts: allPosts, 
