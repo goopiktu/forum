@@ -20,4 +20,5 @@ var UserSchema = new mongoose.Schema({
     //maybe later add prof pic? 
 });
 
-module.exports = mongoose.model('userinfo',UserSchema);
+module.exports = mongoose.model('userinfo',UserSchema, 'userinfo');
+

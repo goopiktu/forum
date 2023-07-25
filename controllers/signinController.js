@@ -15,13 +15,11 @@ const signinController = {
         try{
             const query = {username: name, password: pass};
             const projection = {username:1};
-            const result =  db.findOne(User,query,projection);
+            const result = await db.findOne(User,query,projection);
 
             if (result){
-                
                 res.redirect('homepage');
             } else { 
-                
                 res.render('signIn', {layout: 'signInReg'});
             }
         } catch (err){

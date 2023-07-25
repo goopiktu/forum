@@ -8,7 +8,8 @@ const url = 'mongodb+srv://aldwin:gsavblsplVmZKem2@forumcluster.xn9ni4j.mongodb.
 // additional connection options
 const options = {
     useUnifiedTopology: true,
-    useNewUrlParser: true
+    useNewUrlParser: true,
+    dbName: 'node_forum'
 };
 
 // defines an object which contains necessary database functions
