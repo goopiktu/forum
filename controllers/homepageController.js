@@ -4,7 +4,7 @@ const db = require('../models/db.js');
 const homepageController = {
     guestView : function (req, res){
         var info = {
-            post: [
+            posts: [
                 {
                     title: "helow bost", 
                     username: "Current User", 

@@ -29,7 +29,7 @@ const viewPostController = {
                     downvote: 0
                 }
             ], 
-            layout: 'homepage'
+            layout: 'home'
         }
         res.render("viewPosts", info);
     },
