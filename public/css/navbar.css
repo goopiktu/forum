@@ -1,11 +1,10 @@
 /* Search Bar */
 .Search-bar {
-    margin-top: 42px;
     padding-left: 10px;
-    margin-bottom: 33px;
-    width: 340px;
-    height: 40px;
+    width: 85%;
+    height: 48px;
     border-radius: 20px;
+    border:0;
 }
 
 
@@ -20,7 +19,12 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    min-width: 675px;
+    min-width: 735px;
+}
+
+#postHeader{
+    margin: 40px 0px 20px;
+    width: 90%;
 }
 
 
@@ -56,6 +60,7 @@
 
 .create-post{
     flex-grow: 1;
+    margin-left: 20px;
 }
 
 .logo{
@@ -85,26 +90,12 @@
     color: #3498db;
 } 
 
-.nav-bar-2{
-    flex-grow: 1;
-    align-items: center;
-    background-color: #D9D9D9;
-    padding: 20px;
-}
-
-.nav-bar-2 > p {
-    margin-right: 15px;
-}
-
-
-
-
 .nav2-container {
-    display: flex;
     width: 100%;
-    max-height: 49px;
-    margin-bottom: 20px;
-    min-width: 675px;
+    min-width: 735px;
+    margin: 20px 0px;
+    display: flex;
+    justify-content: space-between;
 }
 
 #login {

@@ -13,6 +13,7 @@ body {
     background-attachment: fixed;
     padding: 10px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -20,6 +21,7 @@ body {
 .page {
     width:80%;
     margin:auto;
+    position: sticky;
 }
 
 html {
