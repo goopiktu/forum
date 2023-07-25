@@ -10,8 +10,7 @@ const homepageController = {
         } catch (err){
             res.status(500).send(err);
         }
-
-        console.log(allPosts);
+        
         var info = {
             posts: allPosts, 
             layout: 'home'

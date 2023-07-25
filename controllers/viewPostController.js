@@ -1,34 +1,28 @@
 const db = require('../models/db.js');
-const User = require('../models/UserModel.js');
+const Post = require('../models/PostModel.js');
  
 const viewPostController = {
-    viewPost : function (req, res){
+    viewPost : async function (req, res){
+
+        var allPosts;
+        try{
+            allPosts = await db.findMany(Post,{},{});
+        } catch (err){
+            res.status(500).send(err);
+        }
+
+        var x = 0;
+        console.log(allPosts[x]);
+        
         var info = {
-            username: "i hate life", 
-            title: "Goblin",
-            datePosted: "June 20, 2023",
-            body:"This part here can ow HTML tags",
-            edited:"(edited)", 
-            upvote: 3, 
-            downvote: 35, 
-            comments: [
-                {
-                    username: "pootTroot", 
-                    datePosted: "Date", 
-                    body: "my PrEciOussss", 
-                    edited: Number, 
-                    upvote: 0, 
-                    downvote: 0
-                }, 
-                {
-                    username: "odercomment", 
-                    datePosted: "July 14, 2023", 
-                    body: "my PrEciOussss", 
-                    edited: 1, 
-                    upvote: 7, 
-                    downvote: 0
-                }
-            ], 
+            username: allPosts[x].username, 
+            title:  allPosts[x].title,
+            datePosted: allPosts[x].datePosted,
+            body: allPosts[x].body,
+            edited: allPosts[x].edited, 
+            upvote: allPosts[x].upvote, 
+            downvote: allPosts[x].downvote, 
+            comments: allPosts[x].comments, 
             layout: 'home'
         }
         res.render("viewPosts", info);
