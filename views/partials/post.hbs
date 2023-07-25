@@ -3,18 +3,18 @@
 
   <div class="header-post-item">
     <div>
-        <p class="post-title left-align">{{title}}</p>
+        <p class="post-title left-align">{{this.title}}</p>
         <div class="author-date">
-          <p class="author left-align">posted by {{username}}</p>
-          <p class="outer-date-posted left-align">{{datePosted}}</p>
+          <p class="author left-align">posted by {{this.username}}</p>
+          <p class="outer-date-posted left-align">{{this.datePosted}}</p>
         </div>
     </div>
     <div class="outer-total-votes">
           <button id="outer-upvote" class="outer-arrow" type="button" onclick="increment()"></button>
-          <p class="outer-count">{{upvote}}</p>
+          <p class="outer-count">{{this.upvote}}</p>
           <span class="spacer"></span>
           <button id="outer-downvote" class="outer-arrow" type="button" onclick="decrement()"></button>
-          <p class="outer-count">{{downvote}}</p>
+          <p class="outer-count">{{this.downvote}}</p>
     </div>
   </div>
 
