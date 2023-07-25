@@ -49,7 +49,7 @@ const database = {
         callback function is called after the execution of findMany() function
     */
     findMany: async function(model, query, projection) {
-        return await model.find(query, projection);
+        return await model.find(query, projection).lean();
     },
 
     /*

@@ -6,15 +6,12 @@ const homepageController = {
 
         var allPosts;
         try{
-            console.log("it entered the try");
-            // console.log(db.findMany(Post,null,null));
-            // console.log(db.findMany(Post,{},{}));
             allPosts = await db.findMany(Post,{},{});
-            console.log(allPosts);
         } catch (err){
-            // res.status(500).send(err);
+            res.status(500).send(err);
         }
 
+        console.log(allPosts);
         var info = {
             posts: allPosts, 
             layout: 'home'
