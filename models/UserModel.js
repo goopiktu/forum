@@ -22,7 +22,7 @@ var UserSchema = new mongoose.Schema({
         required:false
     },
     profpicture: {
-        type:File,
+        type:String,
         required:false
     },
     posts: {
