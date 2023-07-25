@@ -3,6 +3,9 @@ const User = require('../models/UserModel.js');
 
 const viewProfileController = {
     viewProfile: async function (req, res) {
+
+
+        
         const query = {username: req.query.username};
         const projection = 'username profpicture';
         const found = await db.findOne(User, query, projection);
@@ -15,7 +18,7 @@ const viewProfileController = {
             upvotes: found.upvotes,
             profpicture: found.profpicture
         }
-          res.render('profile', user);
+        res.render('profile', user);
     }
 }
 
