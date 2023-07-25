@@ -22,6 +22,27 @@ const homepageController = {
     userView : function (req, res){
         res.render("homepage", {layout: 'home'});
     },
+
+    sortRecent : async function (req, res){
+        var allPosts =[];
+        try{
+            allPosts = await db.findMany(Post,{},{});
+            sortedRecentPosts = allPosts.sort(
+                (p1, p2)=>(p1.datePosted<p2.datePosted) ? 1 : 
+                (p1.datePosted>p2.datePosted) ? -1 : 0
+            );
+
+
+        } catch (err){
+            res.status(500).send(err);
+        }
+        
+        var info = {
+            posts: sortedRecentPosts, 
+            layout: 'home'
+        }
+        res.render("homepage", info);
+    }
 };
 
 module.exports = homepageController;

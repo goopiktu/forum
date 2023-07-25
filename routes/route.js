@@ -18,6 +18,7 @@ app.post('/signUp', signupController.postSignUp);
 
 //Homepage
 app.get('/homepage', homepageController.guestView);
+app.get('/recentPosts', homepageController.sortRecent);
 
 //EditCreate 
 app.get('/createPost', editCreateController.getCreatePost);
