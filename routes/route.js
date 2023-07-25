@@ -28,8 +28,10 @@ app.get('/editComment', editCreateController.editComment);
 
 //ViewPost 
 app.get('/viewPost', viewPostController.viewPost);
+app.get('/viewPost/:id',viewPostController.viewPost);
 
 //ViewProfile
 app.get('/profile', viewProfileController.viewProfile);
+
 
 module.exports = app;
