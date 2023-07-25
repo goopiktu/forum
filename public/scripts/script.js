@@ -6,14 +6,15 @@
 //     window.location.href="/editPost.html";
 // }
 
-const register = document.getElementById('sign-up');
-if(register) {
-    register.addEventListener('click', function(e) {
-        console.log("clicked");
-        fetch('/register', {method: 'POST'})
-    });
+
+// const register = document.getElementById('sign-up');
+// if(register) {
+//     register.addEventListener('click', function(e) {
+//         console.log("clicked");
+//         fetch('/register', {method: 'POST'})
+//     });
     
-}
+// }
 
 
 

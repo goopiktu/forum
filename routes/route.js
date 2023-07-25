@@ -19,7 +19,8 @@ app.post('/signUp', signupController.postSignUp);
 app.get('/homepage', homepageController.guestView);
 
 //EditCreate 
-app.get('/createPost', editCreateController.createPost);
+app.get('/createPost', editCreateController.getCreatePost);
+app.post('/createPost', editCreateController.postCreatePost);
 app.get('/editPost', editCreateController.editPost);
 app.get('/createComment', editCreateController.createComment);
 app.get('/editComment', editCreateController.editComment);
