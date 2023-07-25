@@ -8,8 +8,18 @@ const editCreateController = {
     },
     postCreatePost : async function (req, res){
 
+        currentUser = await db.findMany(User,{online: 1},{})
+
+        if (currentUser.length === 0){
+            console.log("guest cannot post");
+        } else {
+            console.log(currentUser);
+            console.log("userView");
+        }
+
         var resultPost;
         var ID;
+
         resultPost = await db.getLast(Post);
         if (resultPost[0]  === undefined){
             ID = 0;
@@ -18,7 +28,7 @@ const editCreateController = {
         }
 
         const post = {
-            username: "idk yet how",
+            username: currentUser[0].username,
             title: req.body.title,
             datePosted: new Date(),
             body: req.body.postBody,
@@ -27,6 +37,7 @@ const editCreateController = {
             downvote: 0,
             comments: [], 
             postID: ID,
+            currentUser: 0
         }
         var success = await db.insertOne(Post, post);
         if( success ){

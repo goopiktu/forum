@@ -13,8 +13,6 @@ const signinController = {
         }
         await db.updateOne(User,{}, update);
 
-
-
         res.render("signIn", {layout: 'signInReg'});
     },
    
@@ -31,7 +29,6 @@ const signinController = {
 
         for (let i = 0; i < allUser.length; i++) {
             allUser[i].online = 0;
-            console.log(allUser[i]);
         } 
 
         try{
