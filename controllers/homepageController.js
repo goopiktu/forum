@@ -1,15 +1,18 @@
 const db = require('../models/db.js');
-// const post = require('../models/PostModel.js');
+const Post = require('../models/PostModel.js');
  
 const homepageController = {
     guestView : async function (req, res){
 
-        const allPosts = [];
+        var allPosts;
         try{
-            allPosts = await db.findMany(User,null,null);
+            console.log("it entered the try");
+            // console.log(db.findMany(Post,null,null));
+            // console.log(db.findMany(Post,{},{}));
+            allPosts = await db.findMany(Post,{},{});
             console.log(allPosts);
         } catch (err){
-            res.status(500).send(err);
+            // res.status(500).send(err);
         }
 
         var info = {
