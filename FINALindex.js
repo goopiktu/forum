@@ -19,7 +19,6 @@ app.engine("hbs", exphbs.engine({
     helpers: {
         link: function(linkIndex) {
             var result = "viewPost/" + linkIndex;
-            console.log(result);
             return result;
     }
 }

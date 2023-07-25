@@ -1,8 +1,9 @@
 const db = require('../models/db.js');
 const Post = require('../models/PostModel.js');
+const signinController = require('../controllers/signinController');
  
 const homepageController = {
-    guestView : async function (req, res){
+    view : async function (req, res){
 
         var allPosts;
         try{
@@ -10,18 +11,24 @@ const homepageController = {
         } catch (err){
             res.status(500).send(err);
         }
-        
-        var info = {
-            posts: allPosts, 
-            layout: 'home'
+
+        if (signinController.currentUser === 'guest'){
+            var info = {
+                user: 0, 
+                posts: allPosts, 
+                layout: 'home'
+            }
+            console.log("guestView");
+        } else {
+            var info = {
+                user: signinController.currentUser, 
+                posts: allPosts, 
+                layout: 'home'
+            }
+            console.log("userView");
         }
         res.render("homepage", info);
-    },
-   
-    // dis part i am not rlly sure of ehe
-    userView : function (req, res){
-        res.render("homepage", {layout: 'home'});
-    },
+    }
 };
 
 module.exports = homepageController;

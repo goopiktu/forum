@@ -2,7 +2,8 @@
 const db = require('../models/db.js');
 const User = require('../models/UserModel.js');
  
-const signinController = {
+var currentUser = 'guest'; 
+const signinCon = {
     getSignIn : function (req, res){
         res.render("signIn", {layout: 'signInReg'});
     },
@@ -18,6 +19,8 @@ const signinController = {
             const result = await db.findOne(User,query,projection);
 
             if (result){
+                currentUser = result.username;
+                console.log(curentUser);
                 res.redirect('homepage');
             } else { 
                 res.render('signIn', {layout: 'signInReg'});
@@ -28,4 +31,6 @@ const signinController = {
     }
 };
 
-module.exports = signinController;
+module.exports.signinController = signinCon;
+module.exports.currentUser = currentUser;
+

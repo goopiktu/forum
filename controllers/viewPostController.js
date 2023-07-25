@@ -12,7 +12,6 @@ const viewPostController = {
         }
 
         var id = req.params.id;
-        console.log(id);
         
         var info = {
             username: allPosts[id].username, 

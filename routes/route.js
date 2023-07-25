@@ -1,5 +1,5 @@
 var express = require('express');
-const signinController = require('../controllers/signinController');
+const signinCon = require('../controllers/signinController');
 const signupController = require('../controllers/signupController');
 const homepageController = require('../controllers/homepageController');
 const editCreateController = require('../controllers/editCreateController');
@@ -9,15 +9,15 @@ const viewProfileController = require('../controllers/viewProfileController');
 const app = express();
 
 //SignIn
-app.get('/', signinController.getSignIn);
-app.post('/', signinController.postSignIn);
+app.get('/', signinCon.signinController.getSignIn);
+app.post('/', signinCon.signinController.postSignIn);
 
 //SignUp
 app.get('/signUp', signupController.getSignUp);
 app.post('/signUp', signupController.postSignUp);
 
 //Homepage
-app.get('/homepage', homepageController.guestView);
+app.get('/homepage', homepageController.view);
 
 //EditCreate 
 app.get('/createPost', editCreateController.getCreatePost);
@@ -27,7 +27,7 @@ app.get('/createComment', editCreateController.createComment);
 app.get('/editComment', editCreateController.editComment);
 
 //ViewPost 
-app.get('/viewPost', viewPostController.viewPost);
+// app.get('/viewPost', viewPostController.viewPost);
 app.get('/viewPost/:id',viewPostController.viewPost);
 
 //ViewProfile
