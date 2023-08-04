@@ -4,18 +4,16 @@
 
         <h1>Reply to Post</h1>
         <div class="spacer"></div>
-        <form id="reply">
+        <form onsubmit="createPost()" method="post" id="reply">
             <textarea id="post" name="post" placeholder="Text"></textarea>
-            
-        </form>
-
-        <div class="bottom">
-            <a onclick=history.back()>
-                <button class="back">Back</button>
-            </a>
-            <button type="submit" form="reply">Post</button>
-        </div>
+            <div class="bottom">
+                <a onclick=history.back()>
+                    <button class="back">Back</button>
+                </a>
+                <button type="submit" form="reply">Post</button>
+            </div>
         
+        </form>
     </div>
         
 </div>

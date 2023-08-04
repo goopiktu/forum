@@ -20,7 +20,7 @@ const viewPostController = {
 
         if (currentUser.length === 0){
 
-            console.log("guest viewt");
+            console.log("guest view");
             online = 0;
 
         } else if (currentUser[0].username === allPosts[id].username) {
@@ -45,7 +45,9 @@ const viewPostController = {
             downvote: allPosts[id].downvote, 
             comments: allPosts[id].comments, 
             currentUser: online,
-            layout: 'home'
+            totalcomments: allPosts[id].comments.length,
+            layout: 'viewPost',
+            postID: id,
         }
         res.render("viewPosts", info);
     },

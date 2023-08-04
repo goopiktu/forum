@@ -21,9 +21,9 @@ app.engine("hbs", exphbs.engine({
             var result = "viewPost/" + linkIndex;
             return result;
         }, 
-        editDelete: function(arg) {
+        editDelete: function(arg, linkIndex) {
            if (arg === 1){
-            return "<a href='/homepage'><button class='bot-button'>Delete</button></a> <a href='/editComment'><button class='bot-button'>Edit</button></a>"
+            return "<a href='/homepage'><button class='bot-button'>Delete</button></a> <a href='" + linkIndex + "/editPost'><button class='bot-button'>Edit</button></a>"
            }
         }, 
         signUp: function(arg) {
@@ -32,7 +32,16 @@ app.engine("hbs", exphbs.engine({
             }else{
                 return "<a href='/signUp'><button id='sign-up' class='create-post'>Sign Up</button></a>"
             }
-        }   
+        }, 
+        comment: function(linkIndex) {
+            var result = linkIndex + "/createComment";
+            return result;
+        }, 
+        editdeleteComment: function(arg, linkIndex) {
+            if (arg === 1){
+             return "<a href='/homepage'><button class='rep-button'>Delete</button></a> <a href='" + linkIndex + "/editComment'><button class='rep-button'>Edit</button></a>"
+            }
+        }, 
     }
 }));
 

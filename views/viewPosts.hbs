@@ -1,7 +1,7 @@
 
 <div class="header" id="postHeader">
     <div class="header-parts">
-        <img class="logo" src="assets/sprites/Arryn House.png" alt="icon"></img> <!-- Supposed to be an icon -->
+        <img class="logo" src="/assets/sprites/Arryn House.png" alt="icon"></img> <!-- Supposed to be an icon -->
         <a href="/homepage">
             <button class="nav-button">Home</button>
         </a>
@@ -14,7 +14,7 @@
         {{/if}}
         <div class="img-logout">
             {{#if currentUser}}
-            <img class="icon" src="assets/sprites/default.png" alt="profile_pic">
+            <img class="icon" src="/assets/sprites/default.png" alt="profile_pic">
             {{/if}}
             <a href="/">
                 <button class="nav-button right-nav">Logout</button>
@@ -40,8 +40,8 @@
 
 
         <div class="outer-total-votes">
-            <p class="count">{{upvote}}</p><img src="assets/voting-arrow/up-arrow.png" alt="Up-Arrow">
-            <p class="count">{{downvote}}</p> <img src="assets/voting-arrow/down-arrow.png" alt="Down-Arrow">
+            <p class="count">{{upvote}}</p><img src="/assets/voting-arrow/up-arrow.png" alt="Up-Arrow">
+            <p class="count">{{downvote}}</p> <img src="/assets/voting-arrow/down-arrow.png" alt="Down-Arrow">
         </div>
 
     </div>
@@ -55,8 +55,8 @@
     <div class="comments">
 
         <div class="comment-title">
-            <img class="comment-icon" src="assets/sprites/Icons/comment.png">
-            <p class="comment-name">1 Comment</p>
+            <img class="comment-icon" src="/assets/sprites/Icons/comment.png">
+            <p class="comment-name">{{totalcomments}} Comment</p>
         </div>
 
 
@@ -64,7 +64,7 @@
 
             {{#each comments}}
 
-                {{> comment}}
+                {{> comment user=../currentUser id=../postID}}
 
             {{/each}}
 
@@ -72,8 +72,8 @@
 
     {{#if currentUser}}
         <div class="bottom-buttons">
-            {{{editDelete currentUser}}}
-            <a href="/createComment">
+            {{{editDelete currentUser postID}}}
+            <a href= {{comment postID}}>
                 <button class="bot-button">Reply</button>
             </a>
             </div>

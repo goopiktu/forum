@@ -21,15 +21,23 @@ app.get('/homepage', homepageController.guestView);
 app.get('/recentPosts', homepageController.sortRecent);
 app.get('/popularPosts', homepageController.sortPopular);
 
-//EditCreate 
+//CreatePost
 app.get('/createPost', editCreateController.getCreatePost);
 app.post('/createPost', editCreateController.postCreatePost);
-app.get('/editPost', editCreateController.editPost);
-app.get('/createComment', editCreateController.createComment);
-app.get('/editComment', editCreateController.editComment);
+
+//EditPost
+app.get('/viewPost/:id/editPost', editCreateController.getEditPost);
+app.post('/viewPost/:id/editPost', editCreateController.postEditPost);
+
+//CreateComment
+app.get('/viewPost/:id/createComment', editCreateController.getCreateComment);
+app.post('/viewPost/:id/createComment', editCreateController.postCreateComment);
+
+//EditComment
+app.get('/viewPost/:id/editComment', editCreateController.getEditComment);
+app.post('/viewPost/:id/editComment', editCreateController.postEditComment);
 
 //ViewPost 
-// app.get('/viewPost', viewPostController.viewPost);
 app.get('/viewPost/:id',viewPostController.viewPost);
 
 //ViewProfile

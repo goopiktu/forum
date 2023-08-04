@@ -496,6 +496,17 @@ body{
     margin: 0px 10px 10px 10px;
 }
 
+.rep-button{
+    color: #FFFFFF;
+    font-family: 'Roboto';
+    background-color: #7f7f7f;
+    width: 80px;
+    height: 30px;
+    border: 0px;
+    border-radius: 15px;
+    margin: 0px 10px 10px 10px;
+}
+
 .bottom-buttons{
     margin: 10px 30px 30px 30px;
     float: right;

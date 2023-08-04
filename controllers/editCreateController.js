@@ -51,7 +51,47 @@ const editCreateController = {
     },
    
     // dis part i am not rlly sure of ehe
-    editPost : function (req, res){
+    getEditPost : async function (req, res){
+
+        var resultPost;
+        var id = req.params.id;
+        console.log(id);
+
+        resultPost = await db.findMany(Post, {postID: id},{});
+        console.log(resultPost);
+
+        console.log(resultPost[0].body);
+
+        var info = {
+            layout: 'editCreate', 
+            title: resultPost[0].title,
+            body: resultPost[0].body
+        }
+        res.render("editPost", info);
+    },
+    postEditPost : async function (req, res){
+ 
+        var resultPost;
+        var id = req.params.id;
+        console.log(id);
+
+        resultPost = await db.findMany(Post, {postID: id},{});
+        console.log(resultPost);
+
+        var success = await db.updateOne(Post, {postID: id}, {
+            title: req.body.title, 
+            body: req.body.body
+        });
+        if( success ){
+            console.log('post sucessfully updated');
+            res.redirect('/viewpost/' + id);
+        }
+        else{
+            console.log('comment not added');
+            res.render("editComment", {layout: 'editCreate'});
+        }
+
+        console.log('pOst');
         res.render("editPost", {layout: 'editCreate'});
     },
 
@@ -59,20 +99,57 @@ const editCreateController = {
         
     },
 
-
-
-    createComment : function (req, res){
+    getCreateComment: function (req, res){
         res.render("createComment", {layout: 'editCreate'});
     },
+    postCreateComment : async function (req, res){
 
-    editComment : function (req, res){
+        currentUser = await db.findMany(User,{online: 1},{})
+
+        if (currentUser.length === 0){
+            console.log("guest cannot post");
+        } else {
+            console.log(currentUser);
+            console.log("userView");
+        }
+
+        var resultPost;
+        var id = req.params.id;
+        console.log(id);
+
+        resultPost = await db.findMany(Post, {postID: id},{});
+        console.log(resultPost);
+
+        const comment = {
+            username: currentUser[0].username,
+            datePosted: new Date(),
+            body: req.body.post,
+            edited: 0,
+            upvote: 0,
+            downvote: 0,
+        }
+        var success = await db.updateOne(Post, {postID: id}, {
+            $push: {
+                comments: comment
+            }
+        });
+        if( success ){
+            console.log('comment successfully added');
+            res.redirect('/viewpost/' + id);
+        }
+        else{
+            console.log('comment not added');
+            res.render("editComment", {layout: 'editCreate'});
+        }
+    },
+
+    getEditComment : function (req, res){
         res.render("editComment", {layout: 'editCreate'});
     },
 
-
-
-
-
+    postEditComment : function (req, res){
+        res.render("editComment", {layout: 'editCreate'});
+    }
 };
 
 module.exports = editCreateController;

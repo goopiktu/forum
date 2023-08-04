@@ -4,9 +4,9 @@
 
         <h1>Edit Post</h1>
 
-        <form>
-            <input type="text" id="title" placeholder="Title">
-            <textarea id="post" name="post" placeholder="Title"></textarea>
+        <form method="post" id="post-form">
+            <input name = "title" type="text" id="title" value= "{{title}}">
+            <textarea id="post" name="body">{{body}}</textarea>
         
             <div class="bottom">
                 <a href="logged_in">
@@ -15,8 +15,6 @@
                 <button type="submit" id="submit-fields">Post</button>
             </div>
         </form>
-
-        
         
         
     </div>
