@@ -8,7 +8,7 @@ const CommentSchema = new mongoose.Schema({
         required: true
     },
     datePosted: {
-        type: Date,
+        type: String,
         required: true
     },
     body: {
@@ -39,7 +39,7 @@ var PostSchema = new mongoose.Schema({
         required: true
     },
     datePosted: {
-        type: Date,
+        type: String,
         required: true
     },
     body: {

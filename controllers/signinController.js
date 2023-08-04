@@ -43,7 +43,7 @@ const signinController = {
                       }
                 }
                 await db.updateOne(User,query, update);
-                res.redirect('homepage');
+                res.redirect('/homepage?user=' + name);
             } else { 
                 res.render('signIn', {layout: 'signInReg'});
             }

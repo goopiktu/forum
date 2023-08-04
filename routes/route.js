@@ -33,8 +33,9 @@ app.get('/editComment', editCreateController.editComment);
 app.get('/viewPost/:id',viewPostController.viewPost);
 
 //ViewProfile
+app.get('/profile', viewProfileController.getViewProfile);
 app.get('/profile', viewProfileController.viewProfile);
-app.get('/profile/:user', viewProfileController.viewProfile);
+//app.get('/profile/:username', viewProfileController.viewProfile);
 
 
 module.exports = app;

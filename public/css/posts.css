@@ -96,6 +96,8 @@ a {
     /* margin: 10px;
     margin-left: 0px;  */
     min-height: 250px;
+    min-width: 50%;
+    /* min-width: 650px; */
 }
 
 .post-fit:hover {

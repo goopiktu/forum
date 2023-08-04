@@ -32,7 +32,11 @@ app.engine("hbs", exphbs.engine({
             }else{
                 return "<a href='/signUp'><button id='sign-up' class='create-post'>Sign Up</button></a>"
             }
-        }   
+        }  
+        // profile: function(username) {
+        //     var result = "profile/" + username;
+        //     return result;
+        // }
     }
 }));
 

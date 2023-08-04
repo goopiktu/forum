@@ -1,6 +1,7 @@
 const db = require('../models/db.js');
 const User = require('../models/UserModel.js');
 const Post = require('../models/PostModel.js');
+const moment = require('moment');
  
 const editCreateController = {
     getCreatePost: function (req, res){
@@ -30,7 +31,7 @@ const editCreateController = {
         const post = {
             username: currentUser[0].username,
             title: req.body.title,
-            datePosted: new Date(),
+            datePosted: moment().startOf('hour').fromNow(),
             body: req.body.postBody,
             edited: 0,
             upvote: 0,
