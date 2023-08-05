@@ -28,15 +28,21 @@ const editCreateController = {
             comments: [],  
             currentUser: 0
         }
-        var success = await db.insertOne(Post, post);
-        if( success ){
-            console.log('Post successfully added');
-            res.redirect('homepage');
-        }
-        else{
-            console.log('Post not added');
+        if ((req.body.title!=="") && (req.body.postBody!=="")){
+            var success = await db.insertOne(Post, post);
+            if( success ){
+                console.log('Post successfully added');
+                res.redirect('homepage');
+            }
+            else{
+                console.log('Post not added');
+                res.render("createPost", {layout: 'editCreate'});
+            }
+        }   else {
+            console.log("Incomplete post information");
             res.render("createPost", {layout: 'editCreate'});
         }
+        
     },
    
     // dis part i am not rlly sure of ehe
@@ -77,20 +83,35 @@ const editCreateController = {
 
         var resultPostID = allPosts[id]._id;
         console.log(resultPostID);
+        var resultPost = allPosts[id]
+        console.log(resultPost);
 
-        var success = await db.updateOne(Post, {_id: resultPostID}, {
-            title: req.body.title, 
-            body: req.body.body, 
-            edited: 1,
-        });
-        if( success ){
-            console.log('post sucessfully updated');
-            res.redirect('/viewpost/' + id);
+        var info = {
+            layout: 'editCreate', 
+            title: resultPost.title,
+            body: resultPost.body
         }
-        else{
-            console.log('post not updated');
-            res.render("editPost", {layout: 'editCreate'});
+
+        if ((req.body.title!=="") && (req.body.body!=="")){
+            var success = await db.updateOne(Post, {_id: resultPostID}, {
+                title: req.body.title, 
+                body: req.body.body, 
+                edited: 1,
+            });
+            if( success ){
+                console.log('post sucessfully updated');
+                res.redirect('/viewpost/' + id);
+            }
+            else{
+                console.log('post not updated');
+                // res.render("editPost", {layout: 'editCreate'});
+                res.render("editPost", info);
+            }
+        } else{
+            console.log("Incomplete post information");
+            res.render("editPost", info);
         }
+        
     },
 
     deletePost : function (req, res) {
@@ -203,8 +224,19 @@ const editCreateController = {
                 res.render("editComment", {layout: 'editCreate'});
             }
         } else {
+            var resultPostID = allPosts[id]._id
+
+            var resultPost = await db.findMany(Post, {_id: resultPostID},{});
+
+            var info = {
+                layout: 'editCreate', 
+                body: resultPost[0].comments[value].body
+            }
+            
             console.log("You did not comment anything");
-            res.render("editComment", {layout: 'editCreate'});
+            // res.render("editComment", {layout: 'editCreate'});
+            res.render("editComment", info);
+            
         }
         
         
