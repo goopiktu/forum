@@ -32,7 +32,7 @@
             <p class="title">{{title}}</p>
             <p class="date-posted">{{datePosted}}
                 {{#if edited}}
-                    {{edited}}
+                    (edited)
                 {{/if}}
             </p>
             <p class="posted-by">by {{username}}</p>
@@ -72,7 +72,7 @@
 
     {{#if currentUser}}
         <div class="bottom-buttons">
-            {{{editDelete currentUser postID}}}
+            {{{editDelete currentUser username postID}}}
             <a href= {{comment postID}}>
                 <button class="bot-button">Reply</button>
             </a>

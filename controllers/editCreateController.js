@@ -80,19 +80,17 @@ const editCreateController = {
 
         var success = await db.updateOne(Post, {postID: id}, {
             title: req.body.title, 
-            body: req.body.body
+            body: req.body.body, 
+            edited: 1,
         });
         if( success ){
             console.log('post sucessfully updated');
             res.redirect('/viewpost/' + id);
         }
         else{
-            console.log('comment not added');
-            res.render("editComment", {layout: 'editCreate'});
+            console.log('post not updated');
+            res.render("editPost", {layout: 'editCreate'});
         }
-
-        console.log('pOst');
-        res.render("editPost", {layout: 'editCreate'});
     },
 
     deletePost : function (req, res) {
@@ -143,12 +141,59 @@ const editCreateController = {
         }
     },
 
-    getEditComment : function (req, res){
-        res.render("editComment", {layout: 'editCreate'});
+    getEditComment : async function (req, res){
+
+        var resultPost;
+        var id = req.params.id;
+        console.log(id);
+
+        var value = req.params.value;
+
+        resultPost = await db.findMany(Post, {postID: id},{});
+        console.log(resultPost);
+
+        console.log(resultPost[0].comments[value]);
+
+        var info = {
+            layout: 'editCreate', 
+            body: resultPost[0].comments[value].body
+        }
+        res.render("editComment", info);
     },
 
-    postEditComment : function (req, res){
-        res.render("editComment", {layout: 'editCreate'});
+    postEditComment : async function (req, res){
+
+        var resultPost;
+        var id = req.params.id;
+        console.log(id);
+
+        var value = req.params.value;
+
+        resultPost = await db.findMany(Post, {postID: id},{});
+        console.log(resultPost);
+
+        console.log(resultPost[0].comments[value]);
+
+        var posted = resultPost[0].comments[value].datePosted;
+
+        var resultCommments;
+        resultCommments = await db.findMany(Post, {postID: id, comments: {datePosted: posted}},{});
+        // does not work ahaha 
+
+    //     var success = await db.updateOne(Post, {postID: id, "comments.datePosted": }, {
+    //         $set: {
+    //             "comments.value.body": req.body.body
+    //         }
+    //     });
+    //     if( success ){
+    //         console.log('post sucessfully updated');
+    //         res.redirect('/viewpost/' + id);
+    //     }
+    //     else{
+    //         console.log('post not updated');
+    //         res.render("editPost", {layout: 'editCreate'});
+    //     }
+    //     res.render("editComment", {layout: 'editCreate'});
     }
 };
 

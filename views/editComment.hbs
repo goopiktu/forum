@@ -4,17 +4,17 @@
 
         <h1>Edit Comment</h1>
         <div class="spacer"></div>
-        <form id="edit">
-            <textarea id="post" name="post" placeholder="Text"></textarea>
+        <form id="edit"  method="post" id="post-form">
+            <textarea id="post" name="post" placeholder="Text">{{body}}</textarea>
+
+            <div class="bottom">
+                <a onclick=history.back()>
+                    <button class="back">Back</button>
+                </a>
+                <button type="submit" form="edit">Post</button>
+            </div>
             
         </form>
-
-        <div class="bottom">
-            <a href="viewpost.html">
-                <button class="back">Back</button>
-            </a>
-            <button type="submit" form="edit">Post</button>
-        </div>
         
     </div>
         

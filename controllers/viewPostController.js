@@ -23,15 +23,10 @@ const viewPostController = {
             console.log("guest view");
             online = 0;
 
-        } else if (currentUser[0].username === allPosts[id].username) {
-
-            console.log("post user online");
-            online = 1;
-
         } else {
 
-            console.log("post user not online");
-            online = 2;
+            console.log("current user" + currentUser[0].username);
+            online = currentUser[0].username
 
         }
         

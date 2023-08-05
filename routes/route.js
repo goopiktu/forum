@@ -34,8 +34,8 @@ app.get('/viewPost/:id/createComment', editCreateController.getCreateComment);
 app.post('/viewPost/:id/createComment', editCreateController.postCreateComment);
 
 //EditComment
-app.get('/viewPost/:id/editComment', editCreateController.getEditComment);
-app.post('/viewPost/:id/editComment', editCreateController.postEditComment);
+app.get('/viewPost/:id/:value/editComment', editCreateController.getEditComment);
+app.post('/viewPost/:id/:value/editComment', editCreateController.postEditComment);
 
 //ViewPost 
 app.get('/viewPost/:id',viewPostController.viewPost);
