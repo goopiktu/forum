@@ -6,7 +6,11 @@
         <p class="post-title left-align">{{this.title}}</p>
         <div class="author-date">
           <p class="author left-align">posted by {{this.username}}</p>
-          <p class="outer-date-posted left-align">{{this.datePosted}}</p>
+          <p class="outer-date-posted left-align">{{this.datePosted}}
+           {{#if edited}}
+              (edited)
+           {{/if}}
+          </p>
         </div>
     </div>
     <div class="outer-total-votes">
@@ -21,16 +25,8 @@
   <div class="comment-section">
 
     <div class="comment" >
-      <p class="top-comment">Turtle</p>
+      <p class="top-comment">{{this.body}}</p>
     </div>
-
-    <div class="comment" >
-      <p class="top-comment">Whale</p>
-    </div>
-
-    <div class="comment" >
-    <p class="top-comment">Snake</p>
-  </div>
 
   </div>
 </div>

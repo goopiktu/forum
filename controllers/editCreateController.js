@@ -170,30 +170,26 @@ const editCreateController = {
         var value = req.params.value;
 
         resultPost = await db.findMany(Post, {postID: id},{});
-        console.log(resultPost);
 
-        console.log(resultPost[0].comments[value]);
+        var commentID = resultPost[0].comments[value]._id;
 
-        var posted = resultPost[0].comments[value].datePosted;
+        var resultComment = await db.findMany(Post, {"comments._id": commentID},{});
 
-        var resultCommments;
-        resultCommments = await db.findMany(Post, {postID: id, comments: {datePosted: posted}},{});
-        // does not work ahaha 
-
-    //     var success = await db.updateOne(Post, {postID: id, "comments.datePosted": }, {
-    //         $set: {
-    //             "comments.value.body": req.body.body
-    //         }
-    //     });
-    //     if( success ){
-    //         console.log('post sucessfully updated');
-    //         res.redirect('/viewpost/' + id);
-    //     }
-    //     else{
-    //         console.log('post not updated');
-    //         res.render("editPost", {layout: 'editCreate'});
-    //     }
-    //     res.render("editComment", {layout: 'editCreate'});
+        var success = await db.updateOne(Post, {"comments._id": commentID}, {
+            $set: {
+                "comments.$.body": req.body.post,
+                "comments.$.edited": 1
+            }
+        });
+        if( success ){
+            console.log('comment sucessfully updated');
+            res.redirect('/viewpost/' + id);
+        }
+        else{
+            console.log('comment not updated');
+            res.render("editComment", {layout: 'editCreate'});
+        }
+        res.render("editComment", {layout: 'editCreate'});
     }
 };
 
