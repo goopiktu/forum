@@ -172,8 +172,8 @@ p.top-comment{
 
 .outer-count{
     text-align: center;
-    margin: 0px;
-    font-size: 15px;
+    margin: 3px 3px 0px;
+    font-size: 20px;
 }
 
 /* .icon{
@@ -218,10 +218,10 @@ p.top-comment{
 	background: url("../assets/voting-arrow/up-arrow.png") no-repeat;
     background-size: 100%;
 
-    min-height: 16px;
-    min-width: 16px;
-    max-width: 25px;
-    max-height: 25px;
+    min-height: 25px;
+    min-width: 25px;
+    max-width: 32px;
+    max-height: 32px;
 
 }
 
@@ -229,10 +229,10 @@ p.top-comment{
 	background: url("../assets/voting-arrow/down-arrow.png") no-repeat;
     background-size: 100%;
 
-    min-height: 16px;
-    min-width: 16px;
-    max-width: 25px;
-    max-height: 25px;
+    min-height: 25px;
+    min-width: 25px;
+    max-width: 32px;
+    max-height: 32px;
     /* margin-bottom: -10px; */
 }
 
