@@ -34,6 +34,7 @@ const homepageController = {
         res.render("homepage", info);
     },
    
+    // is this still used or di na?
     // dis part i am not rlly sure of ehe
     userView : function (req, res){
         res.render("homepage", {layout: 'home'});
@@ -53,11 +54,33 @@ const homepageController = {
             res.status(500).send(err);
         }
         
-        var info = {
-            posts: sortedRecentPosts, 
-            layout: 'home'
+        // var info = {
+        //     posts: sortedRecentPosts, 
+        //     layout: 'home'
+        // }
+        // res.render("homepage", info);
+
+        currentUser = await db.findMany(User,{online: 1},{})
+
+        if (currentUser.length === 0){
+            var info = {
+                user: 0, 
+                posts: sortedRecentPosts, 
+                layout: 'home'
+            }
+            console.log("guestView");
+        } else {
+            var info = {
+                user: currentUser, 
+                posts: sortedRecentPosts, 
+                layout: 'home'
+            }
+            console.log(currentUser);
+            console.log("userView");
         }
         res.render("homepage", info);
+
+
     },
 
     sortPopular : async function (req, res){
@@ -74,9 +97,29 @@ const homepageController = {
             res.status(500).send(err);
         }
         
-        var info = {
-            posts: sortedPopularPosts, 
-            layout: 'home'
+        // var info = {
+        //     posts: sortedPopularPosts, 
+        //     layout: 'home'
+        // }
+        // res.render("homepage", info);
+
+        currentUser = await db.findMany(User,{online: 1},{})
+
+        if (currentUser.length === 0){
+            var info = {
+                user: 0, 
+                posts: sortedPopularPosts, 
+                layout: 'home'
+            }
+            console.log("guestView");
+        } else {
+            var info = {
+                user: currentUser, 
+                posts: sortedPopularPosts, 
+                layout: 'home'
+            }
+            console.log(currentUser);
+            console.log("userView");
         }
         res.render("homepage", info);
     }
