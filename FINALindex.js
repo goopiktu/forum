@@ -39,7 +39,7 @@ app.engine("hbs", exphbs.engine({
         }, 
         editdeleteComment: function(arg, commenter, linkIndex, index) {
             if (arg === commenter){
-             return "<a href='/homepage'><button class='rep-button'>Delete</button></a> <a href='" + linkIndex + "/" + index + "/editComment'><button class='rep-button'>Edit</button></a>"
+             return "<a href='" + linkIndex + "/" + index + "/editComment'><button class='rep-button'>Edit</button></a>"
             }
         }, 
     }
