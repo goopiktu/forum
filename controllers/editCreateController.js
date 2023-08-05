@@ -123,19 +123,25 @@ const editCreateController = {
             upvote: 0,
             downvote: 0,
         }
-        var success = await db.updateOne(Post, {_id: resultPostID}, {
-            $push: {
-                comments: comment
+        if (req.body.post!==""){
+            var success = await db.updateOne(Post, {_id: resultPostID}, {
+                $push: {
+                    comments: comment
+                }
+            });
+            if( success ){
+                console.log('comment successfully added');
+                res.redirect('/viewpost/' + id);
             }
-        });
-        if( success ){
-            console.log('comment successfully added');
-            res.redirect('/viewpost/' + id);
+            else{
+                console.log('comment not added');
+                res.render("createComment", {layout: 'editCreate'});
+            }
+        } else {
+            console.log("You did not comment anything");
+            res.render("createComment", {layout: 'editCreate'});
         }
-        else{
-            console.log('comment not added');
-            res.render("editComment", {layout: 'editCreate'});
-        }
+        
     },
 
     getEditComment : async function (req, res){
