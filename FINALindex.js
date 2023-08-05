@@ -17,6 +17,30 @@ const db = require('./models/db.js');
 const app = express();
 const port = 3000;
 
+const passport = require('passport');
+const initializePassport = require('./passport-config');
+const flash = require('express-flash');
+const session = require('express-session');
+const users = []
+initializePassport( 
+    passport,
+    email => users.find(user => user.email === email),
+    id => users.find(user => user.id === id)
+);
+
+
+
+
+app.use(flash())
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false
+}))
+
+app.use(passport.initialize())
+app.use(passport.session())
+
 // set `hbs` as view engine
 app.engine("hbs", exphbs.engine({
     extname: "hbs", 

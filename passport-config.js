@@ -1,32 +1,52 @@
 const bcrypt = require('bcrypt');
+const db = require('./models/db.js');
+const User = require('./models/UserModel.js');
+
+
 
 const LocalStrategy = require('passport-local').Strategy
-function initialize(passport, getUserByEmail, getUserById) {
-    const authenticateUser = async (email, password, done) => {
-
-        const user = getUserByEmail(email)
-        console.log(user);
-        if(user == null) {
-            return done(null, false, {message: 'No user with that email' })
-        }
-
+function initialize(passport, getUserByUsername, getUserById) {
+    const authenticateUser = async (username, password, done) => {
         try {
-            if (await bcrypt.compare(password, user.password)) {
+            const user = getUserByUsername(username);
+            if (!user) {
+                return done(null, false, { message: 'No user with that username' });
+            }
 
+            // Use bcrypt to compare passwords
+            const passwordMatch = await bcrypt.compare(password, user.password);
+            if (passwordMatch) {
+                // Update user's online status (example)
+                user.online = 1;
+                // Save the updated user (example)
+                await user.save();
+
+                return done(null, user);
             } else {
-                return done(null, false, {message: 'Password incorrect'})
+                return done(null, false, { message: 'Password incorrect' });
             }
         } catch (error) {
-            return done(error)
+            return done(error);
         }
-    }
-    passport.use(new LocalStrategy({ usernameField: 'email'}, 
-    authenticateUser))
-    passport.serializeUser((user, done) => done(null, user.id))
-    passport.deserializeUser((id, done) => {
-        return done(null, getUserById(id))
-    })
+    };
+
+    passport.use(new LocalStrategy({ usernameField: 'username' }, authenticateUser));
+
+    passport.serializeUser((user, done) => {
+        // Serialize the user's ID for the session
+        done(null, user.id);
+    });
+
+    passport.deserializeUser(async (id, done) => {
+        try {
+            const user = await getUserById(id);
+            done(null, user);
+        } catch (error) {
+            done(error);
+        }
+    });
 }
+
 
 
 module.exports = initialize;
