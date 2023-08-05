@@ -159,7 +159,7 @@ const editCreateController = {
         var resultPostID = allPosts[id]._id
         var value = req.params.value;
 
-        resultPost = await db.findMany(Post, {_id: resultPostID},{});
+        var resultPost = await db.findMany(Post, {_id: resultPostID},{});
         console.log(resultPost);
 
         console.log(resultPost[0].comments[value]);
@@ -187,21 +187,27 @@ const editCreateController = {
 
         var commentID = allPosts[id].comments[value]._id;
 
-        var success = await db.updateOne(Post, {"comments._id": commentID}, {
-            $set: {
-                "comments.$.body": req.body.post,
-                "comments.$.edited": 1
+        if(req.body.post!==""){
+            var success = await db.updateOne(Post, {"comments._id": commentID}, {
+                $set: {
+                    "comments.$.body": req.body.post,
+                    "comments.$.edited": 1
+                }
+            });
+            if( success ){
+                console.log('comment sucessfully updated');
+                res.redirect('/viewpost/' + id);
             }
-        });
-        if( success ){
-            console.log('comment sucessfully updated');
-            res.redirect('/viewpost/' + id);
-        }
-        else{
-            console.log('comment not updated');
+            else{
+                console.log('comment not updated');
+                res.render("editComment", {layout: 'editCreate'});
+            }
+        } else {
+            console.log("You did not comment anything");
             res.render("editComment", {layout: 'editCreate'});
         }
-        res.render("editComment", {layout: 'editCreate'});
+        
+        
     }
 };
 
