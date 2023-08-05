@@ -23,7 +23,7 @@ app.engine("hbs", exphbs.engine({
         }, 
         editDelete: function(arg, poster, linkIndex) {
            if (arg === poster){
-            return "<a href='/homepage'><button class='bot-button'>Delete</button></a> <a href='" + linkIndex + "/editPost'><button class='bot-button'>Edit</button></a>"
+            return "<button type='submit' form='deletePost' class='bot-button'>Delete</button> <a href='" + linkIndex + "/editPost'><button class='bot-button'>Edit</button></a>"
            }
         }, 
         signUp: function(arg) {

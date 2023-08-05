@@ -39,6 +39,7 @@ app.post('/viewPost/:id/:value/editComment', editCreateController.postEditCommen
 
 //ViewPost 
 app.get('/viewPost/:id',viewPostController.viewPost);
+app.post('/viewPost/:id',viewPostController.deletePost);
 
 //ViewProfile
 app.get('/profile', viewProfileController.viewProfile);

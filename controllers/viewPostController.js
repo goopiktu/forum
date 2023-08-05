@@ -46,6 +46,32 @@ const viewPostController = {
         }
         res.render("viewPosts", info);
     },
+
+    deletePost: async function (req, res){
+
+        var allPosts;
+        try{
+            allPosts = await db.findMany(Post,{},{});
+        } catch (err){
+            res.status(500).send(err);
+        }
+
+        var id = req.params.id;
+        var resultPostID = allPosts[id]._id;
+
+        var success = await db.deleteOne(Post, {_id: resultPostID});
+        if( success ){
+            console.log('post sucessfully deleteed');
+            res.redirect('/homepage');
+        }
+        else{
+            console.log('post not deleted');
+            // res.render("editPost", {layout: 'editCreate'});
+            res.redirect('/viewpost/' + id);
+        }
+
+        console.log("delete post");
+    }
 };
 
 module.exports = viewPostController;

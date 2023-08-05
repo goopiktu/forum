@@ -72,10 +72,12 @@
 
     {{#if currentUser}}
         <div class="bottom-buttons">
+            <form method ='post' id="deletePost">
+            </form>
             {{{editDelete currentUser username postID}}}
             <a href= {{comment postID}}>
                 <button class="bot-button">Reply</button>
             </a>
-            </div>
+        </div>
     {{/if}}
 </div>
