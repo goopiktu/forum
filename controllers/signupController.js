@@ -1,5 +1,6 @@
 const db = require('../models/db.js');
 const User = require('../models/UserModel.js');
+const bcrypt = require('bcrypt');
 
 const signupController = {
 
@@ -20,12 +21,15 @@ const signupController = {
         const name = req.body.username;
         const pass = req.body.password;
         const confirm = req.body.confirm;
+        
+        const hashedPassword = await bcrypt.hash(pass, 10);
+        const hashedconPass = await bcrypt.hash(pass, 10);
 
         const user = {
             email: email,
             username: name,
-            password: pass,
-            confirm: confirm, 
+            password: hashedPassword,
+            confirm: hashedconPass, 
             posts: 0, 
             comments: 0,
             upvotes: 0, 

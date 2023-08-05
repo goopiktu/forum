@@ -8,18 +8,19 @@ const viewProfileController = {
         res.render("profile", {layout: 'profile'});
     },
     viewProfile: async function (req, res) {
+        // console.log("??");
         const query = {username: "gup"};
-        const projection = 'username profpicture';
-        const found = await db.findOne(user, {}, {});
-        console.log("found");
-        console.log(found);
+        const projection = {username:1};
+        const result = await db.findOne(User,query,projection);
+        console.log(result);
+    
         const user = {
-            username: found.username,
-            description: found.description,
-            posts: found.posts,
-            comments: found.comments,
-            upvotes: found.upvotes,
-            profpicture: found.profpicture,
+            username: result.username,
+            description: result.description,
+            posts: result.posts,
+            comments: result.comments,
+            upvotes: result.upvotes,
+            profpicture: result.profpicture,
             layout: 'profile'
         }
         console.log(user);

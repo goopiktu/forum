@@ -115,6 +115,7 @@
 .stats {
     background-color: #A5A5A5;
     width: 60%;
+    max-width: 380px;
     height: 12%;
     display: inline-flex;
     position: relative;
