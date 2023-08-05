@@ -17,16 +17,6 @@ const editCreateController = {
             console.log("userView");
         }
 
-        var resultPost;
-        var ID;
-
-        resultPost = await db.getLast(Post);
-        if (resultPost[0]  === undefined){
-            ID = 0;
-        }else{
-            ID = resultPost[0].postID + 1; 
-        }
-
         const post = {
             username: currentUser[0].username,
             title: req.body.title,
@@ -35,8 +25,7 @@ const editCreateController = {
             edited: 0,
             upvote: 0,
             downvote: 0,
-            comments: [], 
-            postID: ID,
+            comments: [],  
             currentUser: 0
         }
         var success = await db.insertOne(Post, post);
@@ -57,28 +46,39 @@ const editCreateController = {
         var id = req.params.id;
         console.log(id);
 
-        resultPost = await db.findMany(Post, {postID: id},{});
-        console.log(resultPost);
+        var allPosts;
+        try{
+            allPosts = await db.findMany(Post,{},{});
+        } catch (err){
+            res.status(500).send(err);
+        }
 
-        console.log(resultPost[0].body);
+        resultPost = allPosts[id]
+        console.log(resultPost);
 
         var info = {
             layout: 'editCreate', 
-            title: resultPost[0].title,
-            body: resultPost[0].body
+            title: resultPost.title,
+            body: resultPost.body
         }
         res.render("editPost", info);
     },
     postEditPost : async function (req, res){
  
-        var resultPost;
         var id = req.params.id;
         console.log(id);
 
-        resultPost = await db.findMany(Post, {postID: id},{});
-        console.log(resultPost);
+        var allPosts;
+        try{
+            allPosts = await db.findMany(Post,{},{});
+        } catch (err){
+            res.status(500).send(err);
+        }
 
-        var success = await db.updateOne(Post, {postID: id}, {
+        var resultPostID = allPosts[id]._id;
+        console.log(resultPostID);
+
+        var success = await db.updateOne(Post, {_id: resultPostID}, {
             title: req.body.title, 
             body: req.body.body, 
             edited: 1,
@@ -102,21 +102,18 @@ const editCreateController = {
     },
     postCreateComment : async function (req, res){
 
-        currentUser = await db.findMany(User,{online: 1},{})
-
-        if (currentUser.length === 0){
-            console.log("guest cannot post");
-        } else {
-            console.log(currentUser);
-            console.log("userView");
-        }
-
-        var resultPost;
         var id = req.params.id;
         console.log(id);
 
-        resultPost = await db.findMany(Post, {postID: id},{});
-        console.log(resultPost);
+        var allPosts;
+        try{
+            allPosts = await db.findMany(Post,{},{});
+        } catch (err){
+            res.status(500).send(err);
+        }
+
+        var resultPostID = allPosts[id]._id;
+        console.log(resultPostID);
 
         const comment = {
             username: currentUser[0].username,
@@ -126,7 +123,7 @@ const editCreateController = {
             upvote: 0,
             downvote: 0,
         }
-        var success = await db.updateOne(Post, {postID: id}, {
+        var success = await db.updateOne(Post, {_id: resultPostID}, {
             $push: {
                 comments: comment
             }
@@ -143,13 +140,20 @@ const editCreateController = {
 
     getEditComment : async function (req, res){
 
-        var resultPost;
         var id = req.params.id;
         console.log(id);
 
+        var allPosts;
+        try{
+            allPosts = await db.findMany(Post,{},{});
+        } catch (err){
+            res.status(500).send(err);
+        }
+
+        var resultPostID = allPosts[id]._id
         var value = req.params.value;
 
-        resultPost = await db.findMany(Post, {postID: id},{});
+        resultPost = await db.findMany(Post, {_id: resultPostID},{});
         console.log(resultPost);
 
         console.log(resultPost[0].comments[value]);
@@ -163,17 +167,19 @@ const editCreateController = {
 
     postEditComment : async function (req, res){
 
-        var resultPost;
         var id = req.params.id;
         console.log(id);
 
+        var allPosts;
+        try{
+            allPosts = await db.findMany(Post,{},{});
+        } catch (err){
+            res.status(500).send(err);
+        }
+
         var value = req.params.value;
 
-        resultPost = await db.findMany(Post, {postID: id},{});
-
-        var commentID = resultPost[0].comments[value]._id;
-
-        var resultComment = await db.findMany(Post, {"comments._id": commentID},{});
+        var commentID = allPosts[id].comments[value]._id;
 
         var success = await db.updateOne(Post, {"comments._id": commentID}, {
             $set: {

@@ -41,8 +41,8 @@ const viewPostController = {
             comments: allPosts[id].comments, 
             currentUser: online,
             totalcomments: allPosts[id].comments.length,
-            layout: 'viewPost',
             postID: id,
+            layout: 'viewPost',
         }
         res.render("viewPosts", info);
     },
