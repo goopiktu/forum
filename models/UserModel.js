@@ -43,5 +43,15 @@ var UserSchema = new mongoose.Schema({
     }
 });
 
+// async function getUserByUsername(username) {
+//     try {
+//         const user = await user.findOne({ username: username });
+//         return user;
+//     } catch (error) {
+//         throw error;
+//     }
+// }
+
 module.exports = mongoose.model('userinfo', UserSchema, 'userinfo');
 
+// module.exports = getUserByUsername;

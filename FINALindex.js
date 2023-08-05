@@ -21,11 +21,15 @@ const passport = require('passport');
 const initializePassport = require('./passport-config');
 const flash = require('express-flash');
 const session = require('express-session');
-const users = []
+const User = require('./models/UserModel.js');
+
 initializePassport( 
     passport,
-    email => users.find(user => user.email === email),
-    id => users.find(user => user.id === id)
+    async (username) => await db.findOne(User, { username: username }, { username: 1, password: 1 }),
+    async (id) => await db.findOne(User, { _id: id }, { _id: 1 })
+    
+    // email => users.find(user => user.email === email),
+    // id => users.find(user => user.id === id)
 );
 
 

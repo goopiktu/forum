@@ -1,20 +1,18 @@
 const bcrypt = require('bcrypt');
-const db = require('./models/db.js');
-const User = require('./models/UserModel.js');
+const LocalStrategy = require('passport-local').Strategy;
 
-
-
-const LocalStrategy = require('passport-local').Strategy
 function initialize(passport, getUserByUsername, getUserById) {
     const authenticateUser = async (username, password, done) => {
         try {
-            const user = getUserByUsername(username);
+            
+            const user = await getUserByUsername(username);
+            console.log(user.id)
             if (!user) {
                 return done(null, false, { message: 'No user with that username' });
             }
 
-            // Use bcrypt to compare passwords
             const passwordMatch = await bcrypt.compare(password, user.password);
+            console.log(passwordMatch)
             if (passwordMatch) {
                 // Update user's online status (example)
                 user.online = 1;
@@ -46,7 +44,5 @@ function initialize(passport, getUserByUsername, getUserById) {
         }
     });
 }
-
-
 
 module.exports = initialize;

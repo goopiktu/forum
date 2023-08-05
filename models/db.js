@@ -38,8 +38,8 @@ const database = {
         callback function is called after the execution of findOne() function
     */
     findOne:  function(model, query, projection) {
-        console.log("finNoe"+model.findOne(query, projection));
-        return  model.findOne(query, projection);
+        console.log("finNow"+model.findOne(query, projection));
+        return model.findOne(query, projection);
     },
 
     /*
