@@ -36,6 +36,7 @@ app.post('/viewPost/:id/createComment', editCreateController.postCreateComment);
 //EditComment
 app.get('/viewPost/:id/:value/editComment', editCreateController.getEditComment);
 app.post('/viewPost/:id/:value/editComment', editCreateController.postEditComment);
+app.delete('/viewPost/:id/:value/deleteComment', editCreateController.deleteComment)
 
 //ViewPost 
 app.get('/viewPost/:id',viewPostController.viewPost);

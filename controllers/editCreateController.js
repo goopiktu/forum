@@ -238,9 +238,49 @@ const editCreateController = {
             res.render("editComment", info);
             
         }
-        
-        
+    },
+
+    // takes in post _id and comment _id as params for id and value
+    deleteComment: async (req, res) => {
+        try {
+            var id = req.params.id;
+            //console.log(id);
+
+            var value = req.params.value;
+            const allPost = await db.findMany(Post, {}, {})
+            const resultPost = allPost[id]
+            //const resultPost = await Post.findById(id) // post _id version
+            //console.log(resultPost)
+            if(!resultPost) {
+                console.log('Post not found');
+                res.status(404).send('Post not found');
+                return;
+            }
+            
+            // const objectId = new ObjectId();
+            
+            // console.log(resultPost.comments[0]._id)
+      
+            resultPost.comments = resultPost.comments.filter(comment => comment._id.toString() !== value.toString());
+            
+            await resultPost.save()
+
+            res.status(200).json(resultPost)
+
+            // if (success) {
+            //     console.log('Comment successfully deleted');
+            //     res.status(200).send('Comment successfully deleted');
+            // } else {
+            //     console.log('Comment not deleted');
+            //     res.status(500).send('Failed to delete comment');
+            // }
+        } catch (error) {
+            console.error('Error:', error);
+            res.status(500).send('An error occurred');
+        }
+
     }
 };
+
 
 module.exports = editCreateController;

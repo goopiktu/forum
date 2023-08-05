@@ -3,13 +3,13 @@
     <div class="right-comment">
 
         <a href="viewprofileA.html">
-            <div class="user"> 
+            <div class="user">
                 <img class="user-icon" src="../assets/sprites/comments/Turtle.jpg">
                 <div class="user-info">
                     <p class="username">{{this.username}}</p>
                     <p class="date-commented">{{this.datePosted}}
                         {{#if this.edited}}
-                            (edited)
+                        (edited)
                         {{/if}}
                     </p>
                 </div>
@@ -21,8 +21,10 @@
             <p class="content-comment">{{this.body}}</p>
         </div>
 
-    {{{editdeleteComment user this.username id @index}}}
-{{!-- 
+        {{{editdeleteComment user this.username id @index}}}
+        <a href=href='" + linkIndex + "/" + index + "/deleteComment'><button class='rep-button delete-button'
+                data-postid="{{id}}" data-commentid="{{this._id}}">Delete</button></a>
+        {{!--
         <div class="reply">
             <a href="reply.html">
                 <button id="reply" class="icon" type="button"></button>
@@ -34,8 +36,22 @@
 
 
     <div class="up-down">
-        <p class="countUD"><a id="upclicks">{{this.upvote}}</a></p><button id="upvote" class="icon" type="button" onclick="increment()"></button>
-        <p class="countUD"><a id="downclicks">{{this.downvote}}</a></p><button id="downvote" class="icon" type="button" onclick="decrement()"></button>
+        <p class="countUD"><a id="upclicks">{{this.upvote}}</a></p><button id="upvote" class="icon" type="button"
+            onclick="increment()"></button>
+        <p class="countUD"><a id="downclicks">{{this.downvote}}</a></p><button id="downvote" class="icon" type="button"
+            onclick="decrement()"></button>
     </div>
-
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const deleteButtons = document.querySelectorAll('.delete-comment');
+            
+            deleteButtons.forEach(button => {
+                button.addEventListener('click', async () => {
+                    const postId = button.getAttribute('data-postid');
+                    const commentId = button.getAttribute('data-commentid');
+                    console.log(`post id: ${postId} comment id: ${commentId}`);
+                });
+            });
+        });
+    </script>
 </div>
