@@ -89,14 +89,20 @@ app.post('/profile/:id/editProfile', checkAuthenticated, viewProfileController.p
 
 
 app.delete('/logout', (req, res) => {
-    req.logOut( (err) => {
+    // Log out the user
+    req.logOut((err) => {
         if (err) {
-            console.log(err);
-        } else {
-            res.redirect("/")
+            console.error('Error logging out:', err);
+            return res.sendStatus(500);
         }
+        req.session.destroy((err) => {
+            if (err) {
+                console.error('Error destroying session:', err);
+                return res.sendStatus(500);
+            }
+            res.redirect('/');
+        });
     });
-    // res.redirect('/');
 });
 
 
