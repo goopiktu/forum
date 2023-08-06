@@ -22,7 +22,6 @@ const signupController = {
             username: name,
             password: hashedPassword,
             confirm: hashedconPass, 
-            posts: 0, 
             comments: 0,
             upvotes: 0, 
     }

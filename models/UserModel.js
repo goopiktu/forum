@@ -25,10 +25,6 @@ var UserSchema = new mongoose.Schema({
         type:String,
         required:false
     },
-    posts: {
-        type:Number,
-        required:true
-    },
     comments: {
         type:Number,
         required:true

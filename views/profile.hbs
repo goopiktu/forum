@@ -1,16 +1,76 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{{title}}</title>
-        <link href="css/style1.css" rel="stylesheet"/>
-        <link href="css/root.css" rel="stylesheet"/>
-        {{!-- <script src="assets/scripts/main.js"></script> --}}
-        
-    </head>
 
-    <body>
-        {{{body}}}
-    </body>
-</html>
+<div class="page">
+    <div class="navbar">
+        <div class="header-parts">
+            <img class="icon" src="/assets/sprites/Arryn House.png" alt="icon"></img> <!-- Supposed to be an icon -->
+            <a href="/homepage">
+                <button class="nav-button">Home</button>
+            </a>
+        </div>
+        <div class="header-parts">
+            <div class="logout">
+                <a href="/">
+                    <button class="nav-button right-nav">Logout</button>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="header">
+        <div class="content">
+            <img class="profile-pic" src="/assets/sprites/default.png">
+            <div class="right">
+                <div class="name">{{username}}</div>
+                <div class="aboutme">About Me</div>
+                <div class="description">
+                    {{#if description}}
+                        {{description}}
+                    {{else}}
+                        No description yet!
+                    {{/if}}
+                    </div>
+                <div class="stats">
+                    <div class="inside">
+                        <p class="value">{{numPosts}}</p>
+                        <p class="variable">Posts</p>
+                        <span class="spacer"></span>
+                        <p class="value">{{numComments}}</p>
+                        <p class="variable">Comments</p>
+                        <span class="spacer"></span>
+                        <p class="value">{{upvotes}}</p>
+                        <p class="variable">Upvotes</p>
+                        <span class="spacer"></span>
+                    </div>
+                </div>
+                <a href="/editProfile">
+                    <button class="editprofbtn">Edit Profile</button>
+                </a>
+        </div>
+        </div>
+    </div>
+    <div class="sortbar">
+        <div class="navbar2">
+            <p>Sort By</p>
+            <a href="/profile/recentPosts">
+                <button class="nav-button">Recent</button>
+            </a>
+            <a href="/profile/popularPosts">
+                <button class="nav-button">Popular</button>
+            </a>
+        </div>
+        <input class="Searchbar" type="text" placeholder="Search..">
+    </div>
+
+    <div class="post-container"> 
+        {{#each posts}}
+        <div class ="post-fit">
+            {{#each ../indexes}}
+            <a href= {{link this}}>
+            {{/each}}
+            {{> post}}
+            {{#each ../indexes}}
+            </a>
+            {{/each}}
+        </div>
+        {{/each}}
+    </div>
+</div>

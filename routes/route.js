@@ -70,6 +70,7 @@ app.post('/viewPost/:id',viewPostController.deletePost);
 
 //ViewProfile
 app.get('/profile', viewProfileController.viewProfile);
-
+app.get('/profile/recentPosts', viewProfileController.sortRecent);
+app.get('/profile/popularPosts', viewProfileController.sortPopular);
 
 module.exports = app;

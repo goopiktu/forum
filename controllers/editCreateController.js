@@ -152,6 +152,13 @@ const editCreateController = {
                     comments: comment
                 }
             });
+
+            var increment = await db.updateOne(User, {_id: req.user.id}, {
+                $inc: {
+                    comments: 1
+                }
+            });
+
             if( success ){
                 console.log('comment successfully added');
                 res.redirect('/viewpost/' + id);
