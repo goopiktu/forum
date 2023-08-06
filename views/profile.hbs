@@ -1,102 +1,92 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <link href="assets/style1.css" rel="stylesheet"/>
-        <link href="assets/root.css" rel="stylesheet"/>
-        <script src="assets/script.js" defer></script>
-        <title>My Profile</title>
-    </head>
-    <body>
-    <div class="page">
-        <div class="navbar">
-            <div class="header-parts">
-                <img class="logo" src="assets/sprites/Arryn House.png" alt="icon"></img> <!-- Supposed to be an icon -->
-                <a href="/">
-                    <button class="nav-button">Home</button>
-                </a>
-            </div>
-            <div class="header-parts">
-                <div class="logout">
-                    <a href="/">
-                        <button class="nav-button right-nav">Logout</button>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="header">
-            <div class="content">
-                <img src="assets/sprites/default.png">
-                <div class="right">
-                    <div class="name">{{name}}</div>
-                    <div class="aboutme">{{aboutme}}</div>
-                    <div class="description">{{description}}</div>
-                    <div class="stats">
-                        <div class="inside">
-                            <p class="value">{{posts}}</p>
-                            <p class="variable">Posts</p>
-                            <span class="spacer"></span>
-                            <p class="value">{{comments}}</p>
-                            <p class="variable">Comments</p>
-                            <span class="spacer"></span>
-                            <p class="value">{{upvotes}}</p>
-                            <p class="variable">Upvotes</p>
-                        </div>
-                    </div>
-                    <a href="/editProfile">
-                        <button class="editprofbtn">Edit Profile</button>
-                    </a>
-            </div>
-            </div>
-        </div>
-        <div class="sortbar">
-            <div class="navbar2">
-                <p>Sort By</p>
-                <a href="#">
-                    <button class="nav-button">Date</button>
-                </a>
-                <a href="#">
-                    <button class="nav-button">Upvotes</button>
-                </a>
-                <a href="#">
-                    <button class="nav-button">Downvotes</button>
-                </a>
-                <input class="Searchbar" type="text" placeholder="Search..">
-            </div>
-            <a href="/createPost" class="nav-bar-2-outbutton">
-                <button id="createpost" class="create-post">Create Post</button>
+
+<div class="page">
+    <div class="navbar">
+        <div class="header-parts">
+            <img class="logo" src="assets/sprites/Arryn House.png" alt="icon"></img> <!-- Supposed to be an icon -->
+            <a href="/">
+                <button class="nav-button">Home</button>
             </a>
         </div>
-        <div class="userpost"> 
-            <div class="post-fit">
-              <a class="opener">
-                <div class="post-item">
-                  <div class="header-post-item">
-                    <div>
-                      <p class="post-title left-align">Gobblin</p>
-                      <div class="author-date">
-                        <p class="author left-align">posted by {{name}}</p>
-                        <p class="outer-date-posted left-align">1 Day Ago</p>
-                      </div>
-                      
-                    </div>
-                    <div class="outer-total-votes">
-                        <button id="outer-upvote" class="outer-arrow" type="button" onclick="increment()"></button>
-                        <p class="outer-count">{{upvoteCount}}</p>
+        <div class="header-parts">
+            <div class="logout">
+                <a href="/">
+                    <button class="nav-button right-nav">Logout</button>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="header">
+        <div class="content">
+            <img src="assets/sprites/default.png">
+            <div class="right">
+                <div class="name">{{name}}</div>
+                <div class="aboutme">{{aboutme}}</div>
+                <div class="description">{{description}}</div>
+                <div class="stats">
+                    <div class="inside">
+                        <p class="value">{{posts}}</p>
+                        <p class="variable">Posts</p>
                         <span class="spacer"></span>
-                        <button id="outer-downvote" class="outer-arrow" type="button" onclick="decrement()"></button>
-                        <p class="outer-count">{{downvoteCount}}</p>
+                        <p class="value">{{comments}}</p>
+                        <p class="variable">Comments</p>
+                        <span class="spacer"></span>
+                        <p class="value">{{upvotes}}</p>
+                        <p class="variable">Upvotes</p>
                     </div>
                 </div>
-                <div class="comment-section">
-                      {{#each comments}}
-                      <div class="comment" >
-                        <p class="top-comment">{{this}}</p>
-                      </div>
-                      {{/each}}
-                 </div>
-              </a>
-            </div>
-          </div>
+                <a href="/editProfile">
+                    <button class="editprofbtn">Edit Profile</button>
+                </a>
+        </div>
+        </div>
     </div>
-    </body>
-</html>
+    <div class="sortbar">
+        <div class="navbar2">
+            <p>Sort By</p>
+            <a href="#">
+                <button class="nav-button">Date</button>
+            </a>
+            <a href="#">
+                <button class="nav-button">Upvotes</button>
+            </a>
+            <a href="#">
+                <button class="nav-button">Downvotes</button>
+            </a>
+            <input class="Searchbar" type="text" placeholder="Search..">
+        </div>
+        <a href="/createPost" class="nav-bar-2-outbutton">
+            <button id="createpost" class="create-post">Create Post</button>
+        </a>
+    </div>
+    <div class="userpost"> 
+        <div class="post-fit">
+            <a class="opener">
+            <div class="post-item">
+                <div class="header-post-item">
+                <div>
+                    <p class="post-title left-align">Gobblin</p>
+                    <div class="author-date">
+                    <p class="author left-align">posted by {{name}}</p>
+                    <p class="outer-date-posted left-align">1 Day Ago</p>
+                    </div>
+                    
+                </div>
+                <div class="outer-total-votes">
+                    <button id="outer-upvote" class="outer-arrow" type="button" onclick="increment()"></button>
+                    <p class="outer-count">{{upvoteCount}}</p>
+                    <span class="spacer"></span>
+                    <button id="outer-downvote" class="outer-arrow" type="button" onclick="decrement()"></button>
+                    <p class="outer-count">{{downvoteCount}}</p>
+                </div>
+            </div>
+            <div class="comment-section">
+                    {{#each comments}}
+                    <div class="comment" >
+                    <p class="top-comment">{{this}}</p>
+                    </div>
+                    {{/each}}
+                </div>
+            </a>
+        </div>
+        </div>
+</div>
