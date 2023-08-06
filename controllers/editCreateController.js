@@ -243,10 +243,14 @@ const editCreateController = {
     // takes in post _id and comment _id as params for id and value
     deleteComment: async (req, res) => {
         try {
+            console.log('Delete comment request received');
             var id = req.params.id;
             //console.log(id);
 
             var value = req.params.value;
+            console.log('Post ID:', id);
+            console.log('Comment Value:', value);
+
             const allPost = await db.findMany(Post, {}, {})
             const resultPost = allPost[id]
             //const resultPost = await Post.findById(id) // post _id version

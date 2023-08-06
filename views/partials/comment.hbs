@@ -20,10 +20,11 @@
         <div style="clear:both;" class="actl-comment">
             <p class="content-comment">{{this.body}}</p>
         </div>
-
-        {{{editdeleteComment user this.username id @index}}}
-        <a href=href='" + linkIndex + "/" + index + "/deleteComment'><button class='rep-button delete-button'
-                data-postid="{{id}}" data-commentid="{{this._id}}">Delete</button></a>
+        <div class="button-container">
+            {{{editdeleteComment user this.username id @index}}}
+            <button class='rep-button delete-button' data-postid="{{id}}" data-commentid="{{this._id}}" method="DELETE">Delete</button>
+        </div>
+        
         {{!--
         <div class="reply">
             <a href="reply.html">
@@ -42,16 +43,42 @@
             onclick="decrement()"></button>
     </div>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const deleteButtons = document.querySelectorAll('.delete-comment');
-            
-            deleteButtons.forEach(button => {
-                button.addEventListener('click', async () => {
-                    const postId = button.getAttribute('data-postid');
-                    const commentId = button.getAttribute('data-commentid');
-                    console.log(`post id: ${postId} comment id: ${commentId}`);
-                });
-            });
+        const buttonContainer = document.querySelector('.button-container');
+        buttonContainer.addEventListener('click', async function(event) {
+            // Check if a button with the class 'delete-button' was clicked
+            if (event.target.classList.contains('delete-button')) {
+                // Retrieve data attributes from the clicked button
+                const postId = event.target.getAttribute('data-postid');
+                const commentId = event.target.getAttribute('data-commentid');
+                
+                // Perform your desired actions here
+                console.log('Delete button clicked!');
+                console.log('Post ID:', postId);
+                console.log('Comment ID:', commentId);
+                
+                // Call the deleteComment function
+                try {
+                    const response = await fetch(`/deletecomment/${postId}/${commentId}`, {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                    });
+
+                    if (response.ok) {
+                        console.log('Comment successfully deleted');
+                        // Handle any UI updates or redirects as needed
+                    } else {
+                        console.log('Failed to delete comment');
+                        // Handle error
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    // Handle error
+                }
+            }
         });
+        const deleteButtons = document.querySelectorAll('.delete-button');
+        deleteButtons.forEach(attachDeleteButtonEventListener);
     </script>
 </div>
