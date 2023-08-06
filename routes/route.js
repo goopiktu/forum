@@ -70,7 +70,6 @@ app.post('/viewPost/:id',viewPostController.deletePost);
 
 //ViewProfile
 app.get('/profile', viewProfileController.viewProfile);
-app.get('/profile/:user', viewProfileController.viewProfile);
 
 
 module.exports = app;

@@ -4,19 +4,16 @@ const User = require('../models/UserModel.js');
 const viewProfileController = {
     viewProfile: async function (req, res) {
 
-
-        
-        const query = {username: req.query.username};
-        const projection = 'username profpicture';
-        const found = await db.findOne(User, query, projection);
+        var currentUser = await db.findOne(User,{_id: req.user.id},{})
 
         const user = {
-            username: found.username,
-            description: found.description,
-            posts: found.posts,
-            comments: found.comments,
-            upvotes: found.upvotes,
-            profpicture: found.profpicture
+            username: currentUser.username,
+            description: currentUser.description,
+            posts: currentUser.posts,
+            comments: currentUser.comments,
+            upvotes: currentUser.upvotes,
+            profpicture: currentUser.profpicture, 
+            layout: 'viewprofile'
         }
         res.render('profile', user);
     }
