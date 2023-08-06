@@ -44,6 +44,7 @@ const viewProfileController = {
             numComments: currentUser.comments,
             upvotes: upvotes,
             profpicture: currentUser.profpicture, 
+            email: currentUser.email,
             layout: 'profile'
         }
         res.render('profile', user);
@@ -95,6 +96,7 @@ const viewProfileController = {
             numComments: currentUser.comments,
             upvotes: upvotes,
             profpicture: currentUser.profpicture, 
+            email: currentUser.email,
             layout: 'profile'
         }
         res.render('profile', user);
@@ -144,9 +146,51 @@ const viewProfileController = {
             numComments: currentUser.comments,
             upvotes: upvotes,
             profpicture: currentUser.profpicture, 
+            email: currentUser.email,
             layout: 'profile'
         }
         res.render('profile', user);
+    }, 
+
+    getEditProfile : async function (req, res){
+
+        currentUser = await db.findOne(User,{_id: req.user.id},{})
+
+        var info = {
+            layout: 'editCreate', 
+            email: currentUser.email,
+            description: currentUser.description,
+        }
+        res.render("editProfile", info);
+    }, 
+
+    postEditProfile : async function (req, res){
+
+        currentUser = await db.findOne(User,{_id: req.user.id},{})
+
+        var info = {
+            layout: 'editCreate', 
+            email: currentUser.email,
+            description: currentUser.description,
+        }
+
+        if ((req.body.email!=="") && (req.body.description!=="")){
+            var success = await db.updateOne(User, {_id: req.user.id}, {
+                email: req.body.email, 
+                description: req.body.description, 
+            });
+            if( success ){
+                console.log('user sucessfully updated');
+                res.redirect('/profile');
+            }
+            else{
+                console.log('user not updated');
+                res.render("editProfile", info);
+            }
+        } else{
+            console.log("Incomplete user information");
+            res.render("editProfile", info);
+        }
     }
 }
 

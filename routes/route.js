@@ -76,6 +76,10 @@ app.get('/profile', checkAuthenticated, viewProfileController.viewProfile);
 app.get('/profile/recentPosts', checkAuthenticated, viewProfileController.sortRecent);
 app.get('/profile/popularPosts', checkAuthenticated, viewProfileController.sortPopular);
 
+//EditProfile
+app.get('/editProfile', checkAuthenticated, viewProfileController.getEditProfile);
+app.post('/editProfile', checkAuthenticated, viewProfileController.postEditProfile);
+
 
 app.delete('/logout', (req, res) => {
     req.logOut( (err) => {
