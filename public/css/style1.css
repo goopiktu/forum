@@ -40,7 +40,7 @@
     float: left;
 }
 
-.nav-button, .create-post, .editprofbtn {
+.nav-button, .editprofbtn {
     border: none;
     background: #1758D7;
     padding: 3px 20px;
@@ -50,6 +50,11 @@
     transition: 0.8s;
     border-radius: 20px;
     color: #FFFFFF;
+    transition: 0.8s
+}
+
+.nav-button:hover, .editprofbtn:hover {
+    color: #3498db;
 }
 
 .logout {

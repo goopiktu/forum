@@ -58,12 +58,16 @@
     const filter = searchInput.value.toLowerCase();
     const listItems = document.querySelectorAll('.post-fit');
 
-    listItems.forEach((item) =>{
-      let text = item.textContent;
-      if(text.toLowerCase().includes(filter.toLowerCase())) {
+    listItems.forEach((item) => {
+      const postTitle = item.querySelector('.post-title');
+      const topComment = item.querySelector('.top-comment');
+
+      let titleText = postTitle.textContent;
+      let commentText = topComment.textContent;
+
+      if (titleText.toLowerCase().includes(filter) || commentText.toLowerCase().includes(filter)) {
         item.style.display = '';
-      }
-      else {
+      } else {
         item.style.display = 'none';
       }
     });

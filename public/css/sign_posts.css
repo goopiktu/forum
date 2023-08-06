@@ -89,8 +89,13 @@ button{
     border-width: 0px;
     font-family: 'Roboto';
     align-self: center;
+    transition: 0.8s;
+    cursor: pointer;
 }
 
+button:hover {
+    color: #3498db;
+}
 
 textarea{
     width:97%;
