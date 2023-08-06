@@ -46,7 +46,7 @@ app.engine("hbs", exphbs.engine({
         }, 
         editdeleteComment: function(arg, commenter, linkIndex, index) {
             if (arg === commenter){
-             return "<a href='" + linkIndex + "/" + index + "/editComment'><button class='rep-button'>Edit</button></a><button class='rep-button delete-button' data-commentid='{{this._id}}' method='DELETE'>Delete</button>"
+             return "<a href='" + linkIndex + "/" + index + "/editComment'><button class='rep-button'>Edit</button></a>"
             }
         },
         profileLink: function(linkIndex) {

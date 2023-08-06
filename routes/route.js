@@ -80,8 +80,8 @@ app.post('/viewPost/:id',viewPostController.deletePost);
 
 //ViewProfile
 app.get('/profile/:id', viewProfileController.viewProfile);
-app.get('/profile/:id/recentPosts', viewProfileController.sortRecent);//edit
-app.get('/profile/:id/popularPosts', viewProfileController.sortPopular);//edit
+app.get('/profile/:id/recentPosts', viewProfileController.sortRecent);
+app.get('/profile/:id/popularPosts', viewProfileController.sortPopular);
 
 //EditProfile
 app.get('/profile/:id/editProfile', checkAuthenticated, viewProfileController.getEditProfile);

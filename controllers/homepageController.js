@@ -21,7 +21,7 @@ const homepageController = {
         {
             var id = req.user.id;
 
-            currentUser = await db.findOne(User,{_id: req.user.id},{})
+            currentUser = await db.findOne(User,{_id: id},{})
             console.log(currentUser);
 
             var info = {
