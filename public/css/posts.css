@@ -495,6 +495,12 @@ body{
     border: 0px;
     border-radius: 15px;
     margin: 0px 10px 10px 10px;
+    cursor: pointer;
+    transition: 0.8s;
+}
+
+.bot-button:hover {
+    color: #3498db;
 }
 
 .rep-button{
