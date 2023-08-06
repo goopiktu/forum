@@ -8,17 +8,17 @@
     </div>
     <div class="header-parts">
         {{#if currentUser}}
-            <a href='/profile'>
+            <a href= {{profileLink userid}}>
                 <button onclick="openProfile()" class="nav-button right-nav">Profile</button>
             </a>
         {{/if}}
         <div class="img-logout">
             {{#if currentUser}}
             <img class="icon" src="/assets/sprites/default.png" alt="profile_pic">
-            {{/if}}
             <form action="/logout?_method=DELETE" method="POST">
                 <button type="submit" class="nav-button right-nav">Logout</button>
             </form>
+            {{/if}}
         </div>
     </div> 
 

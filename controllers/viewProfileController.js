@@ -22,6 +22,8 @@ const viewProfileController = {
         }
 
         var indexes = [];
+        var comment =[];
+        var cIndex = 0;
         var upvotes = 0; 
 
 
@@ -35,16 +37,29 @@ const viewProfileController = {
             }
         }
 
+        for(let j = 0; j < allPosts.length; j++){
+            for (let k = 0; k < allPosts[j].comments.length; k++){
+                if (allPosts[j].comments[k].username === currentUser.username){
+                    console.log(allPosts[j].comments[k].username + 'vs' + currentUser.username);
+                    comment[cIndex] = allPosts[j].comments[k]; 
+                    cIndex++; 
+                }
+            }
+        }
+
+        console.log(comment); 
+
         const user = {
             username: currentUser.username,
             description: currentUser.description,
             numPosts: userPosts.length,
             posts: userPosts,
             indexes: indexes, 
-            numComments: currentUser.comments,
+            numComments: comment.length,
             upvotes: upvotes,
             profpicture: currentUser.profpicture, 
             email: currentUser.email,
+            comments: comment,
             layout: 'profile'
         }
         res.render('profile', user);

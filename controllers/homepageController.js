@@ -12,17 +12,21 @@ const homepageController = {
             res.status(500).send(err);
         }
 
-        currentUser = await db.findOne(User,{_id: req.user.id},{})
-        console.log(currentUser);
+        if(req.user)
+        {
+            var id = req.user.id;
 
-        if (currentUser){
-           var info = {
+            currentUser = await db.findOne(User,{_id: req.user.id},{})
+            console.log(currentUser);
+
+            var info = {
                 user: currentUser,
                 id: currentUser._id,
                 posts: allPosts, 
                 layout: 'home'
             }
             console.log("userView");
+            console.log ('this is the user id ' + req.user.id);
         } else {
 
             var info = {
@@ -32,8 +36,6 @@ const homepageController = {
             }
             console.log("guestView");
         }
-        
-        console.log ('this is the user id ' + req.user.id);
         res.render("homepage", info);
     },
    
@@ -56,33 +58,31 @@ const homepageController = {
             res.status(500).send(err);
         }
         
-        // var info = {
-        //     posts: sortedRecentPosts, 
-        //     layout: 'home'
-        // }
-        // res.render("homepage", info);
+        if(req.user)
+        {
+            var id = req.user.id;
 
-        currentUser = await db.findMany(User,{online: 1},{})
+            currentUser = await db.findOne(User,{_id: req.user.id},{})
+            console.log(currentUser);
 
-        if (currentUser.length === 0){
+            var info = {
+                user: currentUser,
+                id: currentUser._id,
+                posts: allPosts, 
+                layout: 'home'
+            }
+            console.log("userView");
+            console.log ('this is the user id ' + req.user.id);
+        } else {
+
             var info = {
                 user: 0, 
-                posts: sortedRecentPosts, 
+                posts: allPosts, 
                 layout: 'home'
             }
             console.log("guestView");
-        } else {
-            var info = {
-                user: currentUser, 
-                posts: sortedRecentPosts, 
-                layout: 'home'
-            }
-            console.log(currentUser);
-            console.log("userView");
         }
         res.render("homepage", info);
-
-
     },
 
     sortPopular : async function (req, res){
@@ -99,29 +99,29 @@ const homepageController = {
             res.status(500).send(err);
         }
         
-        // var info = {
-        //     posts: sortedPopularPosts, 
-        //     layout: 'home'
-        // }
-        // res.render("homepage", info);
+        if(req.user)
+        {
+            var id = req.user.id;
 
-        currentUser = await db.findMany(User,{online: 1},{})
+            currentUser = await db.findOne(User,{_id: req.user.id},{})
+            console.log(currentUser);
 
-        if (currentUser.length === 0){
+            var info = {
+                user: currentUser,
+                id: currentUser._id,
+                posts: allPosts, 
+                layout: 'home'
+            }
+            console.log("userView");
+            console.log ('this is the user id ' + req.user.id);
+        } else {
+
             var info = {
                 user: 0, 
-                posts: sortedPopularPosts, 
+                posts: allPosts, 
                 layout: 'home'
             }
             console.log("guestView");
-        } else {
-            var info = {
-                user: currentUser, 
-                posts: sortedPopularPosts, 
-                layout: 'home'
-            }
-            console.log(currentUser);
-            console.log("userView");
         }
         res.render("homepage", info);
     }

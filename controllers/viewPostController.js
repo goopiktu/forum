@@ -13,16 +13,16 @@ const viewPostController = {
         }
 
         var id = req.params.id;
-
-        var currentUser = await db.findOne(User,{_id: req.user.id},{})
-
         var online;
+        var userid; 
 
-        if (currentUser){
+        if (req.user)
+        {
+            var currentUser = await db.findOne(User,{_id: req.user.id},{})
+            userid = req.user.id;
 
             console.log("current user" + currentUser.username);
             online = currentUser.username
-           
         } else {
 
             console.log("guest view");
@@ -40,6 +40,7 @@ const viewPostController = {
             downvote: allPosts[id].downvote, 
             comments: allPosts[id].comments, 
             currentUser: online,
+            userid: userid,
             totalcomments: allPosts[id].comments.length,
             postID: id,
             layout: 'viewPost',

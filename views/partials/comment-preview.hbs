@@ -1,0 +1,32 @@
+
+<div class="comment-item">
+
+  <div class="header-post-item">
+    <div>
+        <p class="post-title left-align">My Comment</p>
+        <div class="author-date">
+          <p class="author left-align">posted by {{this.username}}</p>
+          <p class="outer-date-posted left-align">{{this.datePosted}}
+           {{#if edited}}
+              (edited)
+           {{/if}}
+          </p>
+        </div>
+    </div>
+    <div class="outer-total-votes">
+          <button id="outer-upvote" class="outer-arrow" type="button" onclick="increment()"></button>
+          <p class="outer-count">{{this.upvote}}</p>
+          <span class="spacer"></span>
+          <button id="outer-downvote" class="outer-arrow" type="button" onclick="decrement()"></button>
+          <p class="outer-count">{{this.downvote}}</p>
+    </div>
+  </div>
+
+  <div class="comment-section">
+
+    <div class="comment" >
+      <p class="top-comment">{{this.body}}</p>
+    </div>
+
+  </div>
+</div>

@@ -42,9 +42,11 @@
                         <span class="spacer"></span>
                     </div>
                 </div>
-                <a href="/editProfile">
-                    <button class="editprofbtn">Edit Profile</button>
-                </a>
+                <div>
+                    <a class = "editprof" href="/editProfile">
+                        <button class="editprofbtn">Edit Profile</button>
+                    </a>
+                </div>
         </div>
         </div>
     </div>
@@ -71,6 +73,20 @@
             {{#each ../indexes}}
             </a>
             {{/each}}
+        </div>
+        {{/each}}
+    </div>
+
+    <div class="sortbar">
+        <div class="navbar" > 
+            <p>My Comments</p> 
+        </div>
+    </div>
+
+    <div class="comment-container"> 
+        {{#each comments}}
+        <div class ="comment-fit">
+            {{> comment-preview}}
         </div>
         {{/each}}
     </div>

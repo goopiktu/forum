@@ -383,3 +383,50 @@ a {
 a:visited , a{
     color: black;
 }
+
+.editprof{
+    max-width: 120px;
+    float: right;
+}
+
+.comment-container {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(440px, 1fr));
+}
+
+.comment-container > * {
+    background-color: rgba(255, 255, 255, 0.8);
+    font-size: 30px;
+    text-align: center;
+    width: 100%;
+    height: auto;
+    border-radius: 3px;
+    /* flex: 0 0 33.3333%; */
+    flex: 1 1 300px;
+    margin-bottom: 30px;
+}
+
+.comment-fit{
+    display: inline-block;
+    /* margin: 10px;
+    margin-left: 0px;  */
+    min-height: 200px;
+    max-height: 200px;
+}
+
+.comment-fit:hover {
+    box-shadow: 0 0 0 3px grey;
+}
+
+.comment-item {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    min-width: 220px;
+}
+
+#spacer{
+    min-height: 15px;
+    margin: 20px 0px; 
+}

@@ -55,8 +55,8 @@ app.get('/createPost', checkAuthenticated, editCreateController.getCreatePost);
 app.post('/createPost', checkAuthenticated, editCreateController.postCreatePost);
 
 //EditPost
-app.get('/viewPost/:id/editPost', editCreateController.getEditPost);
-app.post('/viewPost/:id/editPost', editCreateController.postEditPost);
+app.get('/viewPost/:id/editPost', checkAuthenticated, editCreateController.getEditPost);
+app.post('/viewPost/:id/editPost', checkAuthenticated, editCreateController.postEditPost);
 
 //CreateComment
 app.get('/viewPost/:id/createComment', checkAuthenticated, editCreateController.getCreateComment);
@@ -72,9 +72,9 @@ app.get('/viewPost/:id',viewPostController.viewPost);
 app.post('/viewPost/:id',viewPostController.deletePost);
 
 //ViewProfile
-app.get('/profile', checkAuthenticated, viewProfileController.viewProfile);
-app.get('/profile/recentPosts', checkAuthenticated, viewProfileController.sortRecent);
-app.get('/profile/popularPosts', checkAuthenticated, viewProfileController.sortPopular);
+app.get('/profile/:id', viewProfileController.viewProfile);
+app.get('/profile/:id/recentPosts', viewProfileController.sortRecent);
+app.get('/profile/:id/popularPosts', viewProfileController.sortPopular);
 
 //EditProfile
 app.get('/editProfile', checkAuthenticated, viewProfileController.getEditProfile);

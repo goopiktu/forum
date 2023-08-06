@@ -48,7 +48,11 @@ app.engine("hbs", exphbs.engine({
             if (arg === commenter){
              return "<a href='" + linkIndex + "/" + index + "/editComment'><button class='rep-button'>Edit</button></a><button class='rep-button delete-button' data-commentid='{{this._id}}' method='DELETE'>Delete</button>"
             }
-        }
+        },
+        profileLink: function(linkIndex) {
+            var result = "/profile/" + linkIndex;
+            return result;
+        }, 
     }
 }));
 
