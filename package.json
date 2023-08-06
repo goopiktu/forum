@@ -26,6 +26,7 @@
     "express-flash": "^0.0.2",
     "express-handlebars": "^7.1.0",
     "express-session": "^1.17.3",
+    "method-override": "^3.0.0",
     "module_name": "^1.0.0",
     "mongodb": "^5.6.0",
     "mongoose": "^7.3.4",
