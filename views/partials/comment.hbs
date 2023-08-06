@@ -41,43 +41,18 @@
         <p class="countUD"><a id="downclicks">{{this.downvote}}</a></p><button id="downvote" class="icon" type="button"
             onclick="decrement()"></button>
     </div>
-    {{!-- <script>
-        const buttonContainer = document.querySelector('.button-container');
-        buttonContainer.addEventListener('click', async function(event) {
-            // Check if a button with the class 'delete-button' was clicked
-            if (event.target.classList.contains('delete-button')) {
-                // Retrieve data attributes from the clicked button
-                const postId = event.target.getAttribute('data-postid');
-                const commentId = event.target.getAttribute('data-commentid');
-                
-                // Perform your desired actions here
-                console.log('Delete button clicked!');
-                console.log('Post ID:', postId);
-                console.log('Comment ID:', commentId);
-                
-                // Call the deleteComment function
-                try {
-                    const response = await fetch(`/deletecomment/${postId}/${commentId}`, {
-                        method: 'DELETE',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                    });
+    <script>
+        var upvoteButton = document.querySelector('#upvote');
 
-                    if (response.ok) {
-                        console.log('Comment successfully deleted');
-                        // Handle any UI updates or redirects as needed
-                    } else {
-                        console.log('Failed to delete comment');
-                        // Handle error
-                    }
-                } catch (error) {
-                    console.error('Error:', error);
-                    // Handle error
-                }
-            }
-        });
-        const deleteButtons = document.querySelectorAll('.delete-button');
-        deleteButtons.forEach(attachDeleteButtonEventListener);
-    </script> --}}
+
+
+        function increment() {
+            console.log(1)
+        }
+        
+        function decrement() {
+            console.log(0)
+        }
+        
+    </script>
 </div>

@@ -14,10 +14,10 @@
         </div>
     </div>
     <div class="outer-total-votes">
-          <button id="outer-upvote" class="outer-arrow" type="button" onclick="increment()"></button>
+          <button id="outer-upvote" class="outer-arrow" type="button" onclick="handleUpvote({{this.id}})"></button>
           <p class="outer-count">{{this.upvote}}</p>
           <span class="spacer"></span>
-          <button id="outer-downvote" class="outer-arrow" type="button" onclick="decrement()"></button>
+          <button id="outer-downvote" class="outer-arrow" type="button" onclick="handleDownvote({{this.id}})"></button>
           <p class="outer-count">{{this.downvote}}</p>
     </div>
   </div>
@@ -30,3 +30,14 @@
 
   </div>
 </div>
+
+<script>
+  function handleUpvote(postId) {
+    event.preventDefault();
+    console.log(postId);
+  }
+  
+  function handleDownvote(postId) {
+    event.preventDefault();
+  }
+</script>
