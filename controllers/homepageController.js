@@ -16,27 +16,27 @@ const homepageController = {
         console.log(currentUser);
 
         if (currentUser){
+           var info = {
+                user: currentUser, 
+                posts: allPosts, 
+                layout: 'home'
+            }
+            console.log("userView");
+        } else {
+
             var info = {
                 user: 0, 
                 posts: allPosts, 
                 layout: 'home'
             }
             console.log("guestView");
-        } else {
-            var info = {
-                user: currentUser, 
-                posts: allPosts, 
-                layout: 'home'
-            }
-            console.log("userView");
         }
         
-        console.log ('this is the session id ' + req.user.id);
+        console.log ('this is the user id ' + req.user.id);
         res.render("homepage", info);
     },
    
-    // is this still used or di na?
-    // dis part i am not rlly sure of ehe
+    // TO BE UPDATED
     userView : function (req, res){
         res.render("homepage", {layout: 'home'});
     },

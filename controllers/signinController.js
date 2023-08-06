@@ -6,13 +6,6 @@ const passport = require('passport');
 const signinController = { 
 
     getSignIn : async function (req, res){
-        const update = {
-            $set: {
-                online: 0 
-              }
-        }
-        await db.updateOne(User,{}, update);
-
         res.render("signIn", {layout: 'signInReg'});
     },
    

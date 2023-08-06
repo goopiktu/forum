@@ -14,19 +14,19 @@ const viewPostController = {
 
         var id = req.params.id;
 
-        var currentUser = await db.findMany(User,{online: 1},{})
+        var currentUser = await db.findOne(User,{_id: req.user.id},{})
 
         var online;
 
-        if (currentUser.length === 0){
+        if (currentUser){
+
+            console.log("current user" + currentUser.username);
+            online = currentUser.username
+           
+        } else {
 
             console.log("guest view");
             online = 0;
-
-        } else {
-
-            console.log("current user" + currentUser[0].username);
-            online = currentUser[0].username
 
         }
         

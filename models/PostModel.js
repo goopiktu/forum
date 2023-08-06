@@ -60,10 +60,6 @@ var PostSchema = new mongoose.Schema({
     },
     comments: {
         type: [CommentSchema]
-    }, 
-    currentUser: {
-        type : Number,
-        required: true 
     }
 });
 

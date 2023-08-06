@@ -8,25 +8,24 @@ const editCreateController = {
     },
     postCreatePost : async function (req, res){
 
-        currentUser = await db.findMany(User,{online: 1},{})
+        currentUser = await db.findOne(User,{_id: req.user.id},{})
 
-        if (currentUser.length === 0){
-            console.log("guest cannot post");
-        } else {
+        if (currentUser){
             console.log(currentUser);
             console.log("userView");
+        } else {
+            console.log("guest cannot post");
         }
 
         const post = {
-            username: currentUser[0].username,
+            username: currentUser.username,
             title: req.body.title,
             datePosted: new Date(),
             body: req.body.postBody,
             edited: 0,
             upvote: 0,
             downvote: 0,
-            comments: [],  
-            currentUser: 0
+            comments: []
         }
         if ((req.body.title!=="") && (req.body.postBody!=="")){
             var success = await db.insertOne(Post, post);
@@ -133,11 +132,14 @@ const editCreateController = {
             res.status(500).send(err);
         }
 
+        currentUser = await db.findOne(User,{_id: req.user.id},{})
+        console.log(currentUser.user);
+
         var resultPostID = allPosts[id]._id;
         console.log(resultPostID);
 
         const comment = {
-            username: currentUser[0].username,
+            username: currentUser.username,
             datePosted: new Date(),
             body: req.body.post,
             edited: 0,

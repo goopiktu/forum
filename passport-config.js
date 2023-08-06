@@ -7,7 +7,7 @@ function initialize(passport, getUserByUsername, getUserById) {
         try {
             
             const user = await getUserByUsername(username);
-            console.log(user.id)
+
             if (!user) {
                 return done(null, false, { message: 'No user with that username' });
             }
@@ -15,11 +15,6 @@ function initialize(passport, getUserByUsername, getUserById) {
             const passwordMatch = await bcrypt.compare(password, user.password);
             console.log(passwordMatch)
             if (passwordMatch) {
-                // Update user's online status (example)
-                user.online = 1;
-                // Save the updated user (example)
-                await user.save();
-
                 return done(null, user);
             } else {
                 return done(null, false, { message: 'Password incorrect' });
