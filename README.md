@@ -42,5 +42,5 @@ Phase 3 of developing the General Forum in partial requirement for our course.
 - password: "lilyrose"
 
 
-- username: "test"
-- password: "12345678"
+- username: "xxxsniper"
+- password: "progamer"
