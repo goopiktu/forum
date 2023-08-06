@@ -1,3 +1,7 @@
+if(process.env.NODE_ENV !== 'production') {
+    require('dotenv').config()
+}
+
 // import module `express`
 const express = require('express');
 
@@ -12,6 +16,33 @@ const db = require('./models/db.js');
 
 const app = express();
 const port = 3000;
+
+const passport = require('passport');
+const initializePassport = require('./passport-config');
+const flash = require('express-flash');
+const session = require('express-session');
+const User = require('./models/UserModel.js');
+
+//FINALindex.js
+initializePassport( 
+    passport,
+    async (username) => await db.findOne(User, { username: username }, { username: 1, password: 1 }),
+    async (id) => await db.findOne(User, { _id: id }, { _id: 1 })
+    
+    // email => users.find(user => user.email === email),
+    // id => users.find(user => user.id === id)
+);
+
+app.use(flash())
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false
+}))
+
+app.use(passport.initialize())
+app.use(passport.session())
+
 
 // set `hbs` as view engine
 app.engine("hbs", exphbs.engine({
