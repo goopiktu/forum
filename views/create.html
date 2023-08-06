@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="assets/root.css">
+        <link rel="stylesheet" href="assets/editProfile.css">
+        <script src="assets/script.js"></script>
+        <title>Edit My Profile</title>
+    </head>
+    <body>
+    <div class="box">
+        <div class="inside">
+            <h1>Edit Profile</h1>
+                <div class="left">
+                    <img src="/assets/sprites/Ellipse 2.png" id ="profilePic">
+                    <input type="file" class="upload" accept="image/jpeg, image/jpg, image/png">
+                    <script>
+                        let profilePic = document.getElementById("profilePic");
+                        let inputFile = document.getElementsByClassName("upload")[0];
+                        inputFile.onchange = function() {
+                        profilePic.src = URL.createObjectURL(inputFile.files[0]);
+                        }
+                    </script>
+                    <form class="edit">
+                        <input type="text" placeholder="Username" name="username" value="">
+                    </form>
+                </div>
+            <div class="about">
+                <div class="aboutme">About Me</div>
+                <form class="edit">
+                    <textarea class="bio" placeholder="Bio"></textarea>
+                </form>
+            </div>
+            <div class="bottom">
+                <a href="profile">
+                    <button type="button" class="back" onclick="back()">Back</button>
+                </a>
+                <button type="button" class="save">Save</button>
+            </div>
+        </div>
+    </div>
+    </body>
+</html>
