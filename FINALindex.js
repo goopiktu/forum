@@ -69,6 +69,11 @@ app.engine("hbs", exphbs.engine({
         
             return result;
         }, 
+        commentLink: function(postIndex, commentIndex) {
+            var result = "/viewPost/" + postIndex + "/" + commentIndex + "/createComment";
+            return result;
+        }, 
+
 
 
     }

@@ -43,6 +43,7 @@ const viewPostController = {
             userid: userid,
             totalcomments: allPosts[id].comments.length,
             postID: id,
+            tier: 1,
             layout: 'viewPost',
         }
         res.render("viewPosts", info);

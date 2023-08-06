@@ -21,11 +21,16 @@
             <p class="content-comment">{{this.body}}</p>
         </div>
         <div class="button-container">
-            {{{editdeleteComment user this.username id @index}}}
+            {{#if tier}}
+                {{{editdeleteComment user this.username id @index}}}
+                <a href= {{commentLink id @index}}>
+                    <button class='rep-button'>Reply</button>
+                </a>
+            {{/if}}
         </div>
         
-        {{!--
-        <div class="reply">
+        
+        {{!-- <div class="reply">
             <a href="reply.html">
                 <button id="reply" class="icon" type="button"></button>
             </a>
@@ -81,3 +86,9 @@
         deleteButtons.forEach(attachDeleteButtonEventListener);
     </script> --}}
 </div>
+
+{{#each comments}}
+    <div class = "nested-comment">  
+        {{> comment userid = ../userid user=../user id=../id tier=0}}
+    </div>
+{{/each}}

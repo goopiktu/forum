@@ -49,7 +49,16 @@ const viewProfileController = {
                 if (allPosts[j].comments[k].username === profile.username){
                     console.log(allPosts[j].comments[k].username + 'vs' + profile.username);
                     comment[cIndex] = allPosts[j].comments[k]; 
-                    cIndex++; 
+                    cIndex++;
+                    upvotes += allPosts[j].comments[k].upvote;
+                    for (let m = 0; m < allPosts[j].comments[k].comments.length; m++){
+                        if (allPosts[j].comments[k].comments[m].username === profile.username){
+                            console.log(allPosts[j].comments[k].comments[m].username + 'vs' + profile.username);
+                            comment[cIndex] = allPosts[j].comments[k].comments[m]; 
+                            cIndex++;
+                            upvotes += allPosts[j].comments[k].comments[m].upvote;
+                        }
+                    }
                 }
             }
         }

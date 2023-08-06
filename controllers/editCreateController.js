@@ -145,13 +145,30 @@ const editCreateController = {
             edited: 0,
             upvote: 0,
             downvote: 0,
+            comments: []
         }
         if (req.body.post!==""){
-            var success = await db.updateOne(Post, {_id: resultPostID}, {
-                $push: {
-                    comments: comment
-                }
-            });
+
+            var value = req.params.value;
+            var success; 
+
+            if (value){
+                var resultCommentID = allPosts[id].comments[value]._id;
+                console.log(resultPostID);
+
+                success = await db.updateOne(Post, {_id: resultPostID, "comments._id": resultCommentID}, {
+                    $push: {
+                        "comments.$.comments": comment
+                    }
+                });
+            }else{
+                success = await db.updateOne(Post, {_id: resultPostID}, {
+                    $push: {
+                        comments: comment
+                    }
+                });
+            }
+
 
             var increment = await db.updateOne(User, {_id: req.user.id}, {
                 $inc: {

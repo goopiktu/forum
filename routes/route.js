@@ -62,6 +62,10 @@ app.post('/viewPost/:id/editPost', checkAuthenticated, editCreateController.post
 app.get('/viewPost/:id/createComment', checkAuthenticated, editCreateController.getCreateComment);
 app.post('/viewPost/:id/createComment', checkAuthenticated, editCreateController.postCreateComment);
 
+//2ndTierComment 
+app.get('/viewPost/:id/:value/createComment', checkAuthenticated, editCreateController.getCreateComment);
+app.post('/viewPost/:id/:value/createComment', checkAuthenticated, editCreateController.postCreateComment);
+
 //EditComment
 app.get('/viewPost/:id/:value/editComment', checkAuthenticated, editCreateController.getEditComment);
 app.post('/viewPost/:id/:value/editComment', checkAuthenticated, editCreateController.postEditComment);

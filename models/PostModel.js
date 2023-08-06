@@ -2,7 +2,9 @@ var mongoose = require('mongoose');
 // var CommentSchema = require('./CommentModel');
 
 // Comments
-const CommentSchema = new mongoose.Schema({
+const CommentSchema = new mongoose.Schema();
+
+CommentSchema.add({
     username: {
         type: String,
         required: true
@@ -26,6 +28,9 @@ const CommentSchema = new mongoose.Schema({
     downvote: {
         type: Number,
         required: true
+    }, 
+    comments: {
+        type: [CommentSchema]
     }
 });
 
