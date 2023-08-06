@@ -21,6 +21,7 @@ const homepageController = {
 
             var info = {
                 user: currentUser,
+                username: currentUser.username,
                 id: currentUser._id,
                 posts: allPosts, 
                 layout: 'home'

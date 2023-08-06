@@ -7,14 +7,13 @@
         <form method="post" id="post-form">
             <input name = "email" type="text" id="title" value= "{{email}}">
             <textarea id="post" name="description">{{description}}</textarea>
-        
-            <div class="bottom">
-                <a href onclick=history.back()>
-                    <button class="back">Back</button>
-                </a>
-                <button type="submit" id="submit-fields">Post</button>
-            </div>
         </form>
+         <div class="bottom">
+            <a onclick=history.back()>
+                <button class="back">Back</button>
+            </a>
+            <button type="submit" form = "post-form" id="submit-fields">Post</button>
+        </div>
         
         
     </div>

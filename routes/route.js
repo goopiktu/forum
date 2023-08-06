@@ -73,12 +73,12 @@ app.post('/viewPost/:id',viewPostController.deletePost);
 
 //ViewProfile
 app.get('/profile/:id', viewProfileController.viewProfile);
-app.get('/profile/:id/recentPosts', viewProfileController.sortRecent);
-app.get('/profile/:id/popularPosts', viewProfileController.sortPopular);
+app.get('/profile/:id/recentPosts', viewProfileController.sortRecent);//edit
+app.get('/profile/:id/popularPosts', viewProfileController.sortPopular);//edit
 
 //EditProfile
-app.get('/editProfile', checkAuthenticated, viewProfileController.getEditProfile);
-app.post('/editProfile', checkAuthenticated, viewProfileController.postEditProfile);
+app.get('/profile/:id/editProfile', checkAuthenticated, viewProfileController.getEditProfile);
+app.post('/profile/:id/editProfile', checkAuthenticated, viewProfileController.postEditProfile);
 
 
 app.delete('/logout', (req, res) => {

@@ -5,7 +5,14 @@ const User = require('../models/UserModel.js');
 const viewProfileController = {
     viewProfile: async function (req, res) {
 
-        var currentUser = await db.findOne(User,{_id: req.user.id},{})
+        if (req.user){
+            var cUser = await db.findOne(User,{_id: req.user.id},{})
+            currentUser = cUser.username;
+        }else{
+            currentUser = 0
+        }
+
+        var profile = await db.findOne(User,{username: req.params.id},{})
 
         var allPosts;
         try{
@@ -16,7 +23,7 @@ const viewProfileController = {
 
         var userPosts;
         try{
-            userPosts =  await db.findMany(Post,{username: currentUser.username});
+            userPosts =  await db.findMany(Post,{username: profile.username});
         } catch (err){
             res.status(500).send(err);
         }
@@ -39,8 +46,8 @@ const viewProfileController = {
 
         for(let j = 0; j < allPosts.length; j++){
             for (let k = 0; k < allPosts[j].comments.length; k++){
-                if (allPosts[j].comments[k].username === currentUser.username){
-                    console.log(allPosts[j].comments[k].username + 'vs' + currentUser.username);
+                if (allPosts[j].comments[k].username === profile.username){
+                    console.log(allPosts[j].comments[k].username + 'vs' + profile.username);
                     comment[cIndex] = allPosts[j].comments[k]; 
                     cIndex++; 
                 }
@@ -50,16 +57,17 @@ const viewProfileController = {
         console.log(comment); 
 
         const user = {
-            username: currentUser.username,
-            description: currentUser.description,
+            username: profile.username,
+            description: profile.description,
             numPosts: userPosts.length,
             posts: userPosts,
             indexes: indexes, 
             numComments: comment.length,
             upvotes: upvotes,
-            profpicture: currentUser.profpicture, 
-            email: currentUser.email,
+            profpicture: profile.profpicture, 
+            email: profile.email,
             comments: comment,
+            currrentUser: currentUser,
             layout: 'profile'
         }
         res.render('profile', user);
@@ -67,7 +75,14 @@ const viewProfileController = {
 
     sortRecent : async function (req, res){
 
-        var currentUser = await db.findOne(User,{_id: req.user.id},{})
+        if (req.user){
+            var cUser = await db.findOne(User,{_id: req.user.id},{})
+            currentUser = cUser.username;
+        }else{
+            currentUser = 0
+        }
+
+        var profile = await db.findOne(User,{username: req.params.id},{})
 
         var allPosts;
         try{
@@ -78,7 +93,7 @@ const viewProfileController = {
 
         var userPosts;
         try{
-            userPosts = await db.findMany(Post,{username: currentUser.username});
+            userPosts = await db.findMany(Post,{username: profile.username});
             sortedRecentPosts = userPosts.sort(
                 (p1, p2)=>(p1.datePosted<p2.datePosted) ? 1 : 
                 (p1.datePosted>p2.datePosted) ? -1 : 0
@@ -87,8 +102,9 @@ const viewProfileController = {
             res.status(500).send(err);
         }
 
-        
         var indexes = [];
+        var comment =[];
+        var cIndex = 0;
         var upvotes = 0; 
 
 
@@ -101,24 +117,48 @@ const viewProfileController = {
                 }
             }
         }
-        
+
+        for(let j = 0; j < allPosts.length; j++){
+            for (let k = 0; k < allPosts[j].comments.length; k++){
+                if (allPosts[j].comments[k].username === profile.username){
+                    console.log(allPosts[j].comments[k].username + 'vs' + profile.username);
+                    comment[cIndex] = allPosts[j].comments[k]; 
+                    cIndex++; 
+                }
+            }
+        }
+
+        console.log(comment); 
+
         const user = {
-            username: currentUser.username,
-            description: currentUser.description,
+            username: profile.username,
+            description: profile.description,
             numPosts: userPosts.length,
             posts: userPosts,
             indexes: indexes, 
-            numComments: currentUser.comments,
+            numComments: comment.length,
             upvotes: upvotes,
-            profpicture: currentUser.profpicture, 
-            email: currentUser.email,
+            profpicture: profile.profpicture, 
+            email: profile.email,
+            comments: comment,
+            currrentUser: currentUser,
             layout: 'profile'
         }
         res.render('profile', user);
+
     },
 
     sortPopular : async function (req, res){
-        db.findOne(User,{_id: req.user.id},{})
+
+        
+        if (req.user){
+            var cUser = await db.findOne(User,{_id: req.user.id},{})
+            currentUser = cUser.username;
+        }else{
+            currentUser = 0
+        }
+
+        var profile = await db.findOne(User,{username: req.params.id},{})
 
         var allPosts;
         try{
@@ -129,7 +169,7 @@ const viewProfileController = {
 
         var userPosts;
         try{
-            userPosts = await db.findMany(Post,{username: currentUser.username});
+            userPosts = await db.findMany(Post,{username: profile.username});
             sortedRecentPosts = userPosts.sort(
                 (p1, p2)=>(p1.upvote<p2.upvote) ? 1 : 
                 (p1.upvote>p2.upvote) ? -1 : 0
@@ -138,7 +178,10 @@ const viewProfileController = {
             res.status(500).send(err);
         }
         
+
         var indexes = [];
+        var comment =[];
+        var cIndex = 0;
         var upvotes = 0; 
 
 
@@ -151,17 +194,31 @@ const viewProfileController = {
                 }
             }
         }
-        
+
+        for(let j = 0; j < allPosts.length; j++){
+            for (let k = 0; k < allPosts[j].comments.length; k++){
+                if (allPosts[j].comments[k].username === profile.username){
+                    console.log(allPosts[j].comments[k].username + 'vs' + profile.username);
+                    comment[cIndex] = allPosts[j].comments[k]; 
+                    cIndex++; 
+                }
+            }
+        }
+
+        console.log(comment); 
+
         const user = {
-            username: currentUser.username,
-            description: currentUser.description,
+            username: profile.username,
+            description: profile.description,
             numPosts: userPosts.length,
             posts: userPosts,
             indexes: indexes, 
-            numComments: currentUser.comments,
+            numComments: comment.length,
             upvotes: upvotes,
-            profpicture: currentUser.profpicture, 
-            email: currentUser.email,
+            profpicture: profile.profpicture, 
+            email: profile.email,
+            comments: comment,
+            currrentUser: currentUser,
             layout: 'profile'
         }
         res.render('profile', user);
@@ -196,7 +253,7 @@ const viewProfileController = {
             });
             if( success ){
                 console.log('user sucessfully updated');
-                res.redirect('/profile');
+                res.redirect('/profile/' + currentUser.username);
             }
             else{
                 console.log('user not updated');

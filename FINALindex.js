@@ -25,7 +25,7 @@ app.engine("hbs", exphbs.engine({
     extname: "hbs", 
     helpers: {
         link: function(linkIndex) {
-            var result = "viewPost/" + linkIndex;
+            var result = "/viewPost/" + linkIndex;
             return result;
         }, 
         editDelete: function(arg, poster, linkIndex) {
@@ -53,6 +53,24 @@ app.engine("hbs", exphbs.engine({
             var result = "/profile/" + linkIndex;
             return result;
         }, 
+        editProfile: function(arg, visitor) {
+            if (arg === visitor){
+             return "<a class = 'editprof' href='/profile/"+ arg +"/editProfile'><button class='editprofbtn'>Edit Profile</button></a>"
+            }
+        },
+        profileLinkSort: function(linkIndex, type) {
+            var result; 
+            if (type === 1)
+            {
+                result = "/profile/" + linkIndex + "/recentPosts";
+            } else {
+                result = "/profile/" + linkIndex + "/popularPosts";
+            }
+        
+            return result;
+        }, 
+
+
     }
 }));
 

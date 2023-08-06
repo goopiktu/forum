@@ -8,7 +8,7 @@
     </div>
     <div class="header-parts">
         {{#if currentUser}}
-            <a href= {{profileLink userid}}>
+            <a href= {{profileLink currentUser}}>
                 <button onclick="openProfile()" class="nav-button right-nav">Profile</button>
             </a>
         {{/if}}
@@ -64,7 +64,7 @@
 
             {{#each comments}}
 
-                {{> comment user=../currentUser id=../postID}}
+                {{> comment userid = ../userid user=../currentUser id=../postID}}
 
             {{/each}}
 
