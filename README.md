@@ -5,16 +5,9 @@
 - Nicole Uy
 - Aldwin Liobing
 
-Phase 2 of developing the General Forum in partial requirement for our course.
+Phase 3 of developing the General Forum in partial requirement for our course.
 
-The phase includes:
-- NodeJs 
-- Mongoose 
-- Mongodb
-- Handlebars
-- Express
-
-**[HOW TO RUN]**
+**[HOW TO RUN LOCALLY]**
 -
 - (1.) Download the code as zip file.
 
@@ -33,21 +26,20 @@ The phase includes:
 
 ## Sample Users ##
 
+- username: "masterRizzler"
+- password: "imsogwapo"
 
-- username: "gup"
-- password: "123"
+
+- username: "icebear"
+- password: "webarebears"
 
 
-- username: "gup's friend"
+- username: "lalacrochet"
 - password: "123123123"
 
 
-- username: "hello"
-- password: "12345678"
-
-
-- username: "nobody"
-- password: "12345678"
+- username: "lovelyflower"
+- password: "lilyrose"
 
 
 - username: "test"
