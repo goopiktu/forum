@@ -12,10 +12,10 @@ const homepageController = {
             res.status(500).send(err);
         }
 
-        currentUser = await db.findMany(User,{online: 1},{})
-        // console.log(currentUser);
+        currentUser = await db.findOne(User,{_id: req.user.id},{})
+        console.log(currentUser);
 
-        if (currentUser.length === 0){
+        if (currentUser){
             var info = {
                 user: 0, 
                 posts: allPosts, 
@@ -28,9 +28,10 @@ const homepageController = {
                 posts: allPosts, 
                 layout: 'home'
             }
-            console.log(currentUser);
             console.log("userView");
         }
+        
+        console.log ('this is the session id ' + req.user.id);
         res.render("homepage", info);
     },
    

@@ -8,6 +8,32 @@ const signinController = require('../controllers/signinController');
 
 const app = express();
 
+const db = require('../models/db.js');
+const passport = require('passport');
+const initializePassport = require('../passport-config.js');
+const flash = require('express-flash');
+const session = require('express-session');
+const User = require('../models/UserModel');
+
+initializePassport( 
+    passport,
+    async (username) => await db.findOne(User, { username: username }, { username: 1, password: 1 }),
+    async (id) => await db.findOne(User, { _id: id }, { _id: 1 })
+    
+    // email => users.find(user => user.email === email),
+    // id => users.find(user => user.id === id)
+);
+
+app.use(flash())
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false
+}))
+
+app.use(passport.initialize())
+app.use(passport.session())
+
 //SignIn
 app.get('/', signinController.getSignIn);
 app.post('/', signinController.postSignIn);

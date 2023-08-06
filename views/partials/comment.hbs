@@ -22,7 +22,6 @@
         </div>
         <div class="button-container">
             {{{editdeleteComment user this.username id @index}}}
-            <button class='rep-button delete-button' data-postid="{{id}}" data-commentid="{{this._id}}" method="DELETE">Delete</button>
         </div>
         
         {{!--
@@ -42,7 +41,7 @@
         <p class="countUD"><a id="downclicks">{{this.downvote}}</a></p><button id="downvote" class="icon" type="button"
             onclick="decrement()"></button>
     </div>
-    <script>
+    {{!-- <script>
         const buttonContainer = document.querySelector('.button-container');
         buttonContainer.addEventListener('click', async function(event) {
             // Check if a button with the class 'delete-button' was clicked
@@ -80,5 +79,5 @@
         });
         const deleteButtons = document.querySelectorAll('.delete-button');
         deleteButtons.forEach(attachDeleteButtonEventListener);
-    </script>
+    </script> --}}
 </div>
