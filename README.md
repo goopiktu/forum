@@ -7,6 +7,28 @@
 
 Phase 3 of developing the General Forum in partial requirement for our course.
 
+This Phase includes the implementation of 3 key features: Password hashing, Session Management, and Deployment. 
+
+## NPM Packages Used 
+- bcrypt
+- body-parser
+- connect-mongo 
+- dotenv
+- ejs 
+- express 
+- express-flash 
+- express-handlebars 
+- express-session 
+- method-override 
+- module_name 
+- mongodb
+- mongoose
+- nodemon 
+- passport 
+- passport-local 
+- path 
+- pug
+
 **[HOW TO RUN LOCALLY]**
 -
 - (1.) Download the code as zip file.
