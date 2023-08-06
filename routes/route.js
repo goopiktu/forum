@@ -15,6 +15,7 @@ const flash = require('express-flash');
 const session = require('express-session');
 const User = require('../models/UserModel');
 const methodOverride = require('method-override');
+const MongoStore = require('connect-mongo');
 
 initializePassport( 
     passport,
@@ -28,6 +29,8 @@ initializePassport(
 app.use(flash())
 app.use(session({
     secret: process.env.SESSION_SECRET,
+    cookie: {maxAge: 3 * 7 * 24 * 60 * 60},
+    store: MongoStore.create({ mongoUrl: 'mongodb+srv://aldwin:gsavblsplVmZKem2@forumcluster.xn9ni4j.mongodb.net/?retryWrites=true&w=majority', dbName: 'node_forum', ttl: 3 * 7 * 24 * 60 * 60}),
     resave: false,
     saveUninitialized: false
 }))
