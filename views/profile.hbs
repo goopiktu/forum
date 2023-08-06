@@ -9,9 +9,9 @@
         </div>
         <div class="header-parts">
             <div class="logout">
-                <a href="/">
-                    <button class="nav-button right-nav">Logout</button>
-                </a>
+                <form action="/logout?_method=DELETE" method="POST">
+                    <button type="submit" class="nav-button right-nav">Logout</button>
+                </form>
             </div>
         </div>
     </div>

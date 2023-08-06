@@ -16,9 +16,9 @@
             {{#if currentUser}}
             <img class="icon" src="/assets/sprites/default.png" alt="profile_pic">
             {{/if}}
-            <a href="/">
-                <button class="nav-button right-nav">Logout</button>
-            </a>
+            <form action="/logout?_method=DELETE" method="POST">
+                <button type="submit" class="nav-button right-nav">Logout</button>
+            </form>
         </div>
     </div> 
 
