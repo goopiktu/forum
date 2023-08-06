@@ -26,10 +26,6 @@
     overflow: auto;/* Or scroll, depending on your needs*/
 }
 
-a:visited , a{
-    color: black;
-}
-
 
 .logo {
     margin: 3px 10px 5px 10px;
@@ -46,9 +42,6 @@ a:visited , a{
     margin: 45px 0px;
 }
 
-a {
-    text-decoration: none;
-}
 
 .header-post-item{
     display: flex;
@@ -522,5 +515,14 @@ a:visited, a{
     color: #9C9C9C;
     font-family: sans-serif;
     font-size: 1em;
+    font-weight: 600;
+}
+
+#posted-by{
+    color: #9C9C9C;
+}
+
+#posted-by:hover {
+    color:black;
 }
 

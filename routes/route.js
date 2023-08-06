@@ -46,7 +46,7 @@ app.get('/signUp', checkNotAuthenticated, signupController.getSignUp);
 app.post('/signUp', checkNotAuthenticated, signupController.postSignUp);
 
 //Homepage
-app.get('/homepage', homepageController.guestView);
+app.get('/homepage', homepageController.homeView);
 app.get('/recentPosts', homepageController.sortRecent);
 app.get('/popularPosts', homepageController.sortPopular);
 

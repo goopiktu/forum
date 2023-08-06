@@ -3,11 +3,16 @@ const Post = require('../models/PostModel.js');
 const User = require('../models/UserModel.js');
  
 const homepageController = {
-    guestView : async function (req, res){
+    homeView : async function (req, res){
 
-        var allPosts;
+        var allPosts =[];
         try{
             allPosts = await db.findMany(Post,{},{});
+            sortedRecentPosts = allPosts.sort(
+                (p1, p2)=>(p1.datePosted<p2.datePosted) ? 1 : 
+                (p1.datePosted>p2.datePosted) ? -1 : 0
+            );
+
         } catch (err){
             res.status(500).send(err);
         }
@@ -30,19 +35,15 @@ const homepageController = {
             console.log ('this is the user id ' + req.user.id);
         } else {
 
+
             var info = {
                 user: 0, 
-                posts: allPosts, 
+                posts: allPosts.slice(0,20), 
                 layout: 'home'
             }
             console.log("guestView");
         }
         res.render("homepage", info);
-    },
-   
-    // TO BE UPDATED
-    userView : function (req, res){
-        res.render("homepage", {layout: 'home'});
     },
 
     sortRecent : async function (req, res){
@@ -53,8 +54,6 @@ const homepageController = {
                 (p1, p2)=>(p1.datePosted<p2.datePosted) ? 1 : 
                 (p1.datePosted>p2.datePosted) ? -1 : 0
             );
-
-
         } catch (err){
             res.status(500).send(err);
         }

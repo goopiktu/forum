@@ -3,12 +3,14 @@
   <div class="header">
     <div class="header-parts">
       <img class="logo" src="assets/sprites/Arryn House.png" alt="icon"></img> <!-- Supposed to be an icon -->
+      {{#if user}}
       <a href="/recentPosts">
         <button class="nav-button">Recent</button>
       </a>
       <a href="/popularPosts">
         <button class="nav-button">Popular</button>
       </a>
+      {{/if}}
     </div>
     <div class="header-parts">
         {{#if user}}
@@ -17,7 +19,9 @@
           </a>
         {{/if}}
       <div class="img-logout">
+        {{#if user}}
         <img class="icon" src="assets/sprites/default.png" alt="profile_pic">
+        {{/if}}
         <form action="/logout?_method=DELETE" method="POST">
             <button type="submit" class="nav-button right-nav">Logout</button>
         </form>
@@ -35,9 +39,13 @@
   <div class="post-container"> 
     {{#each posts}}
     <div class ="post-fit">
-      <a href= {{link @index}}>
+      {{#if ../user}}
+        <a href= {{link @index}}>
+      {{/if}}
         {{> post}}
-      </a>
+      {{#if ../user}}
+        </a>
+      {{/if}}
     </div>
     {{/each}}
   </div>
